@@ -18,9 +18,12 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://radargrant.netlify.app/og-image.jpg">
-<style>:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}html.intro-pre{background:#0A0F1E}</style>
+<script>try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("intro-pre")}catch(e){}</script>
 </head>
 <body>
+<style>html.intro-pre body::after{content:"";position:fixed;inset:0;z-index:49;background:radial-gradient(circle at 50% 42%,#162048 0%,#0A0F1E 72%);animation:preoff .3s 4s forwards}@keyframes preoff{to{opacity:0;visibility:hidden}}</style>
+<script>try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("intro-pre")}catch(e){}</script>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1768,6 +1771,7 @@ html.intro-on { overflow: hidden; }
       '</div><button type="button" class="intro-skip">' + L.introSkip + "</button>";
     document.body.appendChild(el);
     document.documentElement.classList.add("intro-on");
+    document.documentElement.classList.remove("intro-pre");
     var finished = false, timers = [];
     function done() {
       if (finished) return; finished = true; timers.forEach(clearTimeout); document.removeEventListener("keydown", onKey);
