@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Грант-радар — гранты для студентов Узбекистана</title>
+<title>Grant-radar — гранты для студентов Узбекистана</title>
 <meta name="description" content="Гранты и стипендии для студентов Узбекистана: кто может подать, что оплачивают и когда закрывается приём. Радар дедлайнов на русском, узбекском и английском.">
 <meta name="theme-color" content="#070B18">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="canonical" href="https://radargrant.netlify.app/">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Грант-радар">
-<meta property="og:title" content="Грант-радар — учёба за рубежом начинается с гранта">
+<meta property="og:site_name" content="Grant-radar">
+<meta property="og:title" content="Grant-radar — учёба за рубежом начинается с гранта">
 <meta property="og:description" content="Гранты и стипендии для студентов Узбекистана: кто может подать, что оплачивают и когда закрывается приём. Радар дедлайнов на русском, узбекском и английском.">
 <meta property="og:url" content="https://radargrant.netlify.app/">
 <meta property="og:image" content="https://radargrant.netlify.app/og-image.jpg">
@@ -147,7 +147,9 @@ a { color: var(--accent); }
 .mark .m-blip { fill: var(--mark-blip); }
 .m-sweep { transform-box: view-box; transform-origin: 16px 16px; animation: msweep 1.6s cubic-bezier(.25, .7, .25, 1) 1 both; }
 .m-target { animation: mblip 1.6s ease-out 1 both; }
-.brand:hover .m-sweep { animation: msweep 2.4s linear infinite; }
+.m-spin { transform-box: view-box; transform-origin: 16px 16px; animation: mspin 2.4s linear infinite; animation-play-state: paused; }
+.brand:hover .m-spin { animation-play-state: running; }
+@keyframes mspin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 @keyframes msweep { from { transform: rotate(-360deg); } to { transform: rotate(0deg); } }
 @keyframes mblip { 0%, 78% { opacity: 0; } 100% { opacity: 1; } }
 
@@ -654,7 +656,7 @@ html.intro-on { overflow: hidden; }
 @keyframes blink { 50% { opacity: .35; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .m-sweep, .m-target, .brand:hover .m-sweep, .float-cap, .gcard, .mini-radar::before, .pstart::before, .pb.found { animation: none; }
+  .m-sweep, .m-spin, .m-target, .float-cap, .gcard, .mini-radar::before, .pstart::before, .pb.found { animation: none; }
   .ticket, .tile, .step-art img, .t-flagbg { transition: none; }
 }
 </style>
@@ -667,11 +669,11 @@ html.intro-on { overflow: hidden; }
           <defs><linearGradient id="sw1" gradientUnits="userSpaceOnUse" x1="7.4" y1="4" x2="26.6" y2="5.4"><stop offset="0" class="m-stop" stop-opacity="0"/><stop offset="1" class="m-stop" stop-opacity=".9"/></linearGradient></defs>
           <circle class="m-bg" cx="16" cy="16" r="16"/><circle class="m-ring" cx="16" cy="16" r="11"/><circle class="m-ring" cx="16" cy="16" r="5.5"/>
           <path class="m-ring" d="M16 2v3M16 27v3M2 16h3M27 16h3"/>
-          <g class="m-sweep"><path d="M16 16 L7.4 3.7 A15 15 0 0 1 26.6 5.4 Z" fill="url(#sw1)"/><line class="m-edge" x1="16" y1="16" x2="26.6" y2="5.4"/></g>
+          <g class="m-sweep"><g class="m-spin"><path d="M16 16 L7.4 3.7 A15 15 0 0 1 26.6 5.4 Z" fill="url(#sw1)"/><line class="m-edge" x1="16" y1="16" x2="26.6" y2="5.4"/></g></g>
           <g class="m-target"><circle class="m-glow" cx="21" cy="7.6" r="3.8"/><circle class="m-blip" cx="21" cy="7.6" r="1.9"/></g>
           <circle class="m-blip" cx="16" cy="16" r="1.5"/>
         </svg>
-        <span class="word"><span data-i18n="brandA">Грант-</span><span class="acc" data-i18n="brandB">радар</span></span>
+        <span class="word"><span data-i18n="brandA">Grant-</span><span class="acc" data-i18n="brandB">radar</span></span>
       </button>
       <nav class="nav" aria-label="Sections">
         <button type="button" data-go="home" data-i18n="navHome"></button>
@@ -819,7 +821,7 @@ html.intro-on { overflow: hidden; }
         <path d="M16 16 L7.4 3.7 A15 15 0 0 1 26.6 5.4 Z" fill="url(#sw2)"/><line class="m-edge" x1="16" y1="16" x2="26.6" y2="5.4"/>
         <circle class="m-glow" cx="21" cy="7.6" r="3.8"/><circle class="m-blip" cx="21" cy="7.6" r="1.9"/><circle class="m-blip" cx="16" cy="16" r="1.5"/>
       </svg>
-      <span class="word"><span data-i18n="brandA">Грант-</span><span class="acc" data-i18n="brandB">радар</span></span>
+      <span class="word"><span data-i18n="brandA">Grant-</span><span class="acc" data-i18n="brandB">radar</span></span>
     </div>
       <span class="powered">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
@@ -944,7 +946,7 @@ html.intro-on { overflow: hidden; }
   /* ---------- Interface text ---------- */
   var T = {
     ru: {
-      brandA: "Грант-", brandB: "радар",
+      brandA: "Grant-", brandB: "radar",
       introScan: "Сканирую университеты…", introFound: "Цель найдена", introSkip: "Пропустить",
       navHome: "Главная", navGrants: "Гранты",
       heroTag: "Ваш радар будущего",
@@ -955,7 +957,7 @@ html.intro-on { overflow: hidden; }
       quoteBy: "Нельсон Мандела",
       quoteTag: "Ваш радар будущего уже включён. <em>Осталось выбрать направление.</em>",
       heroTitle: "Учёба за рубежом начинается с <em>гранта</em>",
-      heroLead: "Грант-радар собрал главные стипендии для граждан Узбекистана: кто может подать, что оплачивают и когда закрывается приём. Всё в одном месте, на трёх языках.",
+      heroLead: "Grant-radar собрал главные стипендии для граждан Узбекистана: кто может подать, что оплачивают и когда закрывается приём. Всё в одном месте, на трёх языках.",
       ctaFind: "Найти грант", ctaHow: "Как это работает",
       sProg: function (n) { return pl(n, ["программа", "программы", "программ"]); },
       sCc: function (n) { return pl(n, ["страна и регион", "страны и региона", "стран и регионов"]); },
@@ -1013,7 +1015,7 @@ html.intro-on { overflow: hidden; }
       opening: "Приём открывается", closing: "Приём закрывается",
       site: "Официальный сайт", remind: "Напомнить за 2 недели", remindHint: "Google Календарь",
       close: "Закрыть",
-      calTitle: function (n, d) { return "Грант-радар: " + n + ", дедлайн " + d; },
+      calTitle: function (n, d) { return "Grant-radar: " + n + ", дедлайн " + d; },
       mon: ["янв", "фев", "мар", "апр", "мая", "июн", "июл", "авг", "сен", "окт", "ноя", "дек"],
       monAx: ["янв", "фев", "мар", "апр", "май", "июн", "июл", "авг", "сен", "окт", "ноя", "дек"]
     },
@@ -1092,7 +1094,7 @@ html.intro-on { overflow: hidden; }
       monAx: ["yan", "fev", "mar", "apr", "may", "iyn", "iyl", "avg", "sen", "okt", "noy", "dek"]
     },
     en: {
-      brandA: "Grant ", brandB: "Radar",
+      brandA: "Grant-", brandB: "radar",
       introScan: "Scanning universities…", introFound: "Target found", introSkip: "Skip",
       navHome: "Home", navGrants: "Scholarships",
       heroTag: "Your radar for the future",
@@ -1103,7 +1105,7 @@ html.intro-on { overflow: hidden; }
       quoteBy: "Nelson Mandela",
       quoteTag: "Your radar for the future is already on. <em>All that’s left is choosing a direction.</em>",
       heroTitle: "Studying abroad starts with a <em>scholarship</em>",
-      heroLead: "Grant Radar brings together the main scholarships open to citizens of Uzbekistan: who can apply, what they cover, and when applications close. All in one place, in three languages.",
+      heroLead: "Grant-radar brings together the main scholarships open to citizens of Uzbekistan: who can apply, what they cover, and when applications close. All in one place, in three languages.",
       ctaFind: "Find a scholarship", ctaHow: "How it works",
       sProg: function () { return "programmes"; },
       sCc: function () { return "countries and regions"; },
@@ -1161,7 +1163,7 @@ html.intro-on { overflow: hidden; }
       opening: "Applications open", closing: "Applications close",
       site: "Official site", remind: "Remind me 2 weeks before", remindHint: "Google Calendar",
       close: "Close",
-      calTitle: function (n, d) { return "Grant Radar: " + n + ", deadline " + d; },
+      calTitle: function (n, d) { return "Grant-radar: " + n + ", deadline " + d; },
       mon: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
       monAx: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     }
