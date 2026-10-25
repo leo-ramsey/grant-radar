@@ -224,15 +224,17 @@ a { color: var(--accent); }
 @keyframes aispin { to { --ai-a: 360deg; } }
 .ai-badge {
   position: relative; flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 13px;
-  background: linear-gradient(135deg, #4F63FF 0%, #8A5CFF 60%, #C774FF 100%); box-shadow: 0 6px 18px rgba(110, 90, 255, .45), inset 0 1px 0 rgba(255, 255, 255, .3);
+  background: linear-gradient(135deg, #1FB67F 0%, #2C9BD6 60%, #4F63FF 100%); box-shadow: 0 6px 18px rgba(40, 170, 160, .4), inset 0 1px 0 rgba(255, 255, 255, .3);
   font-family: var(--f-display); font-weight: 700; font-size: 15px; color: #fff; letter-spacing: .02em;
 }
-.ai-badge svg { position: absolute; top: -6px; right: -6px; width: 18px; height: 18px; color: #FFE2A8; filter: drop-shadow(0 0 6px rgba(255, 197, 107, .7)); animation: aitwinkle 2.4s ease-in-out infinite; }
+.ai-badge .ai-check { width: 24px; height: 24px; color: #fff; }
+.ai-tag { position: absolute; right: -9px; bottom: -7px; padding: 2px 6px 2px; border-radius: 7px; font-family: var(--f-display); font-size: 10px; font-weight: 700; line-height: 1.2; letter-spacing: .04em; color: #fff; background: linear-gradient(135deg, #6A5CFF, #B05CFF); box-shadow: 0 0 0 2px rgba(11, 16, 38, .95), 0 4px 10px rgba(120, 90, 255, .5); }
+.ai-badge .ai-spark { position: absolute; top: -6px; right: -6px; width: 18px; height: 18px; color: #FFE2A8; filter: drop-shadow(0 0 6px rgba(255, 197, 107, .7)); animation: aitwinkle 2.4s ease-in-out infinite; }
 @keyframes aitwinkle { 50% { transform: scale(.7) rotate(20deg); opacity: .7; } }
 .ai-txt { display: grid; gap: 2px; min-width: 0; }
 .ai-txt b { font-weight: 700; font-size: 15px; line-height: 1.3; color: var(--night-ink); }
 .ai-txt span { font-size: 13.5px; line-height: 1.4; color: var(--night-muted); }
-@media (prefers-reduced-motion: reduce) { .ai-note, .ai-badge svg { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .ai-note, .ai-badge .ai-spark { animation: none; } }
 .hstat { padding: 0 28px; border-left: 1px solid rgba(255, 255, 255, .14); }
 .hstat:first-child { padding-left: 0; border-left: 0; }
 .hstat b { display: block; font-family: var(--f-display); font-size: 30px; font-weight: 500; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
@@ -698,7 +700,7 @@ html.intro-on { overflow: hidden; }
           <button type="button" class="btn-ghost" data-scroll="how" data-i18n="ctaHow"></button>
         </div>
         <div class="ai-note">
-          <span class="ai-badge" aria-hidden="true">AI<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5l2.2 7.3 7.3 2.2-7.3 2.2L12 20.5l-2.2-7.3L2.5 11l7.3-2.2z"/></svg></span>
+          <span class="ai-badge" aria-hidden="true"><svg class="ai-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.2 4.2L19 7"/></svg><svg class="ai-spark" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5l2.2 7.3 7.3 2.2-7.3 2.2L12 20.5l-2.2-7.3L2.5 11l7.3-2.2z"/></svg><span class="ai-tag">AI</span></span>
           <span class="ai-txt"><b data-i18n="aiTitle"></b><span data-i18n="aiText"></span></span>
         </div>
         <div class="hstats" id="hstats"></div>
@@ -946,8 +948,8 @@ html.intro-on { overflow: hidden; }
       introScan: "Сканирую университеты…", introFound: "Цель найдена", introSkip: "Пропустить",
       navHome: "Главная", navGrants: "Гранты",
       heroTag: "Ваш радар будущего",
-      aiTitle: "Данные о грантах обновляет искусственный интеллект",
-      aiText: "Каждую неделю ИИ сверяет сроки и условия с официальными сайтами программ, а каждую правку проверяет человек.",
+      aiTitle: "Человек проверяет, ИИ ускоряет",
+      aiText: "ИИ помогает каждую неделю отслеживать сроки на официальных сайтах программ, а каждую правку перед публикацией проверяет человек.",
       howLead: "Остальное — дело вашей смелости.",
       quoteText: "«Образование — самое мощное оружие, которым можно изменить мир»",
       quoteBy: "Нельсон Мандела",
@@ -1020,8 +1022,8 @@ html.intro-on { overflow: hidden; }
       introScan: "Universitetlar skanerlanmoqda…", introFound: "Nishon topildi", introSkip: "O‘tkazib yuborish",
       navHome: "Bosh sahifa", navGrants: "Grantlar",
       heroTag: "Kelajagingiz radari",
-      aiTitle: "Grantlar haqidagi ma’lumotlarni sun’iy intellekt yangilaydi",
-      aiText: "Har hafta sun’iy intellekt muddatlar va shartlarni dasturlarning rasmiy saytlari bilan solishtiradi, har bir o‘zgarishni esa inson tekshiradi.",
+      aiTitle: "Inson tekshiradi, sun’iy intellekt tezlashtiradi",
+      aiText: "Sun’iy intellekt har hafta dasturlarning rasmiy saytlaridagi muddatlarni kuzatishga yordam beradi, har bir o‘zgarishni esa e’lon qilishdan oldin inson tekshiradi.",
       howLead: "Qolgani — sizning jasoratingizga bog‘liq.",
       quoteText: "«Ta’lim — dunyoni o‘zgartirish mumkin bo‘lgan eng kuchli quroldir»",
       quoteBy: "Nelson Mandela",
@@ -1094,8 +1096,8 @@ html.intro-on { overflow: hidden; }
       introScan: "Scanning universities…", introFound: "Target found", introSkip: "Skip",
       navHome: "Home", navGrants: "Scholarships",
       heroTag: "Your radar for the future",
-      aiTitle: "Scholarship data kept up to date by AI",
-      aiText: "Every week, AI checks deadlines and conditions against the programmes’ official sites, and a human reviews every change.",
+      aiTitle: "Checked by people, sped up by AI",
+      aiText: "AI helps track deadlines on the programmes’ official sites every week, and a person checks every change before it goes live.",
       howLead: "The rest is up to your courage.",
       quoteText: "“Education is the most powerful weapon which you can use to change the world”",
       quoteBy: "Nelson Mandela",
