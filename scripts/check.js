@@ -12,7 +12,7 @@ const DATA = path.join(ROOT, "site", "grants.json");
 const PAGE = path.join(ROOT, "site", "index.html");
 
 const LANGS = ["ru", "uz", "en"];
-const FLAGS = ["UZ", "GB", "TR", "HU", "KR", "JP", "CN", "EU", "SE", "DE", "KG", "RU"]; // флаги, нарисованные на сайте
+const FLAGS = ["UZ", "GB", "TR", "HU", "KR", "JP", "CN", "EU", "SE", "DE", "KG", "RU", "US", "FR", "IT", "IE", "NL", "IN", "HK"]; // флаги, нарисованные на сайте
 const LEVELS = ["ba", "ma", "phd", "ex"];
 const FUNDS = ["full", "partial", "stipend", "tuition"];
 const CYCLE_LEVELS = ["ba", "grad"];

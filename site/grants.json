@@ -982,6 +982,617 @@
         "uz": "Qabul odatda kuzda ochilib, qish o‘rtasigacha davom etadi. Toshkentdagi Rus uyi e’lonlarini kuzatib boring.",
         "en": "Applications usually open in autumn and run until mid-winter. Watch for announcements from the Russian House in Tashkent."
       }
+    },
+    {
+      "id": "fulbright",
+      "cc": "US",
+      "lv": [
+        "ma"
+      ],
+      "fund": "full",
+      "ielts": null,
+      "ieltsTxt": {
+        "ru": "TOEFL — после отбора",
+        "uz": "TOEFL — saralashdan so‘ng",
+        "en": "TOEFL after selection"
+      },
+      "cycles": [
+        {
+          "o": "2026-03-01",
+          "c": "2026-06-30",
+          "ao": 1
+        },
+        {
+          "o": "2027-03-01",
+          "c": "2027-06-30",
+          "a": 1
+        }
+      ],
+      "link": "https://uz.usembassy.gov/fulbright-foreign-student-program/",
+      "country": {
+        "ru": "США",
+        "uz": "AQSH",
+        "en": "United States"
+      },
+      "name": "Fulbright Foreign Student Program",
+      "sum": {
+        "ru": "Главная государственная стипендия США: магистратура в американском вузе до двух лет. Отбор проводит посольство США в Ташкенте.",
+        "uz": "AQShning asosiy davlat stipendiyasi: Amerika oliygohida ikki yilgacha magistratura. Tanlovni AQShning Toshkentdagi elchixonasi o‘tkazadi.",
+        "en": "The flagship US government scholarship: a master’s degree at a US university for up to two years. Selection is run by the US Embassy in Tashkent."
+      },
+      "cov": {
+        "ru": [
+          "Оплата обучения",
+          "Ежемесячная стипендия",
+          "Перелёт в США и обратно",
+          "Медицинская страховка",
+          "Книги и учебные материалы",
+          "Поддержка визы J-1"
+        ],
+        "uz": [
+          "O‘qish to‘lovi",
+          "Oylik stipendiya",
+          "AQShga borish-qaytish aviachiptasi",
+          "Tibbiy sug‘urta",
+          "Kitoblar va o‘quv materiallari",
+          "J-1 vizasi bo‘yicha yordam"
+        ],
+        "en": [
+          "Tuition and fees",
+          "Monthly stipend",
+          "Round-trip airfare to the US",
+          "Health insurance",
+          "Books and supplies",
+          "J-1 visa support"
+        ]
+      },
+      "req": {
+        "ru": [
+          "Гражданство Узбекистана и проживание в стране на время отбора",
+          "Диплом бакалавра",
+          "Опыт работы от 2 лет",
+          "Английский на уровне магистратуры; финалисты сдают TOEFL и GRE/GMAT"
+        ],
+        "uz": [
+          "O‘zbekiston fuqaroligi va tanlov davomida mamlakatda yashash",
+          "Bakalavr diplomi",
+          "Kamida 2 yillik ish tajribasi",
+          "Magistratura uchun yetarli ingliz tili; finalchilar TOEFL va GRE/GMAT topshiradi"
+        ],
+        "en": [
+          "Citizen of Uzbekistan, living in the country during selection",
+          "Bachelor’s degree",
+          "At least 2 years of work experience",
+          "English good enough for graduate study; finalists take the TOEFL and GRE/GMAT"
+        ]
+      },
+      "note": {
+        "ru": "Приём на 2027–28 учебный год закрылся 30 июня 2026 года. Даты следующего конкурса — ориентировочные.",
+        "uz": "2027–28 o‘quv yili uchun qabul 2026-yil 30-iyunda yopildi. Keyingi tanlov sanalari taxminiy.",
+        "en": "Applications for 2027–28 closed on 30 June 2026. Dates for the next round are estimates."
+      }
+    },
+    {
+      "id": "humphrey",
+      "cc": "US",
+      "lv": [
+        "ex"
+      ],
+      "fund": "full",
+      "ielts": 6,
+      "ieltsTxt": {
+        "ru": "IELTS 6.0 / TOEFL 72",
+        "uz": "IELTS 6.0 / TOEFL 72",
+        "en": "IELTS 6.0 / TOEFL 72"
+      },
+      "cycles": [
+        {
+          "o": "2026-04-01",
+          "c": "2026-07-03",
+          "ao": 1
+        },
+        {
+          "o": "2027-04-01",
+          "c": "2027-07-03",
+          "a": 1
+        }
+      ],
+      "link": "https://uz.usembassy.gov/hubert-h-humphrey-fellowship-program/",
+      "country": {
+        "ru": "США",
+        "uz": "AQSH",
+        "en": "United States"
+      },
+      "name": "Hubert H. Humphrey Fellowship",
+      "sum": {
+        "ru": "10 месяцев учёбы и профессиональной стажировки в США для специалистов с опытом. Это не степень, а программа для будущих руководителей.",
+        "uz": "Tajribali mutaxassislar uchun AQShda 10 oylik o‘qish va kasbiy amaliyot. Bu ilmiy daraja emas, kelajakdagi rahbarlar uchun dastur.",
+        "en": "Ten months of study and professional experience in the US for experienced professionals. Not a degree, but a programme for future leaders."
+      },
+      "cov": {
+        "ru": [
+          "Оплата обучения в принимающем вузе",
+          "Деньги на проживание",
+          "Перелёт туда и обратно",
+          "Медицинская страховка",
+          "Стажировка в американской организации",
+          "Оплата вступительных тестов"
+        ],
+        "uz": [
+          "Qabul qiluvchi oliygohda o‘qish to‘lovi",
+          "Yashash xarajatlari",
+          "Borish-qaytish aviachiptasi",
+          "Tibbiy sug‘urta",
+          "Amerika tashkilotida amaliyot",
+          "Kirish testlari to‘lovi"
+        ],
+        "en": [
+          "Tuition at the host university",
+          "Living expenses",
+          "Round-trip airfare",
+          "Health insurance",
+          "Professional placement with a US organisation",
+          "Admission test fees"
+        ]
+      },
+      "req": {
+        "ru": [
+          "Гражданство Узбекистана",
+          "Диплом бакалавра",
+          "Не менее 5 лет работы после диплома, опыт руководства или работы с политиками",
+          "IELTS 6.0, TOEFL 72 или Duolingo 100",
+          "Сферы: журналистика, право и госуправление, экономическая политика, здравоохранение, технологии, природные ресурсы"
+        ],
+        "uz": [
+          "O‘zbekiston fuqaroligi",
+          "Bakalavr diplomi",
+          "Diplomdan keyin kamida 5 yillik ish tajribasi, rahbarlik yoki siyosat bilan ishlash tajribasi",
+          "IELTS 6.0, TOEFL 72 yoki Duolingo 100",
+          "Yo‘nalishlar: jurnalistika, huquq va davlat boshqaruvi, iqtisodiy siyosat, sog‘liqni saqlash, texnologiyalar, tabiiy resurslar"
+        ],
+        "en": [
+          "Citizen of Uzbekistan",
+          "Bachelor’s degree",
+          "At least 5 years of work after graduating, with management or policy experience",
+          "IELTS 6.0, TOEFL 72 or Duolingo 100",
+          "Fields: journalism, law and governance, economic policy, public health, technology, natural resources"
+        ]
+      },
+      "note": {
+        "ru": "Приём 2026 года закрылся 3 июля 2026-го (поездка в США в 2027 году). Даты следующего конкурса — ориентировочные.",
+        "uz": "2026-yilgi qabul 2026-yil 3-iyulda yopildi (AQShga safar 2027-yilda). Keyingi tanlov sanalari taxminiy.",
+        "en": "The 2026 round closed on 3 July 2026 (travel to the US in 2027). Dates for the next round are estimates."
+      }
+    },
+    {
+      "id": "eiffel",
+      "cc": "FR",
+      "lv": [
+        "ma",
+        "phd"
+      ],
+      "fund": "stipend",
+      "ielts": null,
+      "cycles": [
+        {
+          "o": "2026-10-01",
+          "c": "2027-01-06",
+          "ao": 1
+        }
+      ],
+      "link": "https://www.campusfrance.org/en/the-france-excellence-eiffel-scholarship-program",
+      "country": {
+        "ru": "Франция",
+        "uz": "Fransiya",
+        "en": "France"
+      },
+      "name": "France Excellence Eiffel",
+      "sum": {
+        "ru": "Стипендия МИД Франции для сильных иностранных студентов магистратуры и PhD. Подаёт не студент, а французский вуз, который вас выбрал.",
+        "uz": "Fransiya Tashqi ishlar vazirligining kuchli xorijiy magistrant va doktorantlar uchun stipendiyasi. Hujjatni talaba emas, sizni tanlagan fransuz oliygohi topshiradi.",
+        "en": "A French Foreign Ministry scholarship for top international master’s and PhD students. You don’t apply yourself: the French university that selects you submits the file."
+      },
+      "cov": {
+        "ru": [
+          "Стипендия 1 200 € в месяц в магистратуре и 2 100 € в PhD",
+          "Международный перелёт",
+          "Медицинская страховка",
+          "Помощь с поиском жилья",
+          "Культурная программа"
+        ],
+        "uz": [
+          "Magistraturada oyiga 1 200 €, PhD da 2 100 € stipendiya",
+          "Xalqaro aviachipta",
+          "Tibbiy sug‘urta",
+          "Turar joy topishda yordam",
+          "Madaniy dastur"
+        ],
+        "en": [
+          "Monthly allowance of €1,200 for master’s and €2,100 for PhD",
+          "International travel",
+          "Health insurance",
+          "Help finding housing",
+          "Cultural activities"
+        ]
+      },
+      "req": {
+        "ru": [
+          "Иностранный студент, поступающий в магистратуру или PhD во Франции",
+          "Направления: инженерия, цифровые технологии, экология, биология и здоровье, право, экономика и менеджмент, политология и др.",
+          "Подача только через международный отдел французского вуза"
+        ],
+        "uz": [
+          "Fransiyada magistratura yoki PhD ga kirayotgan xorijiy talaba",
+          "Yo‘nalishlar: muhandislik, raqamli texnologiyalar, ekologiya, biologiya va sog‘liq, huquq, iqtisodiyot va menejment, siyosatshunoslik va boshqalar",
+          "Hujjatlar faqat fransuz oliygohining xalqaro bo‘limi orqali topshiriladi"
+        ],
+        "en": [
+          "International student entering a master’s or PhD in France",
+          "Fields include engineering, digital, ecological transition, biology and health, law, economics and management, political science",
+          "Applications go only through the French university’s international office"
+        ]
+      },
+      "note": {
+        "ru": "Кампания 2027 года открылась в октябре 2026-го. Вузы отправляют досье до 6 января 2027 года, но свои внутренние сроки ставят раньше — пишите в вуз заранее. Обучение стипендия не оплачивает.",
+        "uz": "2027-yilgi tanlov 2026-yil oktyabrda ochildi. Oliygohlar hujjatlarni 2027-yil 6-yanvargacha yuboradi, lekin o‘z ichki muddatlarini oldinroq belgilaydi — oliygohga oldindan yozing. O‘qish to‘lovi qoplanmaydi.",
+        "en": "The 2027 campaign opened in October 2026. Universities submit files by 6 January 2027 but set earlier internal deadlines, so contact them early. Tuition is not covered."
+      }
+    },
+    {
+      "id": "goi-ies",
+      "cc": "IE",
+      "lv": [
+        "ma",
+        "phd"
+      ],
+      "fund": "full",
+      "ielts": null,
+      "cycles": [
+        {
+          "o": "2026-01-15",
+          "c": "2026-03-12",
+          "ao": 1
+        },
+        {
+          "o": "2027-01-15",
+          "c": "2027-03-12",
+          "a": 1
+        }
+      ],
+      "link": "https://hea.ie/policy/international-education/goi-ies/",
+      "country": {
+        "ru": "Ирландия",
+        "uz": "Irlandiya",
+        "en": "Ireland"
+      },
+      "name": "Government of Ireland Scholarship",
+      "sum": {
+        "ru": "Стипендия правительства Ирландии на год магистратуры или PhD: 10 000 € и полное освобождение от платы за обучение. 60 мест в год.",
+        "uz": "Irlandiya hukumatining bir yillik magistratura yoki PhD uchun stipendiyasi: 10 000 € va o‘qish to‘lovidan to‘liq ozod qilish. Yiliga 60 o‘rin.",
+        "en": "An Irish government scholarship for one year of a master’s or PhD: €10,000 plus a full tuition fee waiver. 60 awards a year."
+      },
+      "cov": {
+        "ru": [
+          "Стипендия 10 000 € на год",
+          "Полное освобождение от платы за обучение на этот год"
+        ],
+        "uz": [
+          "Bir yilga 10 000 € stipendiya",
+          "Shu yil uchun o‘qish to‘lovidan to‘liq ozod qilish"
+        ],
+        "en": [
+          "€10,000 stipend for one year",
+          "Full tuition fee waiver for that year"
+        ]
+      },
+      "req": {
+        "ru": [
+          "Гражданство страны вне ЕС, ЕЭЗ, Швейцарии и Великобритании",
+          "Предложение о зачислении от ирландского вуза уже на момент подачи",
+          "Магистратура, постдипломная программа или PhD",
+          "Английский — по требованиям вуза"
+        ],
+        "uz": [
+          "YeI, YeIH, Shveytsariya va Buyuk Britaniyadan tashqari mamlakat fuqaroligi",
+          "Ariza paytida Irlandiya oliygohidan qabul taklifnomasi",
+          "Magistratura, diplomdan keyingi dastur yoki PhD",
+          "Ingliz tili — oliygoh talablari bo‘yicha"
+        ],
+        "en": [
+          "Citizen of a country outside the EU/EEA, Switzerland and the UK",
+          "An offer from an Irish university at the time of applying",
+          "Master’s, postgraduate diploma or PhD",
+          "English as required by the university"
+        ]
+      },
+      "note": {
+        "ru": "Конкурс 2026 года закрылся 12 марта 2026-го. О конкурсе 2027 года ещё не объявляли — даты ориентировочные.",
+        "uz": "2026-yilgi tanlov 2026-yil 12-martda yopildi. 2027-yilgi tanlov hali e’lon qilinmagan — sanalar taxminiy.",
+        "en": "The 2026 call closed on 12 March 2026. The 2027 call has not been announced yet, so dates are estimates."
+      }
+    },
+    {
+      "id": "iccr",
+      "cc": "IN",
+      "lv": [
+        "ba",
+        "ma",
+        "phd"
+      ],
+      "fund": "full",
+      "ielts": 0,
+      "ieltsTxt": {
+        "ru": "Не обязателен",
+        "uz": "Majburiy emas",
+        "en": "Not required"
+      },
+      "cycles": [
+        {
+          "o": "2026-02-27",
+          "c": "2026-04-22"
+        },
+        {
+          "o": "2027-02-15",
+          "c": "2027-04-20",
+          "a": 1
+        }
+      ],
+      "link": "https://a2ascholarships.iccr.gov.in",
+      "country": {
+        "ru": "Индия",
+        "uz": "Hindiston",
+        "en": "India"
+      },
+      "name": "ICCR Scholarship",
+      "sum": {
+        "ru": "Стипендия правительства Индии для иностранцев: бакалавриат, магистратура и PhD в индийских вузах. Заявка подаётся на портале A2A.",
+        "uz": "Hindiston hukumatining xorijliklar uchun stipendiyasi: Hindiston oliygohlarida bakalavriat, magistratura va PhD. Ariza A2A portalida topshiriladi.",
+        "en": "The Indian government scholarship for foreigners: bachelor’s, master’s and PhD at Indian universities. Applications go through the A2A portal."
+      },
+      "cov": {
+        "ru": [
+          "Оплата обучения",
+          "Ежемесячная стипендия 18 000–22 000 рупий",
+          "Надбавка на аренду жилья",
+          "Обратный билет после окончания учёбы"
+        ],
+        "uz": [
+          "O‘qish to‘lovi",
+          "Oyiga 18 000–22 000 rupiy stipendiya",
+          "Uy ijarasi uchun qo‘shimcha to‘lov",
+          "O‘qishni tugatgach qaytish chiptasi"
+        ],
+        "en": [
+          "Tuition",
+          "Monthly stipend of INR 18,000–22,000",
+          "House rent allowance",
+          "Return ticket after completing the course"
+        ]
+      },
+      "req": {
+        "ru": [
+          "Возраст от 18 до 35 лет (для PhD — до 40)",
+          "Английский: эссе на 500 слов; сертификат IELTS/TOEFL — по желанию",
+          "Загранпаспорт со сроком действия от 2 лет",
+          "Только одна заявка в год"
+        ],
+        "uz": [
+          "Yosh: 18 dan 35 gacha (PhD uchun 40 gacha)",
+          "Ingliz tili: 500 so‘zli insho; IELTS/TOEFL sertifikati — ixtiyoriy",
+          "Kamida 2 yil amal qiladigan xorijiy pasport",
+          "Yiliga faqat bitta ariza"
+        ],
+        "en": [
+          "Age 18 to 35 (up to 40 for PhD)",
+          "English: a 500-word essay; IELTS/TOEFL optional",
+          "Passport valid for at least 2 years",
+          "Only one application per year"
+        ]
+      },
+      "note": {
+        "ru": "Приём на 2026–27 учебный год шёл с 27 февраля по 22 апреля 2026 года. Медстраховку (покрытие от 500 000 рупий) оплачивает студент.",
+        "uz": "2026–27 o‘quv yili uchun qabul 2026-yil 27-fevraldan 22-aprelgacha bo‘ldi. Tibbiy sug‘urtani (kamida 500 000 rupiy) talaba to‘laydi.",
+        "en": "Applications for 2026–27 ran from 27 February to 22 April 2026. Students pay for their own health insurance (cover of at least INR 500,000)."
+      }
+    },
+    {
+      "id": "hkpfs",
+      "cc": "HK",
+      "lv": [
+        "phd"
+      ],
+      "fund": "full",
+      "ielts": null,
+      "cycles": [
+        {
+          "o": "2026-09-01",
+          "c": "2026-12-01"
+        }
+      ],
+      "link": "https://www.polyu.edu.hk/ls/news-and-events/news/2026/20260904_hkpfs-202728/",
+      "country": {
+        "ru": "Гонконг",
+        "uz": "Gonkong",
+        "en": "Hong Kong"
+      },
+      "name": "Hong Kong PhD Fellowship (HKPFS)",
+      "sum": {
+        "ru": "Одна из самых щедрых PhD-стипендий в Азии: 344 400 гонконгских долларов в год на учёбу в университетах Гонконга.",
+        "uz": "Osiyodagi eng saxiy PhD stipendiyalaridan biri: Gonkong universitetlarida o‘qish uchun yiliga 344 400 Gonkong dollari.",
+        "en": "One of the most generous PhD awards in Asia: HK$344,400 a year to study at Hong Kong universities."
+      },
+      "cov": {
+        "ru": [
+          "Стипендия 344 400 HK$ в год (около 44 000 $)",
+          "14 400 HK$ в год на конференции и научные поездки",
+          "Во многих вузах — освобождение от платы за обучение"
+        ],
+        "uz": [
+          "Yiliga 344 400 HK$ stipendiya (taxminan 44 000 $)",
+          "Konferensiya va ilmiy safarlar uchun yiliga 14 400 HK$",
+          "Ko‘p oliygohlarda o‘qish to‘lovidan ozod qilish"
+        ],
+        "en": [
+          "Stipend of HK$344,400 a year (about US$44,000)",
+          "HK$14,400 a year for conferences and research travel",
+          "Tuition waiver at many universities"
+        ]
+      },
+      "req": {
+        "ru": [
+          "Отличные оценки и исследовательский потенциал",
+          "Поступление в PhD одного из университетов Гонконга",
+          "Две заявки: в систему RGC (получить номер HKPFS) и в выбранный вуз"
+        ],
+        "uz": [
+          "A’lo baholar va ilmiy salohiyat",
+          "Gonkong universitetlaridan birida PhD ga kirish",
+          "Ikki ariza: RGC tizimiga (HKPFS raqamini olish) va tanlangan oliygohga"
+        ],
+        "en": [
+          "Outstanding grades and research potential",
+          "Admission to a PhD at a Hong Kong university",
+          "Two applications: to the RGC system (for an HKPFS number) and to the chosen university"
+        ]
+      },
+      "note": {
+        "ru": "Приём на 2027–28 открыт с 1 сентября по 1 декабря 2026 года (до 12:00 по Гонконгу).",
+        "uz": "2027–28 uchun qabul 2026-yil 1-sentabrdan 1-dekabrgacha ochiq (Gonkong vaqti bilan soat 12:00 gacha).",
+        "en": "Applications for 2027–28 are open from 1 September to 1 December 2026 (until 12:00 noon Hong Kong time)."
+      }
+    },
+    {
+      "id": "italy-maeci",
+      "cc": "IT",
+      "lv": [
+        "ma",
+        "phd"
+      ],
+      "fund": "stipend",
+      "ielts": null,
+      "cycles": [
+        {
+          "o": "2026-03-01",
+          "c": "2026-03-26",
+          "ao": 1
+        },
+        {
+          "o": "2027-02-15",
+          "c": "2027-03-26",
+          "a": 1
+        }
+      ],
+      "link": "https://studyinitaly.esteri.it/",
+      "country": {
+        "ru": "Италия",
+        "uz": "Italiya",
+        "en": "Italy"
+      },
+      "name": {
+        "ru": "Стипендии правительства Италии",
+        "uz": "Italiya hukumati stipendiyalari",
+        "en": "Italian Government Scholarships"
+      },
+      "sum": {
+        "ru": "Стипендии МИД Италии для иностранцев: магистратура, PhD, искусство и музыка (AFAM), языковые курсы. Узбекистан входит в список стран.",
+        "uz": "Italiya TIV ning xorijliklar uchun stipendiyalari: magistratura, PhD, san’at va musiqa (AFAM), til kurslari. O‘zbekiston mamlakatlar ro‘yxatida bor.",
+        "en": "Italian Foreign Ministry scholarships for foreigners: master’s, PhD, art and music (AFAM) and language courses. Uzbekistan is on the list of eligible countries."
+      },
+      "cov": {
+        "ru": [
+          "Ежемесячная стипендия 1 200 €"
+        ],
+        "uz": [
+          "Oyiga 1 200 € stipendiya"
+        ],
+        "en": [
+          "Monthly allowance of €1,200"
+        ]
+      },
+      "req": {
+        "ru": [
+          "Гражданство страны из списка (Узбекистан входит)",
+          "Поступление в магистратуру, PhD или программу AFAM в Италии",
+          "Подача через портал Study in Italy"
+        ],
+        "uz": [
+          "Ro‘yxatdagi mamlakat fuqaroligi (O‘zbekiston kiradi)",
+          "Italiyada magistratura, PhD yoki AFAM dasturiga kirish",
+          "Ariza Study in Italy portali orqali"
+        ],
+        "en": [
+          "Citizen of an eligible country (Uzbekistan is included)",
+          "Admission to a master’s, PhD or AFAM programme in Italy",
+          "Apply through the Study in Italy portal"
+        ]
+      },
+      "note": {
+        "ru": "Конкурс на 2026–27 закрылся 26 марта 2026 года; в июне посольство Италии в Ташкенте опубликовало список отобранных. Следующий конкурс ожидается в начале 2027 года.",
+        "uz": "2026–27 uchun tanlov 2026-yil 26-martda yopildi; iyunda Italiyaning Toshkentdagi elchixonasi saralanganlar ro‘yxatini e’lon qildi. Keyingi tanlov 2027-yil boshida kutilmoqda.",
+        "en": "The 2026–27 call closed on 26 March 2026; in June the Italian Embassy in Tashkent published the shortlist. The next call is expected in early 2027."
+      }
+    },
+    {
+      "id": "nl-scholarship",
+      "cc": "NL",
+      "lv": [
+        "ba",
+        "ma"
+      ],
+      "fund": "partial",
+      "ielts": null,
+      "cycles": [
+        {
+          "o": "2026-10-01",
+          "c": "2027-02-01",
+          "a": 1
+        }
+      ],
+      "link": "https://www.nuffic.nl/en/node/1000",
+      "country": {
+        "ru": "Нидерланды",
+        "uz": "Niderlandiya",
+        "en": "Netherlands"
+      },
+      "name": "NL Scholarship",
+      "sum": {
+        "ru": "Разовая стипендия 5 000 € для студентов не из ЕЭЗ в первый год учёбы в вузе Нидерландов. Заявка подаётся в сам вуз.",
+        "uz": "Niderlandiya oliygohida birinchi o‘quv yilida YeIH dan tashqari talabalar uchun bir martalik 5 000 € stipendiya. Ariza oliygohning o‘ziga topshiriladi.",
+        "en": "A one-off €5,000 scholarship for non-EEA students in their first year at a Dutch university. You apply to the university itself."
+      },
+      "cov": {
+        "ru": [
+          "5 000 € один раз в первый год учёбы"
+        ],
+        "uz": [
+          "Birinchi o‘quv yilida bir marta 5 000 €"
+        ],
+        "en": [
+          "€5,000 once, in the first year of study"
+        ]
+      },
+      "req": {
+        "ru": [
+          "Гражданство страны вне ЕЭЗ (кроме Швейцарии и Суринама)",
+          "Зачисление в вуз Нидерландов, который участвует в программе",
+          "Высокие оценки и мотивационное письмо"
+        ],
+        "uz": [
+          "YeIH dan tashqari mamlakat fuqaroligi (Shveytsariya va Surinamdan tashqari)",
+          "Dasturda qatnashadigan Niderlandiya oliygohiga qabul",
+          "Yuqori baholar va motivatsion xat"
+        ],
+        "en": [
+          "Non-EEA nationality (not Switzerland or Suriname)",
+          "Admission to a participating Dutch university",
+          "Excellent grades and a motivation letter"
+        ]
+      },
+      "note": {
+        "ru": "У каждого вуза свой срок: у многих — 1 февраля (например, Гронинген), у некоторых позже. Это частичная поддержка, а не полное покрытие обучения.",
+        "uz": "Har bir oliygohning o‘z muddati bor: ko‘pchilikda 1-fevral (masalan, Groningen), ba’zilarida keyinroq. Bu qisman yordam, o‘qish to‘liq qoplanmaydi.",
+        "en": "Each university sets its own deadline: often 1 February (e.g. Groningen), sometimes later. This is partial support, not full tuition."
+      }
     }
   ]
 }
