@@ -309,6 +309,30 @@ a { color: var(--accent); }
 .contact small { display: block; font-family: var(--f-mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 .contact strong { display: block; font-family: var(--f-mono); font-size: 16px; margin-top: 4px; }
 @media (max-width: 760px) { .partner-box { grid-template-columns: 1fr; } }
+/* partner offer is not live yet: blurred teaser with a "Coming soon" tag */
+.partner-box.soon { position: relative; overflow: hidden; }
+.partner-box.soon > :not(.soon-tag) { filter: blur(7px); opacity: .7; pointer-events: none; user-select: none; }
+.partner-box.soon::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(100deg, transparent 30%, color-mix(in srgb, var(--accent) 16%, transparent) 50%, transparent 70%) -100% 0 / 60% 100% no-repeat;
+  animation: soonsweep 4.5s ease-in-out infinite;
+}
+@keyframes soonsweep { 0% { background-position: -100% 0; } 60%, 100% { background-position: 260% 0; } }
+.soon-tag { position: absolute; inset: 0; z-index: 1; display: grid; place-items: center; }
+.soon-pill {
+  display: inline-flex; align-items: center; gap: 10px; padding: 11px 20px 11px 16px; border-radius: 999px;
+  font-family: var(--f-mono); font-size: 14px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--ink);
+  background: color-mix(in srgb, var(--surface) 78%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 7%, transparent), 0 10px 40px color-mix(in srgb, var(--accent) 22%, transparent);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+}
+.soon-dot { position: relative; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex: none; }
+.soon-dot::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 1.5px solid var(--accent); animation: syncping 2.2s ease-out infinite; }
+.soon-pill .dots { margin-left: -.55em; letter-spacing: .04em; }
+.soon-pill .dots i { font-style: normal; animation: soondot 1.4s infinite; opacity: .15; }
+.soon-pill .dots i:nth-child(2) { animation-delay: .2s; } .soon-pill .dots i:nth-child(3) { animation-delay: .4s; }
+@keyframes soondot { 0%, 20% { opacity: .15; } 40%, 70% { opacity: 1; } 100% { opacity: .15; } }
+@media (prefers-reduced-motion: reduce) { .partner-box.soon::after, .soon-dot::after { animation: none; } .soon-pill .dots i { animation: none; opacity: 1; } }
 footer { border-top: 1px solid var(--line); }
 footer .wrap { padding-block: 24px 36px; color: var(--muted); font-size: 14px; display: grid; gap: 8px; }
 .foot-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 20px; }
@@ -685,9 +709,10 @@ html.intro-on { overflow: hidden; }
 
   <section class="partner">
     <div class="wrap">
-      <div class="partner-box">
-        <div><h2 data-i18n="partnerTitle"></h2><p data-i18n="partnerText"></p></div>
-        <div class="contact"><small data-i18n="partnerContact"></small><strong>[ваш Telegram]</strong></div>
+      <div class="partner-box soon">
+        <div aria-hidden="true" inert><h2 data-i18n="partnerTitle"></h2><p data-i18n="partnerText"></p></div>
+        <div class="contact" aria-hidden="true" inert><small data-i18n="partnerContact"></small><strong>[ваш Telegram]</strong></div>
+        <div class="soon-tag"><span class="soon-pill"><span class="soon-dot" aria-hidden="true"></span>Coming soon<span class="dots" aria-hidden="true"><i>.</i><i>.</i><i>.</i></span></span></div>
       </div>
     </div>
   </section>
