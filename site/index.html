@@ -364,6 +364,55 @@ footer .wrap { padding-block: 24px 36px; color: var(--muted); font-size: 14px; d
 .pstart:hover { transform: translate(-50%, -50%) scale(1.05); box-shadow: 0 0 0 10px rgba(255, 197, 107, .1), 0 0 60px rgba(255, 197, 107, .4); }
 .pstart.gone { opacity: 0; transform: translate(-50%, -50%) scale(.55); pointer-events: none; }
 @keyframes pring { from { transform: scale(.92); opacity: 1; } to { transform: scale(1.35); opacity: 0; } }
+/* data-freshness console: split-flap date, weekly freshness cells */
+.sync {
+  --hud: rgba(255, 197, 107, .75);
+  position: relative; margin-bottom: 26px; padding: 16px 18px 15px; border-radius: 18px; overflow: hidden; container-type: inline-size;
+  border: 1px solid rgba(255, 255, 255, .09);
+  background:
+    radial-gradient(rgba(255, 255, 255, .07) 1px, transparent 1.4px) 0 0 / 14px 14px,
+    linear-gradient(180deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, .015));
+}
+.sync::before {
+  content: ""; position: absolute; inset: 7px; pointer-events: none;
+  background:
+    linear-gradient(var(--hud), var(--hud)) left top / 14px 1.5px, linear-gradient(var(--hud), var(--hud)) left top / 1.5px 14px,
+    linear-gradient(var(--hud), var(--hud)) right top / 14px 1.5px, linear-gradient(var(--hud), var(--hud)) right top / 1.5px 14px,
+    linear-gradient(var(--hud), var(--hud)) left bottom / 14px 1.5px, linear-gradient(var(--hud), var(--hud)) left bottom / 1.5px 14px,
+    linear-gradient(var(--hud), var(--hud)) right bottom / 14px 1.5px, linear-gradient(var(--hud), var(--hud)) right bottom / 1.5px 14px;
+  background-repeat: no-repeat;
+}
+.sync-top { display: flex; align-items: center; gap: 9px; white-space: nowrap; font-family: var(--f-mono); font-size: 11.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--night-muted); }
+.sync-dot { position: relative; width: 8px; height: 8px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 10px var(--mint); flex: none; }
+.sync-dot::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 1.5px solid var(--mint); animation: syncping 2.2s ease-out infinite; }
+@keyframes syncping { from { transform: scale(.5); opacity: 1; } to { transform: scale(1.9); opacity: 0; } }
+.sync-ago { margin-left: auto; color: var(--mint); letter-spacing: .04em; text-transform: none; font-weight: 600; white-space: nowrap; }
+.sync.stale .sync-dot { background: var(--amber); box-shadow: 0 0 10px var(--amber); }
+.sync.stale .sync-dot::after { display: none; }
+.sync.stale .sync-ago { color: var(--amber); }
+.flap { display: flex; align-items: center; gap: 4px; gap: min(5px, 1.1cqi); margin-top: 14px; perspective: 400px; }
+.fl {
+  position: relative; display: grid; place-items: center; width: 30px; width: min(44px, 9.4cqi); aspect-ratio: .72; border-radius: 7px;
+  font-family: var(--f-logo); font-weight: 700; font-size: 21px; font-size: min(30px, 6.4cqi); color: #FFE2A8; font-variant-numeric: tabular-nums;
+  background: linear-gradient(180deg, #212D69 0%, #1A2353 49.6%, #0F1636 50.4%, #0C1230 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), inset 0 -1px 0 rgba(0, 0, 0, .4), 0 6px 14px rgba(0, 0, 0, .35);
+  text-shadow: 0 0 14px rgba(255, 197, 107, .35);
+}
+.fl::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; margin-top: -.5px; background: rgba(3, 6, 18, .75); }
+.fl.flip { animation: flp .08s linear; }
+@keyframes flp { 50% { transform: rotateX(70deg); filter: brightness(.6); } }
+.fsep { width: 6px; height: 6px; margin: 0 2px; margin: 0 min(5px, 1cqi); align-self: flex-end; margin-bottom: 8px; border-radius: 50%; background: var(--night-muted); opacity: .55; }
+.sync-cycle { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-top: 15px; font-size: 13.5px; color: var(--night-muted); }
+.segs { display: flex; gap: 3px; flex: none; }
+.segs i { width: 13px; height: 7px; border-radius: 2px; background: rgba(255, 255, 255, .1); }
+.segs i.on { background: var(--mint); box-shadow: 0 0 8px rgba(91, 224, 160, .45); }
+.segs i.on.last { animation: segblink 1.6s ease-in-out infinite; }
+@keyframes segblink { 50% { opacity: .35; } }
+.sync.stale .segs i.on { background: var(--amber); box-shadow: 0 0 8px rgba(255, 197, 107, .45); }
+.sync-meta { margin-top: 9px; padding-top: 10px; border-top: 1px dashed rgba(255, 255, 255, .1); font-family: var(--f-mono); font-size: 12px; color: rgba(169, 179, 204, .8); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) { .sync-dot::after, .segs i.on.last { animation: none; } }
+@media (max-width: 560px) { .sync { padding: 15px 15px 14px 19px; } .sync-top { font-size: 10.5px; letter-spacing: .07em; gap: 8px; } .sync-meta { font-size: 11px; } }
 .scan-status { margin-top: 14px; font-family: var(--f-mono); font-size: 13px; letter-spacing: .03em; color: var(--amber); min-height: 1.5em; }
 .up-row { transition: opacity .5s ease, filter .5s ease, background .2s ease; }
 .up-row.off { opacity: .16; filter: blur(3px); pointer-events: none; }
@@ -650,6 +699,7 @@ html.intro-on { overflow: hidden; }
       <div class="screen">
         <div class="pscope" id="pscope"></div>
         <div class="screen-info">
+          <div class="sync" id="sync"></div>
           <h2 data-i18n="radarTitle"></h2>
           <p data-i18n="radarHow"></p>
           <div class="legend">
@@ -806,6 +856,10 @@ html.intro-on { overflow: hidden; }
       radarHow: "Сверху — сегодня, по часовой стрелке — следующие 12 месяцев. Точка стоит на дате закрытия приёма: внутреннее кольцо — приём идёт, среднее — скоро откроется, внешнее — ожидается.",
       legOpen: "идёт приём", legSoon: "скоро откроется", legLater: "ожидается",
       todayC: "сегодня", upTitle: "Ближайшие дедлайны",
+      syncLbl: "Данные обновлены",
+      syncAgo: function (n) { return n <= 0 ? "сегодня" : n === 1 ? "вчера" : n + " " + pl(n, ["день", "дня", "дней"]) + " назад"; },
+      syncNext: function (n) { return n <= 0 ? "Идёт плановая проверка" : "Следующая проверка через " + n + " " + pl(n, ["день", "дня", "дней"]); },
+      syncMeta: function (n) { return n + " " + pl(n, ["программа", "программы", "программ"]) + " на радаре · источник: официальные сайты"; },
       radarOn: "Включить радар",
       scanOff: "Радар выключен. Нажмите «Включить радар», чтобы найти стипендии.",
       scanning: function (n) { return "Сканирую… найдено: " + n; },
@@ -872,6 +926,10 @@ html.intro-on { overflow: hidden; }
       radarHow: "Tepada — bugun, soat mili bo‘yicha — keyingi 12 oy. Nuqta qabul yopiladigan sanada turadi: ichki halqa — qabul ochiq, o‘rta — tez orada ochiladi, tashqi — kutilmoqda.",
       legOpen: "qabul ochiq", legSoon: "tez orada ochiladi", legLater: "kutilmoqda",
       todayC: "bugun", upTitle: "Yaqin muddatlar",
+      syncLbl: "Ma’lumotlar yangilandi",
+      syncAgo: function (n) { return n <= 0 ? "bugun" : n === 1 ? "kecha" : n + " kun oldin"; },
+      syncNext: function (n) { return n <= 0 ? "Rejali tekshiruv davom etmoqda" : "Keyingi tekshiruv " + n + " kundan keyin"; },
+      syncMeta: function (n) { return "Radarda " + n + " ta dastur · manba: rasmiy saytlar"; },
       radarOn: "Radarni yoqish",
       scanOff: "Radar o‘chiq. Stipendiyalarni topish uchun «Radarni yoqish» tugmasini bosing.",
       scanning: function (n) { return "Skanerlanmoqda… topildi: " + n; },
@@ -938,6 +996,10 @@ html.intro-on { overflow: hidden; }
       radarHow: "Today is at the top; the next 12 months run clockwise. Each dot sits on the closing date: inner ring — open now, middle — opening soon, outer — expected.",
       legOpen: "open now", legSoon: "opening soon", legLater: "expected",
       todayC: "today", upTitle: "Upcoming deadlines",
+      syncLbl: "Data updated",
+      syncAgo: function (n) { return n <= 0 ? "today" : n === 1 ? "yesterday" : n + " days ago"; },
+      syncNext: function (n) { return n <= 0 ? "Scheduled check in progress" : "Next check in " + n + (n === 1 ? " day" : " days"); },
+      syncMeta: function (n) { return n + (n === 1 ? " programme" : " programmes") + " on the radar · source: official sites"; },
       radarOn: "Turn on radar",
       scanOff: "The radar is off. Press “Turn on radar” to find scholarships.",
       scanning: function (n) { return "Scanning… found: " + n; },
@@ -1293,9 +1355,42 @@ html.intro-on { overflow: hidden; }
     if (btn) { btn.classList.add("gone"); setTimeout(function () { btn.remove(); }, 400); }
     box.classList.remove("is-off");
     scanStatus();
+    flapAnim();
     radarStart();
   }
   function radarStop() { radar.running = false; cancelAnimationFrame(radar.raf); }
+  /* data freshness: weekly check, 7 cells drain day by day until the next check */
+  function renderSync() {
+    var el = document.getElementById("sync");
+    if (!el) return;
+    var L = t(), d = P(CHECKED), age = Math.max(0, Math.round((today - d) / MS)), left = Math.max(0, 7 - age);
+    var ds = String(d.getDate()).padStart(2, "0") + "." + String(d.getMonth() + 1).padStart(2, "0") + "." + d.getFullYear();
+    var segs = "";
+    for (var i = 0; i < 7; i++) segs += "<i" + (i < left ? ' class="on' + (i === left - 1 ? " last" : "") + '"' : "") + "></i>";
+    el.className = "sync" + (age > 10 ? " stale" : "");
+    el.innerHTML = '<div class="sync-top"><span class="sync-dot"></span><span>' + L.syncLbl + '</span><span class="sync-ago">' + L.syncAgo(age) + "</span></div>" +
+      '<div class="flap" aria-hidden="true">' + ds.split("").map(function (ch) { return ch === "." ? '<span class="fsep"></span>' : '<span class="fl" data-v="' + ch + '">' + ch + "</span>"; }).join("") + "</div>" +
+      '<span class="sr">' + ds + "</span>" +
+      '<div class="sync-cycle"><span class="segs" aria-hidden="true">' + segs + "</span><span>" + L.syncNext(left) + "</span></div>" +
+      '<div class="sync-meta">' + L.syncMeta(G.length) + "</div>";
+  }
+  function flapAnim() {
+    if (REDUCE) return;
+    document.querySelectorAll("#sync .fl").forEach(function (f, i) {
+      var v = f.getAttribute("data-v"), k = 5 + i * 2;
+      (function tick() {
+        if (!f.isConnected) return;
+        f.classList.remove("flip"); void f.offsetWidth; f.classList.add("flip");
+        if (k-- > 0) { f.textContent = String(Math.floor(Math.random() * 10)); setTimeout(tick, 70); } else f.textContent = v;
+      })();
+    });
+  }
+  (function () {
+    var box = document.getElementById("sync");
+    if (!box || !("IntersectionObserver" in window)) return;
+    var io = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { io.disconnect(); flapAnim(); } }, { threshold: .6 });
+    io.observe(box);
+  })();
   function renderUpcoming() {
     var L = t();
     var items = all().filter(function (x) { return x.s.cyc; }).sort(function (a, b) { return a.s.cyc.c - b.s.cyc.c; }).slice(0, 5);
@@ -1498,7 +1593,7 @@ html.intro-on { overflow: hidden; }
   }
 
   /* ---------- Render + events ---------- */
-  function renderAll() { applyText(); renderStats(); renderGcards(); renderTiles(); renderPolar(); renderUpcoming(); renderFilters(); renderGrid(); globe.redraw(); }
+  function renderAll() { applyText(); renderStats(); renderGcards(); renderTiles(); renderPolar(); renderSync(); renderUpcoming(); renderFilters(); renderGrid(); globe.redraw(); }
   document.addEventListener("click", function (e) {
     var el = e.target.closest("[data-radar-on],[data-lang],[data-go],[data-scroll],[data-country],[data-clearcc],[data-f],[data-reset],[data-fav],[data-open],[data-close]");
     if (!el) return;
