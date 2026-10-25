@@ -384,6 +384,7 @@ footer .wrap { padding-block: 24px 36px; color: var(--muted); font-size: 14px; d
   display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(18px, 3vw, 40px); align-items: center;
 }
 @media (max-width: 900px) { .screen { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .screen { padding: 14px 12px 18px; border-radius: 22px; } .pb { box-shadow: 0 0 0 2px rgba(7, 11, 24, .85), 0 0 9px color-mix(in srgb, var(--st) 50%, transparent); } }
 .pscope { position: relative; width: 100%; max-width: 520px; aspect-ratio: 1; justify-self: center; }
 .pgrid { position: absolute; inset: 0; width: 100%; height: 100%; display: block; overflow: visible; }
 .psweep {
@@ -392,7 +393,7 @@ footer .wrap { padding-block: 24px 36px; color: var(--muted); font-size: 14px; d
 }
 .psweep::after { content: ""; position: absolute; left: 50%; top: 0; width: 2px; height: 50%; margin-left: -1px; background: linear-gradient(rgba(201, 210, 255, .95), rgba(143, 162, 255, .1)); }
 .pb {
-  position: absolute; transform: translate(-50%, -50%); width: clamp(20px, 5.8%, 30px); aspect-ratio: 1; padding: 0; border-radius: 50%; cursor: pointer;
+  position: absolute; transform: translate(-50%, -50%); width: clamp(15px, 5.2%, 28px); aspect-ratio: 1; padding: 0; border-radius: 50%; cursor: pointer;
   border: 2px solid var(--st); background: #0B1230; box-shadow: 0 0 0 3px rgba(7, 11, 24, .85), 0 0 16px color-mix(in srgb, var(--st) 55%, transparent);
   transition: transform .2s ease;
 }
@@ -476,7 +477,7 @@ footer .wrap { padding-block: 24px 36px; color: var(--muted); font-size: 14px; d
 .up-row { transition: opacity .5s ease, filter .5s ease, background .2s ease; }
 .up-row.off { opacity: .16; filter: blur(3px); pointer-events: none; }
 .pb.hit::after { content: ""; position: absolute; inset: -5px; border-radius: 50%; border: 2px solid var(--st); animation: pbping 1s ease-out forwards; }
-@keyframes pbping { from { transform: scale(.8); opacity: 1; } to { transform: scale(2.2); opacity: 0; } }
+@keyframes pbping { from { transform: scale(.8); opacity: 1; } to { transform: scale(1.8); opacity: 0; } }
 .pb .tip {
   position: absolute; left: 50%; bottom: calc(100% + 10px); transform: translateX(-50%); white-space: nowrap; pointer-events: none;
   background: #EEF1FF; color: #0B1230; font-size: 12.5px; font-weight: 600; padding: 6px 10px; border-radius: 10px; opacity: 0; transition: opacity .15s;
@@ -1421,21 +1422,34 @@ html.intro-on { overflow: hidden; }
       var k = x.s.k === "open" ? "open" : x.s.k;
       return { g: x.g, s: x.s, k: k, th: ang(x.s.cyc.c) };
     }).filter(function (x) { return x.th >= 0 && x.th < 360; }).sort(function (a, b) { return a.th - b.th; });
-    // place each dot near its date and ring, nudging it inside the ring until it no longer overlaps another
-    // [radial shift, shift along the arc] in SVG units; a dot is about 27 units wide
-    var CAND = [[0, 0], [19, 22], [-19, 22], [19, -22], [-19, -22], [0, 31], [0, -31], [19, 50], [-19, 50], [19, -50], [-19, -50], [0, 62], [0, -62], [0, 92], [0, -92]];
-    var placed = [], MIN = 29;
+    // place dots with a small relaxation: each dot is pulled toward its date and ring, pushed away from neighbours,
+    // and kept inside its ring band (so it never lands on another ring or on the month labels)
+    var BAND = { open: [62, 103], soon: [110, 148], later: [152, 184] }, MIN = 34;
+    var seen = {};
     items.forEach(function (it) {
-      var base = bands[it.k], pick = null;
-      for (var ci = 0; ci < CAND.length && !pick; ci++) {
-        var r = base + CAND[ci][0], th = it.th + CAND[ci][1] / r * 180 / Math.PI, rr = th * Math.PI / 180;
-        var px = C + r * Math.sin(rr), py = C - r * Math.cos(rr);
-        if (placed.every(function (q) { return (q[0] - px) * (q[0] - px) + (q[1] - py) * (q[1] - py) >= MIN * MIN; })) pick = [px, py];
-      }
-      if (!pick) { var r0 = it.th * Math.PI / 180; pick = [C + base * Math.sin(r0), C - base * Math.cos(r0)]; }
-      placed.push(pick); it.px = pick[0]; it.py = pick[1];
-      it.disp = (Math.atan2(it.px - C, -(it.py - C)) * 180 / Math.PI + 360) % 360;
+      var b = BAND[it.k], n = seen[it.k + Math.round(it.th / 8)] = (seen[it.k + Math.round(it.th / 8)] || 0) + 1;
+      it.r0 = (b[0] + b[1]) / 2; it.th0 = it.th;
+      it.r = it.r0 + [0, 11, -11, 17, -17][(n - 1) % 5]; it.a = it.th;
     });
+    function xy(it) { var rr = it.a * Math.PI / 180; return [C + it.r * Math.sin(rr), C - it.r * Math.cos(rr)]; }
+    function setXY(it, x, y) { it.r = Math.hypot(x - C, y - C); it.a = (Math.atan2(x - C, -(y - C)) * 180 / Math.PI + 360) % 360; }
+    for (var iter = 0; iter < 400; iter++) {
+      for (var i = 0; i < items.length; i++) for (var j = i + 1; j < items.length; j++) {
+        var A = xy(items[i]), B = xy(items[j]), dx = A[0] - B[0], dy = A[1] - B[1], dd = Math.hypot(dx, dy);
+        if (dd >= MIN) continue;
+        if (dd < .01) { dx = .7; dy = .7; dd = 1; }
+        var push = (MIN - dd) / 2 * .9, ux = dx / dd, uy = dy / dd;
+        setXY(items[i], A[0] + ux * push, A[1] + uy * push);
+        setXY(items[j], B[0] - ux * push, B[1] - uy * push);
+      }
+      items.forEach(function (it) {
+        var da = ((it.th0 - it.a + 540) % 360) - 180;
+        it.a = (it.a + da * .022 + 360) % 360;
+        it.r += (it.r0 - it.r) * .015;
+        var b = BAND[it.k]; it.r = Math.max(b[0], Math.min(b[1], it.r));
+      });
+    }
+    items.forEach(function (it) { var P = xy(it); it.px = P[0]; it.py = P[1]; it.disp = it.a; });
     var html = svg + '<div class="psweep" id="psweep"></div>';
     items.forEach(function (it) {
       var x = (it.px + PAD) / VB * 100, y = (it.py + PAD) / VB * 100;
