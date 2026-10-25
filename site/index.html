@@ -393,13 +393,13 @@ footer .wrap { padding-block: 24px 36px; color: var(--muted); font-size: 14px; d
 }
 .psweep::after { content: ""; position: absolute; left: 50%; top: 0; width: 2px; height: 50%; margin-left: -1px; background: linear-gradient(rgba(201, 210, 255, .95), rgba(143, 162, 255, .1)); }
 .pb {
-  position: absolute; transform: translate(-50%, -50%); width: clamp(15px, 5.2%, 28px); aspect-ratio: 1; padding: 0; border-radius: 50%; cursor: pointer;
+  position: absolute; transform: translate(-50%, -50%); width: var(--dot, 24px); height: var(--dot, 24px); min-height: 0; padding: 0; border-radius: 50%; cursor: pointer; font-size: 0; line-height: 0;
   border: 2px solid var(--st); background: #0B1230; box-shadow: 0 0 0 3px rgba(7, 11, 24, .85), 0 0 16px color-mix(in srgb, var(--st) 55%, transparent);
   transition: transform .2s ease;
 }
 .pb:hover, .pb:focus-visible { transform: translate(-50%, -50%) scale(1.25); z-index: 3; }
-.pb .pf { display: block; width: 100%; height: 100%; border-radius: 50%; overflow: hidden; }
-.pb .pf .flag { width: 100%; height: 100%; outline: none; border-radius: 0; }
+.pb .pf { position: absolute; inset: 0; display: block; border-radius: 50%; overflow: hidden; }
+.pb .pf .flag { display: block; width: 100%; height: 100%; outline: none; border-radius: 0; }
 .pb.s-open { --st: var(--mint); }
 .pb.s-soon { --st: var(--amber); }
 .pb.s-later { --st: #9AA6C8; }
@@ -411,7 +411,7 @@ footer .wrap { padding-block: 24px 36px; color: var(--muted); font-size: 14px; d
 .pscope.is-off .pgrid { opacity: .4; filter: saturate(.5); }
 .pscope.is-off .psweep { opacity: 0; }
 .pstart {
-  position: absolute; left: 50%; top: 50%; z-index: 4; width: 34%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; cursor: pointer;
+  position: absolute; left: 50%; top: 50%; z-index: 4; width: var(--pst, 34%); height: var(--pst, auto); aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; cursor: pointer;
   display: grid; place-items: center; align-content: center; gap: 8px; padding: 10px; text-align: center;
   border: 1px solid rgba(255, 197, 107, .55); color: #FFE2A8; font-weight: 700; font-size: clamp(12px, 1.3vw, 15px); line-height: 1.2;
   background: radial-gradient(circle at 50% 40%, #22327A 0%, #0B1230 78%);
@@ -1461,6 +1461,7 @@ html.intro-on { overflow: hidden; }
     if (!radar.on) html += '<button type="button" class="pstart" data-radar-on="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 3v8"/><path d="M6.3 6.8a8 8 0 1 0 11.4 0"/></svg><span>' + L.radarOn + "</span></button>";
     var box = document.getElementById("pscope");
     box.innerHTML = html;
+    sizeScope();
     box.classList.toggle("is-off", !radar.on);
     radar.total = items.length;
     radar.blips = Array.prototype.slice.call(box.querySelectorAll(".pb")).map(function (el) { return { el: el, id: el.getAttribute("data-id"), th: parseFloat(el.getAttribute("data-th")), last: -1e9 }; });
@@ -1468,6 +1469,15 @@ html.intro-on { overflow: hidden; }
     radar.sweep = document.getElementById("psweep");
     if (REDUCE) radar.sweep.style.transform = "rotate(0deg)";
   }
+  function sizeScope() {
+    var box = document.getElementById("pscope");
+    if (!box || !box.clientWidth) return;
+    var w = box.clientWidth;
+    box.style.setProperty("--dot", Math.round(Math.max(15, Math.min(28, w * .052))) + "px");
+    box.style.setProperty("--pst", Math.round(w * .34) + "px");
+  }
+  if (window.ResizeObserver) new ResizeObserver(sizeScope).observe(document.getElementById("pscope"));
+  else window.addEventListener("resize", sizeScope);
   function ping(b, ts) { b.last = ts; b.el.classList.remove("hit"); void b.el.offsetWidth; b.el.classList.add("hit"); }
   function scanStatus() {
     var el = document.getElementById("scanStatus"), L = t();
