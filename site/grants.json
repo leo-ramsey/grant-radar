@@ -1,0 +1,987 @@
+{
+  "checked": "2026-10-23",
+  "grants": [
+    {
+      "id": "eyuf",
+      "cc": "UZ",
+      "lv": [
+        "ba",
+        "ma",
+        "phd"
+      ],
+      "fund": "full",
+      "ielts": 6,
+      "ieltsTxt": {
+        "ru": "6.0 / 7.0",
+        "uz": "6.0 / 7.0",
+        "en": "6.0 / 7.0"
+      },
+      "cycles": [
+        {
+          "o": "2026-04-03",
+          "c": "2026-04-24"
+        },
+        {
+          "o": "2026-11-10",
+          "c": "2026-11-30",
+          "a": 1
+        },
+        {
+          "o": "2027-04-01",
+          "c": "2027-04-25",
+          "a": 1
+        }
+      ],
+      "link": "https://el-yurt.uz",
+      "country": {
+        "ru": "Узбекистан → весь мир",
+        "uz": "O‘zbekiston → butun dunyo",
+        "en": "Uzbekistan → worldwide"
+      },
+      "name": {
+        "ru": "Фонд «Эл-юрт умиди»",
+        "uz": "«El-yurt umidi» jamg‘armasi",
+        "en": "El-Yurt Umidi Foundation"
+      },
+      "sum": {
+        "ru": "Государственный фонд оплачивает учёбу в ведущих зарубежных вузах. Сначала получаете приглашение от вуза, затем подаёте в фонд.",
+        "uz": "Davlat jamg‘armasi nufuzli xorijiy oliygohlarda o‘qish xarajatlarini qoplaydi. Avval oliygohdan taklifnoma olasiz, so‘ng jamg‘armaga hujjat topshirasiz.",
+        "en": "A state foundation that pays for study at leading universities abroad. Get an offer from a university first, then apply to the foundation."
+      },
+      "cov": {
+        "ru": [
+          "Оплата обучения",
+          "Перелёт и виза",
+          "Ежемесячные расходы на жизнь",
+          "Медицинская страховка"
+        ],
+        "uz": [
+          "O‘qish to‘lovi",
+          "Aviachipta va viza",
+          "Oylik yashash xarajatlari",
+          "Tibbiy sug‘urta"
+        ],
+        "en": [
+          "Tuition",
+          "Flights and visa",
+          "Monthly living costs",
+          "Health insurance"
+        ]
+      },
+      "req": {
+        "ru": [
+          "Гражданство Узбекистана",
+          "Приглашение (Letter of Acceptance) от зарубежного вуза",
+          "IELTS от 6.0 для бакалавриата и от 7.0 для магистратуры и PhD (условия осеннего конкурса 2025 года)",
+          "Возраст: бакалавриат до 30 лет, магистратура и PhD до 40–45 лет (зависит от конкурса)",
+          "Опыт работы: от 1 года для магистратуры, от 2 лет для PhD"
+        ],
+        "uz": [
+          "O‘zbekiston fuqaroligi",
+          "Xorijiy oliygohdan taklifnoma (Letter of Acceptance)",
+          "IELTS: bakalavriat uchun 6.0 dan, magistratura va PhD uchun 7.0 dan (2025-yil kuzgi tanlov shartlari)",
+          "Yosh: bakalavriat 30 yoshgacha, magistratura va PhD 40–45 yoshgacha (tanlovga bog‘liq)",
+          "Ish staji: magistratura uchun 1 yildan, PhD uchun 2 yildan"
+        ],
+        "en": [
+          "Citizen of Uzbekistan",
+          "Letter of Acceptance from a foreign university",
+          "IELTS 6.0+ for bachelor’s, 7.0+ for master’s and PhD (autumn 2025 rules)",
+          "Age: under 30 for bachelor’s, up to 40–45 for master’s and PhD depending on the round",
+          "Work experience: 1+ year for master’s, 2+ years for PhD"
+        ]
+      },
+      "note": {
+        "ru": "Обычно два конкурса в год. В 2026 году весенний приём шёл 3–24 апреля, осенью 2025 года заявки принимали до 26 ноября.",
+        "uz": "Odatda yiliga ikki marta tanlov o‘tkaziladi. 2026-yilda bahorgi qabul 3–24-aprel kunlari bo‘ldi, 2025-yil kuzida arizalar 26-noyabrgacha qabul qilingan.",
+        "en": "Usually two rounds a year. The spring 2026 round ran 3–24 April; in autumn 2025 applications closed on 26 November."
+      }
+    },
+    {
+      "id": "chevening",
+      "cc": "GB",
+      "lv": [
+        "ma"
+      ],
+      "fund": "full",
+      "ielts": null,
+      "cycles": [
+        {
+          "o": "2026-08-04",
+          "c": "2026-10-06"
+        }
+      ],
+      "link": "https://www.chevening.org/scholarships/",
+      "country": {
+        "ru": "Великобритания",
+        "uz": "Buyuk Britaniya",
+        "en": "United Kingdom"
+      },
+      "name": "Chevening",
+      "sum": {
+        "ru": "Стипендия правительства Великобритании на годичную магистратуру для будущих лидеров с опытом работы.",
+        "uz": "Buyuk Britaniya hukumatining ish tajribasiga ega kelajak yetakchilari uchun bir yillik magistratura stipendiyasi.",
+        "en": "UK government scholarship for a one-year master’s, aimed at future leaders with work experience."
+      },
+      "cov": {
+        "ru": [
+          "Обучение на годичной магистратуре",
+          "Ежемесячная стипендия",
+          "Перелёт в Великобританию и обратно",
+          "Оплата визы"
+        ],
+        "uz": [
+          "Bir yillik magistratura to‘lovi",
+          "Oylik stipendiya",
+          "Buyuk Britaniyaga borish-qaytish aviachiptasi",
+          "Viza to‘lovi"
+        ],
+        "en": [
+          "Tuition for a one-year master’s",
+          "Monthly stipend",
+          "Return flight to the UK",
+          "Visa fee"
+        ]
+      },
+      "req": {
+        "ru": [
+          "Диплом бакалавра",
+          "Не менее 2 800 часов опыта работы (примерно 2 года)",
+          "Заявки на три магистерские программы британских вузов",
+          "После учёбы вернуться домой минимум на 2 года"
+        ],
+        "uz": [
+          "Bakalavr diplomi",
+          "Kamida 2 800 soat ish tajribasi (taxminan 2 yil)",
+          "Britaniya oliygohlaridagi uchta magistratura dasturiga ariza",
+          "O‘qishdan so‘ng kamida 2 yilga vatanga qaytish"
+        ],
+        "en": [
+          "Bachelor’s degree",
+          "At least 2,800 hours of work experience (about 2 years)",
+          "Applications to three UK master’s courses",
+          "Return home for at least 2 years after the degree"
+        ]
+      },
+      "note": {
+        "ru": "Приём на 2027/28 учебный год шёл с 4 августа по 6 октября 2026 года. Следующий обычно открывается в начале августа.",
+        "uz": "2027/28 o‘quv yili uchun qabul 2026-yil 4-avgustdan 6-oktyabrgacha bo‘ldi. Keyingisi odatda avgust boshida ochiladi.",
+        "en": "Applications for 2027/28 ran from 4 August to 6 October 2026. The next round usually opens in early August."
+      }
+    },
+    {
+      "id": "turkiye",
+      "cc": "TR",
+      "lv": [
+        "ba",
+        "ma",
+        "phd"
+      ],
+      "fund": "full",
+      "ielts": 0,
+      "cycles": [
+        {
+          "o": "2027-01-10",
+          "c": "2027-02-20",
+          "a": 1
+        }
+      ],
+      "link": "https://www.turkiyeburslari.gov.tr/",
+      "country": {
+        "ru": "Турция",
+        "uz": "Turkiya",
+        "en": "Türkiye"
+      },
+      "name": "Türkiye Bursları",
+      "sum": {
+        "ru": "Стипендия правительства Турции на все уровни обучения. Включает год изучения турецкого языка.",
+        "uz": "Turkiya hukumatining barcha ta’lim bosqichlari uchun stipendiyasi. Bir yillik turk tili kursi ham kiradi.",
+        "en": "Turkish government scholarship for every level of study, including a year of Turkish language."
+      },
+      "cov": {
+        "ru": [
+          "Оплата обучения",
+          "Стипендия в месяц: 6 500 ₺ (бакалавр), 9 500 ₺ (магистр), 13 000 ₺ (PhD)",
+          "Общежитие",
+          "Медицинская страховка",
+          "Перелёт",
+          "Год турецкого языка"
+        ],
+        "uz": [
+          "O‘qish to‘lovi",
+          "Oylik stipendiya: 6 500 ₺ (bakalavr), 9 500 ₺ (magistr), 13 000 ₺ (PhD)",
+          "Yotoqxona",
+          "Tibbiy sug‘urta",
+          "Aviachipta",
+          "Bir yillik turk tili kursi"
+        ],
+        "en": [
+          "Tuition",
+          "Monthly stipend: ₺6,500 (bachelor’s), ₺9,500 (master’s), ₺13,000 (PhD)",
+          "Dormitory",
+          "Health insurance",
+          "Flights",
+          "A year of Turkish language"
+        ]
+      },
+      "req": {
+        "ru": [
+          "Возраст: до 21 года (бакалавриат), до 30 (магистратура), до 35 (PhD)",
+          "Хорошие оценки",
+          "Онлайн-заявка, затем собеседование",
+          "IELTS не нужен для программ на турецком"
+        ],
+        "uz": [
+          "Yosh: 21 yoshgacha (bakalavriat), 30 yoshgacha (magistratura), 35 yoshgacha (PhD)",
+          "Yaxshi baholar",
+          "Onlayn ariza, so‘ng suhbat",
+          "Turk tilidagi dasturlar uchun IELTS shart emas"
+        ],
+        "en": [
+          "Age: under 21 (bachelor’s), under 30 (master’s), under 35 (PhD)",
+          "Good grades",
+          "Online application, then an interview",
+          "No IELTS needed for Turkish-taught programmes"
+        ]
+      },
+      "note": {
+        "ru": "Приём каждый год проходит примерно с 10 января по 20 февраля. Суммы стипендий указаны по данным 2026 года.",
+        "uz": "Qabul har yili taxminan 10-yanvardan 20-fevralgacha o‘tadi. Stipendiya miqdorlari 2026-yil ma’lumotlariga ko‘ra.",
+        "en": "Applications run every year from about 10 January to 20 February. Stipend amounts are as of 2026."
+      }
+    },
+    {
+      "id": "hungaricum",
+      "cc": "HU",
+      "lv": [
+        "ba",
+        "ma",
+        "phd"
+      ],
+      "fund": "full",
+      "ielts": null,
+      "cycles": [
+        {
+          "o": "2026-11-01",
+          "c": "2027-01-15",
+          "a": 1
+        }
+      ],
+      "link": "https://stipendiumhungaricum.hu/",
+      "country": {
+        "ru": "Венгрия",
+        "uz": "Vengriya",
+        "en": "Hungary"
+      },
+      "name": "Stipendium Hungaricum",
+      "sum": {
+        "ru": "Программа правительства Венгрии с отдельной квотой для Узбекистана (на 2025/26 год до 170 мест).",
+        "uz": "Vengriya hukumatining O‘zbekiston uchun alohida kvotaga ega dasturi (2025/26 o‘quv yili uchun 170 tagacha o‘rin).",
+        "en": "Hungarian government programme with a dedicated quota for Uzbekistan (up to 170 places for 2025/26)."
+      },
+      "cov": {
+        "ru": [
+          "Бесплатное обучение",
+          "Ежемесячная стипендия",
+          "Помощь с жильём",
+          "Медицинская страховка"
+        ],
+        "uz": [
+          "Bepul ta’lim",
+          "Oylik stipendiya",
+          "Turar joy uchun yordam",
+          "Tibbiy sug‘urta"
+        ],
+        "en": [
+          "Free tuition",
+          "Monthly stipend",
+          "Housing support",
+          "Health insurance"
+        ]
+      },
+      "req": {
+        "ru": [
+          "Гражданство Узбекистана",
+          "Подача онлайн на портале программы, бумажные документы в министерство не нужны",
+          "Приоритет: инженерия, медицина, IT, энергетика",
+          "Возможно онлайн-собеседование"
+        ],
+        "uz": [
+          "O‘zbekiston fuqaroligi",
+          "Dastur portalida onlayn topshirish, vazirlikka qog‘oz hujjat kerak emas",
+          "Ustuvor yo‘nalishlar: muhandislik, tibbiyot, IT, energetika",
+          "Onlayn suhbat bo‘lishi mumkin"
+        ],
+        "en": [
+          "Citizen of Uzbekistan",
+          "Apply online on the programme portal; no paper documents to the ministry",
+          "Priority fields: engineering, medicine, IT, energy",
+          "An online interview may be required"
+        ]
+      },
+      "note": {
+        "ru": "Обычно приём закрывается в середине января (в 2025 году — 15 января).",
+        "uz": "Qabul odatda yanvar o‘rtasida yopiladi (2025-yilda 15-yanvar).",
+        "en": "Applications usually close in mid-January (15 January in 2025)."
+      }
+    },
+    {
+      "id": "gks",
+      "cc": "KR",
+      "lv": [
+        "ba",
+        "ma",
+        "phd"
+      ],
+      "fund": "full",
+      "ielts": 0,
+      "cycles": [
+        {
+          "o": "2026-09-01",
+          "c": "2026-10-15",
+          "a": 1,
+          "l": "ba"
+        },
+        {
+          "o": "2027-02-01",
+          "c": "2027-03-15",
+          "a": 1,
+          "l": "grad"
+        }
+      ],
+      "link": "https://www.studyinkorea.go.kr/",
+      "country": {
+        "ru": "Южная Корея",
+        "uz": "Janubiy Koreya",
+        "en": "South Korea"
+      },
+      "name": "Global Korea Scholarship (GKS)",
+      "sum": {
+        "ru": "Стипендия правительства Кореи. Перед учёбой — год корейского языка.",
+        "uz": "Koreya hukumatining stipendiyasi. O‘qishdan oldin bir yil koreys tili o‘rganiladi.",
+        "en": "Korean government scholarship, starting with a year of Korean language."
+      },
+      "cov": {
+        "ru": [
+          "Оплата обучения",
+          "Перелёт",
+          "Ежемесячная стипендия",
+          "Год корейского языка",
+          "Медицинская страховка"
+        ],
+        "uz": [
+          "O‘qish to‘lovi",
+          "Aviachipta",
+          "Oylik stipendiya",
+          "Bir yillik koreys tili kursi",
+          "Tibbiy sug‘urta"
+        ],
+        "en": [
+          "Tuition",
+          "Flights",
+          "Monthly stipend",
+          "A year of Korean language",
+          "Health insurance"
+        ]
+      },
+      "req": {
+        "ru": [
+          "Возраст: до 25 лет (бакалавриат), до 40 лет (магистратура, PhD)",
+          "Средний балл от 80% или топ-20% выпуска",
+          "Подача через посольство Кореи или напрямую в вуз",
+          "IELTS не обязателен, но даёт преимущество"
+        ],
+        "uz": [
+          "Yosh: 25 yoshgacha (bakalavriat), 40 yoshgacha (magistratura, PhD)",
+          "O‘rtacha ball 80% dan yoki kursning eng yaxshi 20 foizi",
+          "Koreya elchixonasi yoki to‘g‘ridan-to‘g‘ri oliygoh orqali topshirish",
+          "IELTS shart emas, lekin ustunlik beradi"
+        ],
+        "en": [
+          "Age: under 25 (bachelor’s), under 40 (master’s, PhD)",
+          "GPA of 80%+ or top 20% of your class",
+          "Apply through the Korean embassy or directly to a university",
+          "IELTS is optional but gives an advantage"
+        ]
+      },
+      "note": {
+        "ru": "Магистратура и PhD: приём обычно в феврале–марте. Бакалавриат: в сентябре–октябре. Точные сроки объявляет посольство Кореи.",
+        "uz": "Magistratura va PhD: qabul odatda fevral–mart oylarida. Bakalavriat: sentyabr–oktyabrda. Aniq muddatlarni Koreya elchixonasi e’lon qiladi.",
+        "en": "Master’s and PhD: applications usually in February–March. Bachelor’s: September–October. The Korean embassy announces exact dates."
+      }
+    },
+    {
+      "id": "mext",
+      "cc": "JP",
+      "lv": [
+        "ma",
+        "phd"
+      ],
+      "fund": "full",
+      "ielts": null,
+      "cycles": [
+        {
+          "o": "2027-04-01",
+          "c": "2027-05-20",
+          "a": 1
+        }
+      ],
+      "link": "https://www.studyinjapan.go.jp/en/smap-stopj-applications-research.html",
+      "country": {
+        "ru": "Япония",
+        "uz": "Yaponiya",
+        "en": "Japan"
+      },
+      "name": "MEXT",
+      "sum": {
+        "ru": "Стипендия правительства Японии для исследователей. Отбор проводит посольство Японии.",
+        "uz": "Yaponiya hukumatining tadqiqotchilar uchun stipendiyasi. Saralashni Yaponiya elchixonasi o‘tkazadi.",
+        "en": "Japanese government scholarship for research students, selected by the Japanese embassy."
+      },
+      "cov": {
+        "ru": [
+          "Оплата обучения",
+          "Ежемесячная стипендия",
+          "Перелёт в Японию и обратно"
+        ],
+        "uz": [
+          "O‘qish to‘lovi",
+          "Oylik stipendiya",
+          "Yaponiyaga borish-qaytish aviachiptasi"
+        ],
+        "en": [
+          "Tuition",
+          "Monthly stipend",
+          "Return flight to Japan"
+        ]
+      },
+      "req": {
+        "ru": [
+          "Возраст до 35 лет",
+          "Диплом бакалавра (для магистратуры) или магистра (для PhD)",
+          "Документы, экзамены и собеседование в посольстве"
+        ],
+        "uz": [
+          "35 yoshgacha",
+          "Bakalavr diplomi (magistratura uchun) yoki magistr diplomi (PhD uchun)",
+          "Elchixonada hujjatlar, imtihon va suhbat"
+        ],
+        "en": [
+          "Under 35",
+          "Bachelor’s degree (for master’s) or master’s degree (for PhD)",
+          "Documents, exams and an interview at the embassy"
+        ]
+      },
+      "note": {
+        "ru": "Приём на 2027 год в посольствах шёл весной 2026 года, часто до мая. Следующий ожидается весной 2027 года.",
+        "uz": "2027-yil uchun qabul elchixonalarda 2026-yil bahorida, ko‘pincha maygacha bo‘ldi. Keyingisi 2027-yil bahorida kutilmoqda.",
+        "en": "Embassy applications for 2027 ran in spring 2026, often until May. The next round is expected in spring 2027."
+      }
+    },
+    {
+      "id": "csc",
+      "cc": "CN",
+      "lv": [
+        "ba",
+        "ma",
+        "phd"
+      ],
+      "fund": "full",
+      "ielts": null,
+      "cycles": [
+        {
+          "o": "2027-01-10",
+          "c": "2027-03-31",
+          "a": 1
+        }
+      ],
+      "link": "https://www.campuschina.org/",
+      "country": {
+        "ru": "Китай",
+        "uz": "Xitoy",
+        "en": "China"
+      },
+      "name": "Chinese Government Scholarship",
+      "sum": {
+        "ru": "Стипендия правительства Китая, полная или частичная, на программы на китайском и английском.",
+        "uz": "Xitoy hukumatining to‘liq yoki qisman stipendiyasi, xitoy va ingliz tilidagi dasturlar uchun.",
+        "en": "Chinese government scholarship, full or partial, for Chinese- and English-taught programmes."
+      },
+      "cov": {
+        "ru": [
+          "Оплата обучения",
+          "Общежитие",
+          "Ежемесячная стипендия",
+          "Медицинская страховка"
+        ],
+        "uz": [
+          "O‘qish to‘lovi",
+          "Yotoqxona",
+          "Oylik stipendiya",
+          "Tibbiy sug‘urta"
+        ],
+        "en": [
+          "Tuition",
+          "Dormitory",
+          "Monthly stipend",
+          "Health insurance"
+        ]
+      },
+      "req": {
+        "ru": [
+          "Возраст: до 25 лет (бакалавриат), до 35 (магистратура), до 40 (PhD)",
+          "Заявка на портале CSC через посольство Китая или выбранный вуз",
+          "Язык: HSK для программ на китайском, английский для англоязычных"
+        ],
+        "uz": [
+          "Yosh: 25 yoshgacha (bakalavriat), 35 (magistratura), 40 (PhD)",
+          "Ariza CSC portalida Xitoy elchixonasi yoki tanlangan oliygoh orqali",
+          "Til: xitoycha dasturlar uchun HSK, inglizcha dasturlar uchun ingliz tili"
+        ],
+        "en": [
+          "Age: under 25 (bachelor’s), under 35 (master’s), under 40 (PhD)",
+          "Apply on the CSC portal via the Chinese embassy or your chosen university",
+          "Language: HSK for Chinese-taught, English for English-taught programmes"
+        ]
+      },
+      "note": {
+        "ru": "Портал обычно открывается в январе. Сроки посольств и вузов — с января по апрель.",
+        "uz": "Portal odatda yanvarda ochiladi. Elchixona va oliygohlar muddatlari yanvardan aprelgacha.",
+        "en": "The portal usually opens in January. Embassy and university deadlines run from January to April."
+      }
+    },
+    {
+      "id": "emjm",
+      "cc": "EU",
+      "lv": [
+        "ma"
+      ],
+      "fund": "full",
+      "ielts": null,
+      "ieltsTxt": {
+        "ru": "часто 6.5",
+        "uz": "ko‘pincha 6.5",
+        "en": "often 6.5"
+      },
+      "cycles": [
+        {
+          "o": "2026-10-01",
+          "c": "2027-01-15",
+          "a": 1
+        }
+      ],
+      "link": "https://erasmus-plus.ec.europa.eu/opportunities/individuals/students/erasmus-mundus-joint-masters",
+      "country": {
+        "ru": "Европа",
+        "uz": "Yevropa",
+        "en": "Europe"
+      },
+      "name": "Erasmus Mundus",
+      "sum": {
+        "ru": "Совместные магистерские программы нескольких европейских вузов: учитесь в двух-трёх странах.",
+        "uz": "Bir nechta Yevropa oliygohlarining qo‘shma magistratura dasturlari: ikki-uch davlatda o‘qiysiz.",
+        "en": "Joint master’s programmes run by several European universities: you study in two or three countries."
+      },
+      "cov": {
+        "ru": [
+          "1 400 € в месяц до 24 месяцев",
+          "Оплата обучения",
+          "Помощь с перелётом и визой"
+        ],
+        "uz": [
+          "Oyiga 1 400 €, 24 oygacha",
+          "O‘qish to‘lovi",
+          "Aviachipta va viza uchun yordam"
+        ],
+        "en": [
+          "€1,400 a month for up to 24 months",
+          "Tuition",
+          "Help with travel and visa costs"
+        ]
+      },
+      "req": {
+        "ru": [
+          "Диплом бакалавра или последний курс",
+          "Подача напрямую в выбранную программу",
+          "У каждой программы свой дедлайн, обычно с октября по январь"
+        ],
+        "uz": [
+          "Bakalavr diplomi yoki bitiruv kursi",
+          "To‘g‘ridan-to‘g‘ri tanlangan dasturga topshirish",
+          "Har bir dasturning o‘z muddati bor, odatda oktyabrdan yanvargacha"
+        ],
+        "en": [
+          "Bachelor’s degree or final-year student",
+          "Apply directly to the programme you choose",
+          "Each programme has its own deadline, usually October to January"
+        ]
+      },
+      "note": {
+        "ru": "Сейчас открывается приём на программы с началом в сентябре 2027 года. Точные даты смотрите на странице каждой программы.",
+        "uz": "Hozir 2027-yil sentyabrida boshlanadigan dasturlarga qabul ochilmoqda. Aniq sanalarni har bir dastur sahifasidan ko‘ring.",
+        "en": "Applications are opening now for programmes starting in September 2027. Check each programme’s page for exact dates."
+      }
+    },
+    {
+      "id": "erasmus-ex",
+      "cc": "EU",
+      "lv": [
+        "ex"
+      ],
+      "fund": "partial",
+      "ielts": null,
+      "rolling": true,
+      "cycles": [],
+      "link": "https://erasmus-plus.ec.europa.eu/",
+      "country": {
+        "ru": "Европа",
+        "uz": "Yevropa",
+        "en": "Europe"
+      },
+      "name": {
+        "ru": "Erasmus+ обмен",
+        "uz": "Erasmus+ almashinuv",
+        "en": "Erasmus+ exchange"
+      },
+      "sum": {
+        "ru": "Семестр или год в европейском вузе по обмену, если у вашего вуза есть договор по Erasmus+.",
+        "uz": "Oliygohingizning Erasmus+ shartnomasi bo‘lsa, Yevropa oliygohida bir semestr yoki bir yil almashinuv asosida o‘qish.",
+        "en": "A semester or a year at a European university, if your university has an Erasmus+ agreement."
+      },
+      "cov": {
+        "ru": [
+          "Обучение в принимающем вузе бесплатно",
+          "Ежемесячная стипендия на время обмена",
+          "Помощь с дорогой"
+        ],
+        "uz": [
+          "Qabul qiluvchi oliygohda bepul ta’lim",
+          "Almashinuv davrida oylik stipendiya",
+          "Yo‘l xarajatlari uchun yordam"
+        ],
+        "en": [
+          "No tuition at the host university",
+          "Monthly grant during the exchange",
+          "Travel support"
+        ]
+      },
+      "req": {
+        "ru": [
+          "Учёба в вузе Узбекистана, у которого есть партнёр по Erasmus+",
+          "Отбор проводит международный отдел вашего вуза",
+          "Язык — по требованию принимающего вуза"
+        ],
+        "uz": [
+          "Erasmus+ bo‘yicha hamkori bor O‘zbekiston oliygohida o‘qish",
+          "Saralashni oliygohingizning xalqaro bo‘limi o‘tkazadi",
+          "Til — qabul qiluvchi oliygoh talabiga ko‘ra"
+        ],
+        "en": [
+          "Study at a university in Uzbekistan that has an Erasmus+ partner",
+          "Your university’s international office runs the selection",
+          "Language as required by the host university"
+        ]
+      },
+      "note": {
+        "ru": "Общего дедлайна нет. Спросите в международном отделе своего вуза, какие обмены сейчас открыты.",
+        "uz": "Umumiy muddat yo‘q. Oliygohingiz xalqaro bo‘limidan hozir qaysi almashinuvlar ochiqligini so‘rang.",
+        "en": "There is no single deadline. Ask your university’s international office which exchanges are open now."
+      }
+    },
+    {
+      "id": "sisgp",
+      "cc": "SE",
+      "lv": [
+        "ma"
+      ],
+      "fund": "full",
+      "ielts": 6.5,
+      "cycles": [
+        {
+          "o": "2026-10-15",
+          "c": "2027-01-15",
+          "a": 1
+        }
+      ],
+      "link": "https://si.se/en/apply/scholarships/swedish-institute-scholarships-for-global-professionals/",
+      "country": {
+        "ru": "Швеция",
+        "uz": "Shvetsiya",
+        "en": "Sweden"
+      },
+      "name": "Swedish Institute (SISGP)",
+      "sum": {
+        "ru": "Стипендия Шведского института на магистратуру. Узбекистан добавлен в список стран с 2026 года.",
+        "uz": "Shvetsiya institutining magistratura stipendiyasi. O‘zbekiston 2026-yildan davlatlar ro‘yxatiga qo‘shilgan.",
+        "en": "Swedish Institute scholarship for a master’s. Uzbekistan joined the list of eligible countries in 2026."
+      },
+      "cov": {
+        "ru": [
+          "Оплата обучения",
+          "Ежемесячная стипендия на жизнь",
+          "Помощь с перелётом",
+          "Страховка"
+        ],
+        "uz": [
+          "O‘qish to‘lovi",
+          "Oylik yashash stipendiyasi",
+          "Aviachipta uchun yordam",
+          "Sug‘urta"
+        ],
+        "en": [
+          "Tuition",
+          "Monthly living allowance",
+          "Travel grant",
+          "Insurance"
+        ]
+      },
+      "req": {
+        "ru": [
+          "Опыт работы и лидерства (по правилам SI — от 3 000 часов)",
+          "Сначала заявка в магистратуру Швеции, обычно до середины января",
+          "Затем заявка на стипендию SI в феврале"
+        ],
+        "uz": [
+          "Ish va yetakchilik tajribasi (SI qoidalariga ko‘ra 3 000 soatdan)",
+          "Avval Shvetsiya magistraturasiga ariza, odatda yanvar o‘rtasigacha",
+          "So‘ng fevralda SI stipendiyasiga ariza"
+        ],
+        "en": [
+          "Work and leadership experience (SI asks for 3,000+ hours)",
+          "First apply to a Swedish master’s, usually by mid-January",
+          "Then apply for the SI scholarship in February"
+        ]
+      },
+      "note": {
+        "ru": "В прошлом цикле граждане Узбекистана подавали до 15 января 2026 года.",
+        "uz": "O‘tgan siklda O‘zbekiston fuqarolari 2026-yil 15-yanvargacha topshirgan.",
+        "en": "In the last cycle, applicants from Uzbekistan had until 15 January 2026."
+      }
+    },
+    {
+      "id": "epos",
+      "cc": "DE",
+      "lv": [
+        "ma",
+        "phd"
+      ],
+      "fund": "stipend",
+      "ielts": null,
+      "cycles": [
+        {
+          "o": "2026-07-01",
+          "c": "2026-10-15",
+          "a": 1
+        },
+        {
+          "o": "2027-07-01",
+          "c": "2027-10-15",
+          "a": 1
+        }
+      ],
+      "link": "https://www.daad.de/en/",
+      "country": {
+        "ru": "Германия",
+        "uz": "Germaniya",
+        "en": "Germany"
+      },
+      "name": "DAAD EPOS",
+      "sum": {
+        "ru": "Стипендии DAAD на магистратуру и PhD по программам, связанным с развитием, для специалистов с опытом работы.",
+        "uz": "DAAD stipendiyalari: rivojlanishga oid magistratura va PhD dasturlari, ish tajribasiga ega mutaxassislar uchun.",
+        "en": "DAAD scholarships for development-related master’s and PhD programmes, for professionals with work experience."
+      },
+      "cov": {
+        "ru": [
+          "992 € в месяц (магистратура), 1 400 € (PhD)",
+          "Медицинская страховка",
+          "Помощь с дорогой"
+        ],
+        "uz": [
+          "Oyiga 992 € (magistratura), 1 400 € (PhD)",
+          "Tibbiy sug‘urta",
+          "Yo‘l xarajatlari uchun yordam"
+        ],
+        "en": [
+          "€992 a month (master’s), €1,400 (PhD)",
+          "Health insurance",
+          "Travel allowance"
+        ]
+      },
+      "req": {
+        "ru": [
+          "От 2 лет опыта работы после бакалавриата",
+          "Диплом получен не более 6 лет назад",
+          "Оценки в верхней трети выпуска",
+          "У каждой программы свой дедлайн"
+        ],
+        "uz": [
+          "Bakalavriatdan keyin kamida 2 yil ish tajribasi",
+          "Diplom olinganiga 6 yildan oshmagan",
+          "Baholar bitiruvchilarning yuqori uchdan birida",
+          "Har bir dasturning o‘z muddati bor"
+        ],
+        "en": [
+          "2+ years of work experience after your bachelor’s",
+          "Degree no more than 6 years old",
+          "Grades in the top third of your class",
+          "Each programme has its own deadline"
+        ]
+      },
+      "note": {
+        "ru": "Дедлайны обычно с августа по октябрь, за год до начала учёбы. На 2027/28 год большинство уже прошли.",
+        "uz": "Muddatlar odatda avgustdan oktyabrgacha, o‘qish boshlanishidan bir yil oldin. 2027/28 o‘quv yili uchun ko‘pchiligi o‘tib ketgan.",
+        "en": "Deadlines usually run from August to October, a year before the start. Most for 2027/28 have passed."
+      }
+    },
+    {
+      "id": "osce",
+      "cc": "KG",
+      "lv": [
+        "ma"
+      ],
+      "fund": "full",
+      "ielts": 6.5,
+      "cycles": [
+        {
+          "o": "2026-10-01",
+          "c": "2027-01-31",
+          "ao": 1
+        }
+      ],
+      "link": "https://osce-academy.net/admission-2/",
+      "country": {
+        "ru": "Кыргызстан, Бишкек",
+        "uz": "Qirg‘iziston, Bishkek",
+        "en": "Kyrgyzstan, Bishkek"
+      },
+      "name": "OSCE Academy",
+      "sum": {
+        "ru": "Магистратура на английском в Бишкеке: политика и безопасность, экономика и развитие, права человека.",
+        "uz": "Bishkekda ingliz tilidagi magistratura: siyosat va xavfsizlik, iqtisodiyot va rivojlanish, inson huquqlari.",
+        "en": "English-taught master’s in Bishkek: politics and security, economic governance, human rights."
+      },
+      "cov": {
+        "ru": [
+          "Бесплатное обучение",
+          "450 € в месяц",
+          "Перелёт до Бишкека и обратно",
+          "Медицинская страховка"
+        ],
+        "uz": [
+          "Bepul ta’lim",
+          "Oyiga 450 €",
+          "Bishkekka borish-qaytish yo‘l haqi",
+          "Tibbiy sug‘urta"
+        ],
+        "en": [
+          "Free tuition",
+          "€450 a month",
+          "Return travel to Bishkek",
+          "Health insurance"
+        ]
+      },
+      "req": {
+        "ru": [
+          "Гражданство страны ОБСЕ (Узбекистан подходит)",
+          "Диплом по профилю программы, выпускники 2027 года тоже могут подать",
+          "IELTS 6.5 или TOEFL iBT 90",
+          "Письменный экзамен и собеседование"
+        ],
+        "uz": [
+          "YXHT davlati fuqaroligi (O‘zbekiston mos keladi)",
+          "Dastur yo‘nalishidagi diplom, 2027-yil bitiruvchilari ham topshira oladi",
+          "IELTS 6.5 yoki TOEFL iBT 90",
+          "Yozma imtihon va suhbat"
+        ],
+        "en": [
+          "Citizen of an OSCE participating State (Uzbekistan qualifies)",
+          "Degree in a relevant field; 2027 graduates can apply",
+          "IELTS 6.5 or TOEFL iBT 90",
+          "Written exam and interview"
+        ]
+      },
+      "note": {
+        "ru": "Дедлайн на 2027 год: 31 января 2027, 23:00 по времени Бишкека.",
+        "uz": "2027-yil uchun muddat: 2027-yil 31-yanvar, Bishkek vaqti bilan 23:00.",
+        "en": "Deadline for 2027: 31 January 2027, 11 p.m. Bishkek time."
+      }
+    },
+    {
+      "id": "russia",
+      "cc": "RU",
+      "lv": [
+        "ba",
+        "ma",
+        "phd"
+      ],
+      "fund": "tuition",
+      "ielts": 0,
+      "cycles": [
+        {
+          "o": "2026-10-15",
+          "c": "2027-01-15",
+          "a": 1
+        }
+      ],
+      "link": "https://education-in-russia.com/",
+      "country": {
+        "ru": "Россия",
+        "uz": "Rossiya",
+        "en": "Russia"
+      },
+      "name": {
+        "ru": "Квота Правительства России",
+        "uz": "Rossiya hukumati kvotasi",
+        "en": "Russian Government Quota"
+      },
+      "sum": {
+        "ru": "Бесплатные места в российских вузах для граждан Узбекистана. Можно начать с подготовительного факультета.",
+        "uz": "O‘zbekiston fuqarolari uchun Rossiya oliygohlarida bepul o‘rinlar. Tayyorlov fakultetidan boshlash mumkin.",
+        "en": "Free places at Russian universities for citizens of Uzbekistan, with an optional preparatory year."
+      },
+      "cov": {
+        "ru": [
+          "Бесплатное обучение",
+          "Стипендия и общежитие — по правилам вуза",
+          "Подготовительный год русского языка при необходимости"
+        ],
+        "uz": [
+          "Bepul ta’lim",
+          "Stipendiya va yotoqxona — oliygoh qoidalariga ko‘ra",
+          "Kerak bo‘lsa, bir yillik rus tili tayyorlov kursi"
+        ],
+        "en": [
+          "Free tuition",
+          "Stipend and dormitory under university rules",
+          "Preparatory Russian year if needed"
+        ]
+      },
+      "req": {
+        "ru": [
+          "Заявка на портале education-in-russia.com",
+          "Выбор нескольких вузов и направлений",
+          "Отбор проводит Русский дом в Ташкенте",
+          "IELTS не нужен, обучение на русском"
+        ],
+        "uz": [
+          "education-in-russia.com portalida ariza",
+          "Bir nechta oliygoh va yo‘nalishni tanlash",
+          "Saralashni Toshkentdagi Rus uyi o‘tkazadi",
+          "IELTS shart emas, ta’lim rus tilida"
+        ],
+        "en": [
+          "Apply on education-in-russia.com",
+          "Choose several universities and fields",
+          "Selection is run by the Russian House in Tashkent",
+          "No IELTS needed; teaching is in Russian"
+        ]
+      },
+      "note": {
+        "ru": "Приём обычно открывается осенью и идёт до середины зимы. Следите за объявлениями Русского дома в Ташкенте.",
+        "uz": "Qabul odatda kuzda ochilib, qish o‘rtasigacha davom etadi. Toshkentdagi Rus uyi e’lonlarini kuzatib boring.",
+        "en": "Applications usually open in autumn and run until mid-winter. Watch for announcements from the Russian House in Tashkent."
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+# Netlify публикует папку site/ после каждого изменения в ветке main.
+# Перед публикацией данные проверяются: если grants.json сломан, деплой остановится
+# и на сайте останется предыдущая рабочая версия.
+[build]
+  publish = "site"
+  command = "node scripts/check.js --sync"
+
+# grants.json всегда свежий: браузер перепроверяет его при каждом открытии сайта
+[[headers]]
+  for = "/grants.json"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
