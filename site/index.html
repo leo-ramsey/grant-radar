@@ -1321,9 +1321,10 @@ html.intro-on { overflow: hidden; }
       var yaw = baseYaw + userYaw + (REDUCE ? 0 : Math.sin(time * 0.00011) * 0.32);
       var cY = Math.cos(yaw), sY = Math.sin(yaw), cP = Math.cos(pitch), sP = Math.sin(pitch);
       ctx.clearRect(0, 0, W, W);
-      var g = ctx.createRadialGradient(cx, cyy, R * 0.92, cx, cyy, R * 1.32);
-      g.addColorStop(0, "rgba(110,130,255,0.30)"); g.addColorStop(1, "rgba(110,130,255,0)");
-      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cyy, R * 1.32, 0, Math.PI * 2); ctx.fill();
+      // halo stays inside the canvas (R * 1.24 < W / 2), otherwise the canvas edge cuts it into straight lines
+      var g = ctx.createRadialGradient(cx, cyy, R * 0.94, cx, cyy, R * 1.24);
+      g.addColorStop(0, "rgba(110,130,255,0.30)"); g.addColorStop(0.45, "rgba(110,130,255,0.11)"); g.addColorStop(1, "rgba(110,130,255,0)");
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cyy, R * 1.24, 0, Math.PI * 2); ctx.fill();
       var g2 = ctx.createRadialGradient(cx - R * 0.38, cyy - R * 0.45, R * 0.05, cx, cyy, R);
       g2.addColorStop(0, "#26357A"); g2.addColorStop(0.55, "#121B47"); g2.addColorStop(1, "#080E2A");
       ctx.fillStyle = g2; ctx.beginPath(); ctx.arc(cx, cyy, R, 0, Math.PI * 2); ctx.fill();
