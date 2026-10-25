@@ -210,7 +210,29 @@ a { color: var(--accent); }
 .btn-main:hover { transform: translateY(-1px); box-shadow: 0 14px 34px rgba(255, 197, 107, .35); }
 .btn-ghost { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; padding: 15px 22px; border-radius: 14px; background: rgba(255, 255, 255, .05); border: 1px solid rgba(255, 255, 255, .16); color: var(--night-ink); font-size: 16px; font-weight: 600; }
 .btn-ghost:hover { background: rgba(255, 255, 255, .1); }
-.hstats { display: flex; flex-wrap: wrap; gap: 0; margin-top: 48px; }
+.hstats { display: flex; flex-wrap: wrap; gap: 0; margin-top: 40px; }
+@property --ai-a { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+.ai-note {
+  display: flex; align-items: center; gap: 14px; max-width: 590px; margin-top: 28px; padding: 12px 18px 12px 12px; border-radius: 18px;
+  border: 1px solid transparent;
+  background: linear-gradient(rgba(11, 16, 38, .82), rgba(11, 16, 38, .82)) padding-box,
+              conic-gradient(from var(--ai-a), rgba(138, 155, 255, .9), rgba(91, 224, 160, .8), rgba(255, 197, 107, .8), rgba(138, 155, 255, .9)) border-box;
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 12px 40px rgba(60, 80, 220, .18);
+  animation: aispin 6s linear infinite;
+}
+@keyframes aispin { to { --ai-a: 360deg; } }
+.ai-badge {
+  position: relative; flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 13px;
+  background: linear-gradient(135deg, #4F63FF 0%, #8A5CFF 60%, #C774FF 100%); box-shadow: 0 6px 18px rgba(110, 90, 255, .45), inset 0 1px 0 rgba(255, 255, 255, .3);
+  font-family: var(--f-display); font-weight: 700; font-size: 15px; color: #fff; letter-spacing: .02em;
+}
+.ai-badge svg { position: absolute; top: -6px; right: -6px; width: 18px; height: 18px; color: #FFE2A8; filter: drop-shadow(0 0 6px rgba(255, 197, 107, .7)); animation: aitwinkle 2.4s ease-in-out infinite; }
+@keyframes aitwinkle { 50% { transform: scale(.7) rotate(20deg); opacity: .7; } }
+.ai-txt { display: grid; gap: 2px; min-width: 0; }
+.ai-txt b { font-weight: 700; font-size: 15px; line-height: 1.3; color: var(--night-ink); }
+.ai-txt span { font-size: 13.5px; line-height: 1.4; color: var(--night-muted); }
+@media (prefers-reduced-motion: reduce) { .ai-note, .ai-badge svg { animation: none; } }
 .hstat { padding: 0 28px; border-left: 1px solid rgba(255, 255, 255, .14); }
 .hstat:first-child { padding-left: 0; border-left: 0; }
 .hstat b { display: block; font-family: var(--f-display); font-size: 30px; font-weight: 500; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
@@ -434,16 +456,17 @@ footer .wrap { padding-block: 24px 36px; color: var(--muted); font-size: 14px; d
 .fl.flip { animation: flp .08s linear; }
 @keyframes flp { 50% { transform: rotateX(70deg); filter: brightness(.6); } }
 .fsep { width: 6px; height: 6px; margin: 0 2px; margin: 0 min(5px, 1cqi); align-self: flex-end; margin-bottom: 8px; border-radius: 50%; background: var(--night-muted); opacity: .55; }
-.sync-cycle { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-top: 15px; font-size: 13.5px; color: var(--night-muted); }
-.segs { display: flex; gap: 3px; flex: none; }
-.segs i { width: 13px; height: 7px; border-radius: 2px; background: rgba(255, 255, 255, .1); }
-.segs i.on { background: var(--mint); box-shadow: 0 0 8px rgba(91, 224, 160, .45); }
-.segs i.on.last { animation: segblink 1.6s ease-in-out infinite; }
-@keyframes segblink { 50% { opacity: .35; } }
-.sync.stale .segs i.on { background: var(--amber); box-shadow: 0 0 8px rgba(255, 197, 107, .45); }
-.sync-meta { margin-top: 9px; padding-top: 10px; border-top: 1px dashed rgba(255, 255, 255, .1); font-family: var(--f-mono); font-size: 12px; color: rgba(169, 179, 204, .8); }
+/* countdown to the next weekly check: bar shrinks, red (7 days left) -> yellow -> green (check is close) */
+.cd { --cd: #5BE0A0; margin-top: 16px; }
+.cd-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.cd-lbl { font-family: var(--f-mono); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--night-muted); }
+.cd-time { font-family: var(--f-mono); font-size: 15px; font-weight: 700; color: var(--cd); font-variant-numeric: tabular-nums; letter-spacing: .02em; text-shadow: 0 0 12px color-mix(in srgb, var(--cd) 45%, transparent); white-space: nowrap; }
+.cd-bar { position: relative; height: 7px; margin-top: 9px; border-radius: 4px; background: rgba(255, 255, 255, .08); overflow: hidden; }
+.cd-bar i { position: absolute; left: 0; top: 0; bottom: 0; width: var(--f, 100%); border-radius: 4px; background: var(--cd); box-shadow: 0 0 12px color-mix(in srgb, var(--cd) 60%, transparent); transition: width 1s linear, background .6s ease; }
+.cd-bar::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0 calc(100% / 7 - 2px), rgba(10, 14, 32, .95) calc(100% / 7 - 2px) calc(100% / 7)); pointer-events: none; }
+.sync-meta { margin-top: 13px; padding-top: 10px; border-top: 1px dashed rgba(255, 255, 255, .1); font-family: var(--f-mono); font-size: 12px; color: rgba(169, 179, 204, .8); }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-@media (prefers-reduced-motion: reduce) { .sync-dot::after, .segs i.on.last { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .sync-dot::after { animation: none; } .cd-bar i { transition: none; } }
 @media (max-width: 560px) { .sync { padding: 15px 15px 14px 19px; } .sync-top { font-size: 10.5px; letter-spacing: .07em; gap: 8px; } .sync-meta { font-size: 11px; } }
 .scan-status { margin-top: 14px; font-family: var(--f-mono); font-size: 13px; letter-spacing: .03em; color: var(--amber); min-height: 1.5em; }
 .up-row { transition: opacity .5s ease, filter .5s ease, background .2s ease; }
@@ -673,6 +696,10 @@ html.intro-on { overflow: hidden; }
         <div class="ctas">
           <button type="button" class="btn-main" data-go="grants"><span data-i18n="ctaFind"></span><span aria-hidden="true">→</span></button>
           <button type="button" class="btn-ghost" data-scroll="how" data-i18n="ctaHow"></button>
+        </div>
+        <div class="ai-note">
+          <span class="ai-badge" aria-hidden="true">AI<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5l2.2 7.3 7.3 2.2-7.3 2.2L12 20.5l-2.2-7.3L2.5 11l7.3-2.2z"/></svg></span>
+          <span class="ai-txt"><b data-i18n="aiTitle"></b><span data-i18n="aiText"></span></span>
         </div>
         <div class="hstats" id="hstats"></div>
       </div>
@@ -919,6 +946,8 @@ html.intro-on { overflow: hidden; }
       introScan: "Сканирую университеты…", introFound: "Цель найдена", introSkip: "Пропустить",
       navHome: "Главная", navGrants: "Гранты",
       heroTag: "Ваш радар будущего",
+      aiTitle: "Данные о грантах обновляет искусственный интеллект",
+      aiText: "Каждую неделю ИИ сверяет сроки и условия с официальными сайтами программ, а каждую правку проверяет человек.",
       howLead: "Остальное — дело вашей смелости.",
       quoteText: "«Образование — самое мощное оружие, которым можно изменить мир»",
       quoteBy: "Нельсон Мандела",
@@ -948,6 +977,7 @@ html.intro-on { overflow: hidden; }
       todayC: "сегодня", upTitle: "Ближайшие дедлайны",
       syncLbl: "Данные обновлены",
       syncAgo: function (n) { return n <= 0 ? "сегодня" : n === 1 ? "вчера" : n + " " + pl(n, ["день", "дня", "дней"]) + " назад"; },
+      cdLbl: "До следующей проверки", cdFmt: function (d, hms) { return d + " д " + hms; },
       syncNext: function (n) { return n <= 0 ? "Идёт плановая проверка" : "Следующая проверка через " + n + " " + pl(n, ["день", "дня", "дней"]); },
       syncMeta: function (n) { return n + " " + pl(n, ["программа", "программы", "программ"]) + " на радаре · источник: официальные сайты"; },
       radarOn: "Включить радар",
@@ -990,6 +1020,8 @@ html.intro-on { overflow: hidden; }
       introScan: "Universitetlar skanerlanmoqda…", introFound: "Nishon topildi", introSkip: "O‘tkazib yuborish",
       navHome: "Bosh sahifa", navGrants: "Grantlar",
       heroTag: "Kelajagingiz radari",
+      aiTitle: "Grantlar haqidagi ma’lumotlarni sun’iy intellekt yangilaydi",
+      aiText: "Har hafta sun’iy intellekt muddatlar va shartlarni dasturlarning rasmiy saytlari bilan solishtiradi, har bir o‘zgarishni esa inson tekshiradi.",
       howLead: "Qolgani — sizning jasoratingizga bog‘liq.",
       quoteText: "«Ta’lim — dunyoni o‘zgartirish mumkin bo‘lgan eng kuchli quroldir»",
       quoteBy: "Nelson Mandela",
@@ -1019,6 +1051,7 @@ html.intro-on { overflow: hidden; }
       todayC: "bugun", upTitle: "Yaqin muddatlar",
       syncLbl: "Ma’lumotlar yangilandi",
       syncAgo: function (n) { return n <= 0 ? "bugun" : n === 1 ? "kecha" : n + " kun oldin"; },
+      cdLbl: "Keyingi tekshiruvgacha", cdFmt: function (d, hms) { return d + " kun " + hms; },
       syncNext: function (n) { return n <= 0 ? "Rejali tekshiruv davom etmoqda" : "Keyingi tekshiruv " + n + " kundan keyin"; },
       syncMeta: function (n) { return "Radarda " + n + " ta dastur · manba: rasmiy saytlar"; },
       radarOn: "Radarni yoqish",
@@ -1061,6 +1094,8 @@ html.intro-on { overflow: hidden; }
       introScan: "Scanning universities…", introFound: "Target found", introSkip: "Skip",
       navHome: "Home", navGrants: "Scholarships",
       heroTag: "Your radar for the future",
+      aiTitle: "Scholarship data kept up to date by AI",
+      aiText: "Every week, AI checks deadlines and conditions against the programmes’ official sites, and a human reviews every change.",
       howLead: "The rest is up to your courage.",
       quoteText: "“Education is the most powerful weapon which you can use to change the world”",
       quoteBy: "Nelson Mandela",
@@ -1090,6 +1125,7 @@ html.intro-on { overflow: hidden; }
       todayC: "today", upTitle: "Upcoming deadlines",
       syncLbl: "Data updated",
       syncAgo: function (n) { return n <= 0 ? "today" : n === 1 ? "yesterday" : n + " days ago"; },
+      cdLbl: "Until the next check", cdFmt: function (d, hms) { return d + "d " + hms; },
       syncNext: function (n) { return n <= 0 ? "Scheduled check in progress" : "Next check in " + n + (n === 1 ? " day" : " days"); },
       syncMeta: function (n) { return n + (n === 1 ? " programme" : " programmes") + " on the radar · source: official sites"; },
       radarOn: "Turn on radar",
@@ -1461,15 +1497,37 @@ html.intro-on { overflow: hidden; }
     if (!el) return;
     var L = t(), d = P(CHECKED), age = Math.max(0, Math.round((today - d) / MS)), left = Math.max(0, 7 - age);
     var ds = String(d.getDate()).padStart(2, "0") + "." + String(d.getMonth() + 1).padStart(2, "0") + "." + d.getFullYear();
-    var segs = "";
-    for (var i = 0; i < 7; i++) segs += "<i" + (i < left ? ' class="on' + (i === left - 1 ? " last" : "") + '"' : "") + "></i>";
     el.className = "sync" + (age > 10 ? " stale" : "");
     el.innerHTML = '<div class="sync-top"><span class="sync-dot"></span><span>' + L.syncLbl + '</span><span class="sync-ago">' + L.syncAgo(age) + "</span></div>" +
       '<div class="flap" aria-hidden="true">' + ds.split("").map(function (ch) { return ch === "." ? '<span class="fsep"></span>' : '<span class="fl" data-v="' + ch + '">' + ch + "</span>"; }).join("") + "</div>" +
       '<span class="sr">' + ds + "</span>" +
-      '<div class="sync-cycle"><span class="segs" aria-hidden="true">' + segs + "</span><span>" + L.syncNext(left) + "</span></div>" +
+      '<div class="cd"><div class="cd-head"><span class="cd-lbl">' + L.cdLbl + '</span><span class="cd-time" id="cdTime"></span></div><div class="cd-bar" aria-hidden="true"><i id="cdFill"></i></div></div>' +
       '<div class="sync-meta">' + L.syncMeta(G.length) + "</div>";
+    tickCd();
   }
+  /* next run of the weekly check: Monday 08:51 Tashkent = Monday 03:51 UTC */
+  var WEEK = 7 * MS;
+  function nextCheck(now) {
+    var d = new Date(now), t = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), 3, 51);
+    t += ((1 - new Date(t).getUTCDay() + 7) % 7) * MS;
+    if (t <= now) t += WEEK;
+    return t;
+  }
+  function cdColor(f) {
+    var h = f >= .5 ? 48 * (1 - f) / .5 : 48 + 97 * (.5 - f) / .5;
+    return "hsl(" + Math.round(h) + " 88% 60%)";
+  }
+  function tickCd() {
+    var el = document.getElementById("cdTime"), fill = document.getElementById("cdFill");
+    if (!el || !fill) return;
+    var now = Date.now(), left = nextCheck(now) - now, f = Math.max(0, Math.min(1, left / WEEK));
+    var dd = Math.floor(left / MS), r = left % MS, p = function (n) { return String(n).padStart(2, "0"); };
+    var hms = p(Math.floor(r / 3600000)) + ":" + p(Math.floor(r % 3600000 / 60000)) + ":" + p(Math.floor(r % 60000 / 1000));
+    el.textContent = t().cdFmt(dd, hms);
+    var box = el.closest(".cd"); box.style.setProperty("--cd", cdColor(f));
+    fill.style.setProperty("--f", (f * 100).toFixed(3) + "%");
+  }
+  setInterval(tickCd, 1000);
   function flapAnim() {
     if (REDUCE) return;
     document.querySelectorAll("#sync .fl").forEach(function (f, i) {
