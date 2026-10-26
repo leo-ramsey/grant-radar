@@ -1,5 +1,5 @@
 {
-  "checked": "2026-10-23",
+  "checked": "2026-10-26",
   "grants": [
     {
       "id": "eyuf",
@@ -109,6 +109,11 @@
         {
           "o": "2026-08-04",
           "c": "2026-10-06"
+        },
+        {
+          "o": "2027-08-04",
+          "c": "2027-10-06",
+          "a": 1
         }
       ],
       "link": "https://www.chevening.org/scholarships/",
@@ -337,9 +342,8 @@
       "ielts": 0,
       "cycles": [
         {
-          "o": "2026-09-01",
-          "c": "2026-10-15",
-          "a": 1,
+          "o": "2026-09-15",
+          "c": "2026-09-30",
           "l": "ba"
         },
         {
@@ -422,8 +426,9 @@
       "cycles": [
         {
           "o": "2027-04-01",
-          "c": "2027-05-20",
-          "a": 1
+          "c": "2027-05-31",
+          "ao": 1,
+          "ac": 1
         }
       ],
       "link": "https://www.studyinjapan.go.jp/en/smap-stopj-applications-research.html",
@@ -698,7 +703,7 @@
       "ielts": 6.5,
       "cycles": [
         {
-          "o": "2026-10-15",
+          "o": "2026-10-16",
           "c": "2027-01-15",
           "a": 1
         }
@@ -779,7 +784,7 @@
           "a": 1
         }
       ],
-      "link": "https://www.daad.de/en/",
+      "link": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50076777",
       "country": {
         "ru": "Германия",
         "uz": "Germaniya",
@@ -1180,7 +1185,7 @@
           "ao": 1
         }
       ],
-      "link": "https://www.campusfrance.org/en/the-france-excellence-eiffel-scholarship-program",
+      "link": "https://www.campusfrance.org/en/france-excellence-eiffel-scholarship-program",
       "country": {
         "ru": "Франция",
         "uz": "Fransiya",
@@ -1259,7 +1264,7 @@
           "a": 1
         }
       ],
-      "link": "https://hea.ie/policy/international-education/goi-ies/",
+      "link": "https://hea.ie/policy/internationalisation/goi-ies/",
       "country": {
         "ru": "Ирландия",
         "uz": "Irlandiya",
@@ -1371,19 +1376,19 @@
       },
       "req": {
         "ru": [
-          "Возраст от 18 до 35 лет (для PhD — до 40)",
+          "Возраст от 18 до 40 лет (для PhD — до 50)",
           "Английский: эссе на 500 слов; сертификат IELTS/TOEFL — по желанию",
           "Загранпаспорт со сроком действия от 2 лет",
           "Только одна заявка в год"
         ],
         "uz": [
-          "Yosh: 18 dan 35 gacha (PhD uchun 40 gacha)",
+          "Yosh: 18 dan 40 gacha (PhD uchun 50 gacha)",
           "Ingliz tili: 500 so‘zli insho; IELTS/TOEFL sertifikati — ixtiyoriy",
           "Kamida 2 yil amal qiladigan xorijiy pasport",
           "Yiliga faqat bitta ariza"
         ],
         "en": [
-          "Age 18 to 35 (up to 40 for PhD)",
+          "Age 18 to 40 (up to 50 for PhD)",
           "English: a 500-word essay; IELTS/TOEFL optional",
           "Passport valid for at least 2 years",
           "Only one application per year"
@@ -1543,12 +1548,12 @@
       "ielts": null,
       "cycles": [
         {
-          "o": "2026-10-01",
+          "o": "2026-11-01",
           "c": "2027-02-01",
           "a": 1
         }
       ],
-      "link": "https://www.nuffic.nl/en/node/1000",
+      "link": "https://www.studyinnl.org/finances/nl-scholarship",
       "country": {
         "ru": "Нидерланды",
         "uz": "Niderlandiya",
