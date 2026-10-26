@@ -374,6 +374,9 @@ footer .wrap { padding-block: 24px 36px; color: var(--muted); font-size: 15px; d
 .cat-head .wrap { padding-block: 36px 8px; }
 .crumb { border: 0; background: none; padding: 0; cursor: pointer; color: var(--muted); font-size: 14px; font-weight: 600; display: inline-flex; gap: 6px; align-items: center; }
 .crumb:hover { color: var(--accent); }
+.jump { display: none; }
+@media (max-width: 560px) { .jump { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding: 9px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font-size: 15px; font-weight: 600; cursor: pointer; } }
+.list { scroll-margin-top: calc(var(--hh) + env(safe-area-inset-top, 0px)); }
 .cat-head h1 { font-family: var(--f-body); font-weight: 800; font-size: clamp(34px, 4.8vw, 58px); line-height: 1.02; letter-spacing: -.04em; margin-top: 14px; text-wrap: balance; }
 
 /* ---------- Polar radar (always dark screen) ---------- */
@@ -484,7 +487,18 @@ footer .wrap { padding-block: 24px 36px; color: var(--muted); font-size: 15px; d
 }
 .pb:hover .tip, .pb:focus-visible .tip { opacity: 1; }
 .screen-info h2 { font-family: var(--f-body); font-weight: 800; font-size: 28px; letter-spacing: -.03em; }
-.screen-info > p { color: var(--night-muted); font-size: 15px; margin-top: 8px; max-width: 46ch; }
+.screen-info > p, .how > p { color: var(--night-muted); font-size: 15px; margin-top: 8px; max-width: 46ch; }
+.how summary { display: none; }
+.rescan { display: inline-flex; align-items: center; gap: 7px; margin-top: 4px; padding: 4px 0; border: 0; background: none; cursor: pointer; color: var(--signal); font-size: 14px; font-weight: 600; }
+.rescan[hidden] { display: none; }
+.rescan:hover { color: var(--night-ink); }
+@media (max-width: 560px) {
+  .how summary { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; cursor: pointer; list-style: none; color: var(--signal); font-size: 14px; font-weight: 600; }
+  .how summary::-webkit-details-marker { display: none; }
+  .how summary::after { content: "▾"; font-size: 12px; transition: transform .2s ease; }
+  .how[open] summary::after { transform: rotate(180deg); }
+  .up .up-row:nth-child(n+5) { display: none; }
+}
 .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 14px; font-size: 13.5px; color: var(--night-muted); }
 .legend span { display: inline-flex; align-items: center; gap: 7px; }
 .legend i { width: 10px; height: 10px; border-radius: 50%; border: 2px solid currentColor; }
@@ -522,6 +536,19 @@ footer .wrap { padding-block: 24px 36px; color: var(--muted); font-size: 15px; d
 .search input::placeholder { color: var(--muted); }
 .search svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
 .reset { border: 0; background: transparent; color: var(--accent); cursor: pointer; font-size: 14px; font-weight: 600; padding: 7px 4px; }
+.ftoggle { display: none; }
+.fbtn .star { fill: none; stroke: currentColor; }
+.fbtn[aria-pressed="true"] .star { fill: currentColor; }
+@media (max-width: 560px) {
+  .filters { gap: 8px; }
+  .filters .search { order: -2; flex: 1 1 0; max-width: none; }
+  .ftoggle { order: -1; display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; padding: 8px 14px; border-radius: 999px; font-size: 14px; font-weight: 600; white-space: nowrap; }
+  .ftoggle b { font-size: 12px; font-weight: 700; min-width: 20px; padding: 1px 6px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); text-align: center; font-variant-numeric: tabular-nums; }
+  .ftoggle[aria-expanded="true"] { background: var(--ink); border-color: var(--ink); color: var(--surface); }
+  .filters:not(.open) .seg, .filters:not(.open) .sep { display: none; }
+  .filters.open .sep { display: none; }
+  .filters.open .seg { width: 100%; }
+}
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 22px; }
 /* regions: tabs + grouped sections */
 .regions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
@@ -542,7 +569,7 @@ footer .wrap { padding-block: 24px 36px; color: var(--muted); font-size: 15px; d
 .rg-sec + .rg-sec { margin-top: 40px; }
 .rg-h { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
 .rg-h h3 { font-family: var(--f-body); font-weight: 800; font-size: 22px; letter-spacing: -.03em; }
-.rg-h .n { font-family: var(--f-mono); font-size: 12px; font-weight: 700; color: var(--muted); padding: 3px 9px; border: 1px solid var(--line); border-radius: 999px; }
+.rg-h .n { font-family: var(--f-mono); font-size: 12px; font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; padding: 3px 9px; border: 1px solid var(--line); border-radius: 999px; }
 .rg-flags { display: flex; margin-left: auto; padding-left: 8px; }
 .rg-flags .flag { width: 26px; height: 26px; border-radius: 50%; margin-left: -8px; outline: 2px solid var(--bg); object-fit: cover; }
 .rg-flags svg.flag { width: 26px; height: 26px; }
@@ -584,8 +611,8 @@ footer .wrap { padding-block: 24px 36px; color: var(--muted); font-size: 15px; d
 .t-name { font-size: 20px; font-weight: 700; line-height: 1.25; letter-spacing: -.01em; text-wrap: balance; }
 .t-sum { color: var(--muted); font-size: 15px; }
 .facts { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 10px; }
-.facts dt { font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
-.facts dd { font-size: 14px; font-weight: 600; margin-top: 2px; }
+.facts dt { font-size: 13px; color: var(--muted); }
+.facts dd { font-size: 15px; font-weight: 600; margin-top: 2px; font-variant-numeric: tabular-nums; }
 .status { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
 .pill { font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
 .pill.open { background: var(--open-soft); color: var(--open); }
@@ -766,6 +793,7 @@ html.intro-on { overflow: hidden; }
       <button type="button" class="crumb" data-go="home"><span aria-hidden="true">←</span><span data-i18n="navHome"></span></button>
       <h1 data-i18n-html="catTitle"></h1>
       <p class="sec-lead" data-i18n="catLead"></p>
+      <button type="button" class="jump" data-scroll="list"><span data-i18n="jumpList"></span> <span aria-hidden="true">↓</span></button>
     </div>
   </section>
 
@@ -776,20 +804,21 @@ html.intro-on { overflow: hidden; }
         <div class="screen-info">
           <div class="sync" id="sync"></div>
           <h2 data-i18n="radarTitle"></h2>
-          <p data-i18n="radarHow"></p>
+          <details class="how" id="radarHow" open><summary data-i18n="howRead"></summary><p data-i18n="radarHow"></p></details>
           <div class="legend">
             <span class="lg-open"><i></i><em data-i18n="legOpen"></em></span>
             <span class="lg-soon"><i></i><em data-i18n="legSoon"></em></span>
             <span class="lg-later"><i></i><em data-i18n="legLater"></em></span>
           </div>
           <p class="scan-status" id="scanStatus" aria-live="polite"></p>
+          <button type="button" class="rescan" id="rescan" data-rescan="1" hidden><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v5h-5"/></svg><span data-i18n="rescan"></span></button>
           <div class="up" id="upcoming"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="list" aria-labelledby="list-title">
+  <section class="list" id="list" aria-labelledby="list-title">
     <div class="wrap">
       <div class="list-head"><h2 id="list-title" data-i18n="listTitle"></h2><span class="count" id="count"></span></div>
       <div class="regions" id="regions"></div>
@@ -978,7 +1007,7 @@ html.intro-on { overflow: hidden; }
       scanDone: function (n) { return "Найдено стипендий: " + n; },
       inDays: function (n) { return n === 0 ? "сегодня" : "через " + n + " " + pl(n, ["день", "дня", "дней"]); },
       ccLabel: "Страна",
-      listTitle: "Все гранты",
+      listTitle: "Все гранты", rescan: "Сканировать снова", howRead: "Как читать радар", jumpList: "К списку грантов", filtersBtn: "Фильтры",
       rg: { all: "Все", eu: "Европа", asia: "Азия", am: "Америка", cis: "СНГ", world: "Весь мир" },
       lvAll: "Все уровни", lv: { ba: "Бакалавриат", ma: "Магистратура", phd: "PhD", ex: "Обмен" },
       stAll: "Любой статус", stOpen: "Идёт приём", stSoon: "Скоро",
@@ -1052,7 +1081,7 @@ html.intro-on { overflow: hidden; }
       scanDone: function (n) { return "Topilgan stipendiyalar: " + n; },
       inDays: function (n) { return n === 0 ? "bugun" : n + " kundan keyin"; },
       ccLabel: "Davlat",
-      listTitle: "Barcha grantlar",
+      listTitle: "Barcha grantlar", rescan: "Qayta skanerlash", howRead: "Radarni qanday o‘qish kerak", jumpList: "Grantlar ro‘yxatiga", filtersBtn: "Filtrlar",
       rg: { all: "Barchasi", eu: "Yevropa", asia: "Osiyo", am: "Amerika", cis: "MDH", world: "Butun dunyo" },
       lvAll: "Barcha bosqichlar", lv: { ba: "Bakalavriat", ma: "Magistratura", phd: "PhD", ex: "Almashinuv" },
       stAll: "Har qanday holat", stOpen: "Qabul ochiq", stSoon: "Tez orada",
@@ -1126,7 +1155,7 @@ html.intro-on { overflow: hidden; }
       scanDone: function (n) { return "Scholarships found: " + n; },
       inDays: function (n) { return n === 0 ? "today" : "in " + n + (n === 1 ? " day" : " days"); },
       ccLabel: "Country",
-      listTitle: "All scholarships",
+      listTitle: "All scholarships", rescan: "Scan again", howRead: "How to read the radar", jumpList: "Jump to the list", filtersBtn: "Filters",
       rg: { all: "All", eu: "Europe", asia: "Asia", am: "Americas", cis: "CIS", world: "Worldwide" },
       lvAll: "All levels", lv: { ba: "Bachelor's", ma: "Master's", phd: "PhD", ex: "Exchange" },
       stAll: "Any status", stOpen: "Open now", stSoon: "Soon",
@@ -1471,6 +1500,7 @@ html.intro-on { overflow: hidden; }
     var el = document.getElementById("scanStatus"), L = t();
     if (!el) return;
     el.textContent = !radar.on ? L.scanOff : (radar.scanned ? L.scanDone(radar.total) : L.scanning(radar.found.size));
+    var rb = document.getElementById("rescan"); if (rb) rb.hidden = REDUCE || !radar.on || !radar.scanned;
   }
   function radarLoop(ts) {
     if (!radar.running) return;
@@ -1507,6 +1537,38 @@ html.intro-on { overflow: hidden; }
     radarStart();
   }
   function radarStop() { radar.running = false; cancelAnimationFrame(radar.raf); }
+  /* a fresh search on demand: the blips hide and the sweep finds them again */
+  function radarRescan() {
+    if (REDUCE || !radar.on) return;
+    radar.scanned = false; radar.found = new Set(); radar.angle = 0;
+    radar.blips.forEach(function (b) { b.el.classList.remove("found", "hit"); b.el.classList.add("off"); });
+    document.querySelectorAll(".up-row").forEach(function (r) { r.classList.add("off"); });
+    scanStatus(); radarStart();
+  }
+  /* the radar turns itself on once it is on screen (after the intro), so the catalogue never opens on an empty dial */
+  var autoIO = null;
+  function armAutoRadar() {
+    if (radar.on || REDUCE) return;
+    function go() {
+      if (radar.on || view !== "grants") return;
+      var de = document.documentElement;
+      if (de.classList.contains("intro-on") || de.classList.contains("intro-pre")) { setTimeout(go, 300); return; }
+      radarTurnOn();
+    }
+    if (!("IntersectionObserver" in window)) { setTimeout(go, 350); return; }
+    if (autoIO) autoIO.disconnect();
+    autoIO = new IntersectionObserver(function (en) {
+      if (!en[0].isIntersecting || view !== "grants") return;
+      autoIO.disconnect(); autoIO = null; setTimeout(go, 350);
+    }, { threshold: .45 });
+    autoIO.observe(document.getElementById("pscope"));
+  }
+  /* on a phone the radar legend folds into "How to read the radar"; on wider screens it stays open */
+  (function () {
+    var mq = window.matchMedia ? matchMedia("(max-width: 560px)") : null;
+    function sync() { var d = document.getElementById("radarHow"); if (d) d.open = !(mq && mq.matches); }
+    sync(); if (mq) { if (mq.addEventListener) mq.addEventListener("change", sync); else if (mq.addListener) mq.addListener(sync); }
+  })();
   /* data freshness: weekly check, 7 cells drain day by day until the next check */
   function renderSync() {
     var el = document.getElementById("sync");
@@ -1573,6 +1635,9 @@ html.intro-on { overflow: hidden; }
   }
 
   /* ---------- Filters ---------- */
+  var fOpen = false;
+  var FSTAR = '<svg class="star" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path stroke-width="2" stroke-linejoin="round" d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg>';
+  function nFilters() { return (F.lv !== "all") + (F.st !== "all") + (F.full ? 1 : 0) + (F.noielts ? 1 : 0) + (F.fav ? 1 : 0) + (F.cc ? 1 : 0); }
   function fbtn(group, value, label, pressed) { return '<button type="button" class="fbtn" data-f="' + group + '" data-v="' + value + '" aria-pressed="' + pressed + '">' + label + "</button>"; }
   function anyFilter() { return F.rg !== "all" || F.lv !== "all" || F.st !== "all" || F.full || F.noielts || F.fav || F.q !== "" || F.cc !== ""; }
   function countryName(cc) { var g = G.filter(function (x) { return x.cc === cc; })[0]; return g ? tx(g.country) : cc; }
@@ -1590,11 +1655,13 @@ html.intro-on { overflow: hidden; }
     h += '</div><span class="sep" aria-hidden="true"></span><div class="seg">' +
       fbtn("st", "all", L.stAll, F.st === "all") + fbtn("st", "open", L.stOpen, F.st === "open") + fbtn("st", "soon", L.stSoon, F.st === "soon") +
       '</div><span class="sep" aria-hidden="true"></span><div class="seg">' +
-      fbtn("full", "1", L.full, F.full) + fbtn("noielts", "1", L.noielts, F.noielts) + fbtn("fav", "1", "★ " + L.fav, F.fav) + "</div>" +
+      fbtn("full", "1", L.full, F.full) + fbtn("noielts", "1", L.noielts, F.noielts) + fbtn("fav", "1", FSTAR + L.fav, F.fav) + "</div>" +
       '<label class="search"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="11" y1="11" x2="14.5" y2="14.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>' +
       '<input id="q" type="search" autocomplete="off" placeholder="' + L.search + '" aria-label="' + L.search + '"></label>' +
-      (anyFilter() ? '<button type="button" class="reset" data-reset="1">' + L.reset + "</button>" : "");
+      (anyFilter() ? '<button type="button" class="reset" data-reset="1">' + L.reset + "</button>" : "") +
+      '<button type="button" class="ftoggle" data-ftoggle="1" aria-controls="filters" aria-expanded="' + fOpen + '">' + L.filtersBtn + (nFilters() ? "<b>" + nFilters() + "</b>" : "") + "</button>";
     var box = document.getElementById("filters");
+    box.classList.toggle("open", fOpen);
     var hadFocus = document.activeElement && document.activeElement.id === "q";
     box.innerHTML = h;
     var q = document.getElementById("q"); q.value = F.q;
@@ -1692,7 +1759,7 @@ html.intro-on { overflow: hidden; }
     document.getElementById("view-grants").hidden = v !== "grants";
     document.querySelectorAll(".nav [data-go]").forEach(function (b) { if (b.getAttribute("data-go") === v) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); });
     if (!(opts && opts.keepScroll)) window.scrollTo(0, 0);
-    if (v === "home") { globe.start(); radarStop(); } else { globe.stop(); radarStart(); }
+    if (v === "home") { globe.start(); radarStop(); } else { globe.stop(); radarStart(); armAutoRadar(); }
     headerMode();
   }
   window.addEventListener("scroll", headerMode, { passive: true });
@@ -1777,9 +1844,11 @@ html.intro-on { overflow: hidden; }
   /* ---------- Render + events ---------- */
   function renderAll() { applyText(); renderStats(); renderGcards(); renderTiles(); renderPolar(); renderSync(); renderUpcoming(); renderFilters(); renderGrid(); globe.redraw(); }
   document.addEventListener("click", function (e) {
-    var el = e.target.closest("[data-radar-on],[data-lang],[data-go],[data-scroll],[data-country],[data-clearcc],[data-f],[data-reset],[data-fav],[data-open],[data-close]");
+    var el = e.target.closest("[data-radar-on],[data-rescan],[data-ftoggle],[data-lang],[data-go],[data-scroll],[data-country],[data-clearcc],[data-f],[data-reset],[data-fav],[data-open],[data-close]");
     if (!el) return;
     if (el.hasAttribute("data-radar-on")) { radarTurnOn(); return; }
+    if (el.hasAttribute("data-rescan")) { radarRescan(); return; }
+    if (el.hasAttribute("data-ftoggle")) { fOpen = !fOpen; var fb = document.getElementById("filters"); fb.classList.toggle("open", fOpen); el.setAttribute("aria-expanded", String(fOpen)); return; }
     if (el.hasAttribute("data-lang")) { lang = el.getAttribute("data-lang"); store("gr-lang", lang); renderAll(); return; }
     if (el.hasAttribute("data-go")) { show(el.getAttribute("data-go")); return; }
     if (el.hasAttribute("data-scroll")) { var tg = document.getElementById(el.getAttribute("data-scroll")); if (tg) tg.scrollIntoView({ behavior: REDUCE ? "auto" : "smooth" }); return; }
