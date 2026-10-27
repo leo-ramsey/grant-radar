@@ -1,0 +1,11 @@
+fonts/
+frames/
+cap/
+pv/
+models/
+audio/*.wav
+audio/*.mp3
+audio/*.m4a
+*.mp4
+*.png
+lp*.npy

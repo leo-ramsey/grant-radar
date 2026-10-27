@@ -1,0 +1,317 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face { font-family: "Unb"; src: url("fonts/Unbounded[wght].ttf"); font-weight: 200 900; }
+@font-face { font-family: "Onest"; src: url("fonts/Onest[wght].ttf"); font-weight: 100 900; }
+@font-face { font-family: "JBM"; src: url("fonts/JetBrainsMono[wght].ttf"); font-weight: 100 800; }
+@font-face { font-family: "CG"; src: url("fonts/CormorantGaramond-Italic[wght].ttf"); font-weight: 300 700; font-style: italic; }
+html, body { margin: 0; background: #000; }
+#stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #070B18; font-family: Onest, sans-serif; color: #F3F5FF; }
+#cam { position: absolute; inset: 0; }
+.scene { position: absolute; inset: 0; display: none; overflow: hidden; }
+.abs { position: absolute; }
+.slam { position: absolute; left: 0; right: 0; text-align: center; font-family: Unb; font-weight: 800; letter-spacing: -.03em; line-height: .95; white-space: nowrap; }
+.mono { font-family: JBM; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.chip { display: inline-flex; align-items: center; gap: 14px; padding: 16px 28px; border-radius: 999px; font-size: 34px; font-weight: 600; background: rgba(255,255,255,.07); border: 2px solid rgba(255,255,255,.14); }
+.grain { position: absolute; inset: -50px; pointer-events: none; opacity: .07; mix-blend-mode: overlay; z-index: 50; }
+/* phone mockup */
+#phoneWrap { position: absolute; left: 0; right: 0; top: 0; bottom: 0; perspective: 2400px; pointer-events: none; }
+#phone { position: absolute; left: 50%; top: 600px; width: 664px; height: 1386px; margin-left: -332px; border-radius: 76px; background: linear-gradient(160deg, #1B2246, #05070F 40%, #0B1030); padding: 22px; box-sizing: border-box;
+  box-shadow: 0 50px 140px rgba(0,0,0,.65), inset 0 0 0 2px #333B68, 0 0 120px rgba(120,140,255,.22); transform-style: preserve-3d; }
+#phone .scr { position: relative; width: 620px; height: 1342px; border-radius: 56px; overflow: hidden; background: #070B18; }
+#phone .scr img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+#phone .island { position: absolute; left: 50%; top: 18px; width: 190px; height: 52px; margin-left: -95px; border-radius: 30px; background: #000; z-index: 3; }
+#tap { position: absolute; width: 140px; height: 140px; margin: -70px 0 0 -70px; border-radius: 50%; border: 6px solid #FFE2A8; z-index: 4; opacity: 0; }
+#flash { position: absolute; inset: 0; background: #fff; opacity: 0; z-index: 60; pointer-events: none; }
+.over { position: absolute; left: 70px; right: 70px; z-index: 5; }
+.over .l1 { font-family: Unb; font-weight: 800; font-size: 92px; line-height: 1.02; letter-spacing: -.035em; }
+.over .l2 { font-family: Unb; font-weight: 800; font-size: 92px; line-height: 1.02; letter-spacing: -.035em; color: #FFC56B; }
+.over .l3 { margin-top: 26px; }
+.tabchip { position: absolute; display: flex; align-items: center; gap: 16px; padding: 22px 30px; border-radius: 22px; background: #151B33; border: 2px solid #2A3360; font-size: 36px; font-weight: 600; color: #C9D0EA; white-space: nowrap; box-shadow: 0 18px 50px rgba(0,0,0,.5); }
+.tabchip i { width: 26px; height: 26px; border-radius: 8px; flex: none; }
+.tabchip b { margin-left: 18px; color: #6B7395; font-weight: 500; }
+.fl svg { display: block; }
+</style></head>
+<body>
+<div id="stage"><div id="cam"></div><canvas class="grain" id="grain" width="590" height="1010"></canvas><div id="flash"></div></div>
+<script src="../src/flags.js"></script>
+<script>
+var LANG = new URLSearchParams(location.search).get("lang") || "ru";
+var TX = {
+  ru: { mon: "ОКТ · 2026", h1: "ИЩЕШЬ", h2: "ГРАНТ?", c1: "20 вкладок.", c2: "20 сайтов.", c3: "0 ясности.", m0: "А потом:", m1: "ДЕДЛАЙН", m2: "ПРОШЁЛ", stop: "ХВАТИТ.",
+        sub: "все гранты для студентов Узбекистана — в одном месте", n21: "программа", n19: "стран", forUz: "для студентов Узбекистана",
+        r1: "Включи радар —", r2: "он найдёт гранты", r3: "и покажет ближайшие дедлайны", more: "и ещё 11", namesT: "ПРОГРАММЫ",
+        b1: "Сроки проверяются", b2: "каждую неделю", b3: "официальные сайты · проверка специалистом",
+        f1: "Бесплатно.", f2: "фильтры: уровень, IELTS, регион", cta1: "Найди", cta2: "свой грант", save: "Сохрани, чтобы не потерять",
+        tabs: ["грант для узбеков 2027", "stipendiya deadline???", "Telegram: Grantlar", "fulbright uzbekistan", "Erasmus как подать", "MEXT 2027 сроки", "Chevening IELTS", "GKS документы", "грант бесплатно учёба", "Türkiye Bursları"] },
+  uz: { mon: "OKT · 2026", h1: "GRANT", h2: "IZLAYAPSIZMI?", c1: "20 ta sayt.", c2: "20 ta kanal.", c3: "0 aniqlik.", m0: "Keyin esa:", m1: "MUDDAT", m2: "O‘TIB KETDI", stop: "YETAR.",
+        sub: "O‘zbekiston talabalari uchun barcha grantlar — bir joyda", n21: "ta dastur", n19: "ta davlat", forUz: "O‘zbekiston talabalari uchun",
+        r1: "Radarni yoqing —", r2: "u grantlarni topadi", r3: "va yaqin muddatlarni ko‘rsatadi", more: "va yana 11 ta", namesT: "DASTURLAR",
+        b1: "Muddatlar har hafta", b2: "tekshiriladi", b3: "rasmiy saytlar · mutaxassis nazorati",
+        f1: "Bepul.", f2: "filtrlar: daraja, IELTS, mintaqa", cta1: "Grantingizni", cta2: "toping", save: "Saqlab qo‘ying, yo‘qotmang",
+        tabs: ["grant 2027 o‘zbeklar uchun", "stipendiya muddati???", "Telegram: Grantlar", "fulbright uzbekistan", "Erasmus qanday topshirish", "MEXT 2027 muddat", "Chevening IELTS", "GKS hujjatlar", "bepul o‘qish grant", "Türkiye Bursları"] }
+}[LANG];
+var CAP = "cap/" + LANG + "/";
+var FPS = 30, DUR = 36;
+
+/* ---------- helpers ---------- */
+function cl(x) { return x < 0 ? 0 : x > 1 ? 1 : x; }
+function pr(t, a, b) { return cl((t - a) / (b - a)); }
+function eo(x) { return 1 - Math.pow(1 - x, 3); }            // ease out cubic
+function eox(x) { return x >= 1 ? 1 : 1 - Math.pow(2, -10 * x); } // ease out expo
+function eio(x) { return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
+function back(x) { var c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); }
+function el(tag, cls, html, parent, css) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; if (css) e.style.cssText = css; (parent || cam).appendChild(e); return e; }
+function rnd(i) { var x = Math.sin(i * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); }
+// word that slams in: scale 1.6 -> 1, blur -> 0
+function slam(e, t, t0, d) { d = d || .22; var p = pr(t, t0, t0 + d); e.style.opacity = p > 0 ? 1 : 0; e.style.filter = "blur(" + ((1 - p) * 14).toFixed(1) + "px)"; return 1 + (1 - eox(p)) * .6; }
+function textW(e) { var r = document.createRange(); r.selectNodeContents(e); return r.getBoundingClientRect().width; }
+function fit(e, maxW, start) { if (!e.dataset.fs0) { e.dataset.fs0 = start; e.dataset.mw = maxW; } var fs = +e.dataset.fs0; maxW = +e.dataset.mw; e.style.fontSize = fs + "px"; if (!e.offsetParent) return fs; while (textW(e) > maxW && fs > 30) { fs -= 4; e.style.fontSize = fs + "px"; } return fs; }
+
+var cam = document.getElementById("cam"), flashEl = document.getElementById("flash");
+var shakeAt = [];   // times of impacts
+var flashAt = [];   // [time, strength]
+
+/* ---------- grain (static noise texture, moved every frame) ---------- */
+(function () { var c = document.getElementById("grain"), x = c.getContext("2d"), d = x.createImageData(c.width, c.height); for (var i = 0; i < d.data.length; i += 4) { var v = Math.random() * 255; d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 255; } x.putImageData(d, 0, 0); c.style.width = "1180px"; c.style.height = "2020px"; })();
+
+/* ---------- radar mark (same as the site logo) ---------- */
+function mark(size, id) {
+  return '<svg width="' + size + '" height="' + size + '" viewBox="0 0 32 32"><defs><linearGradient id="' + id + '" gradientUnits="userSpaceOnUse" x1="7.4" y1="4" x2="26.6" y2="5.4"><stop offset="0" stop-color="#8A9BFF" stop-opacity="0"/><stop offset="1" stop-color="#8A9BFF" stop-opacity=".9"/></linearGradient></defs>' +
+    '<circle cx="16" cy="16" r="16" fill="#1A2350"/><circle cx="16" cy="16" r="11" fill="none" stroke="#3A4790" stroke-width="1"/><circle cx="16" cy="16" r="5.5" fill="none" stroke="#3A4790" stroke-width="1"/>' +
+    '<g class="sw" style="transform-origin:16px 16px"><path d="M16 16 L7.4 3.7 A15 15 0 0 1 26.6 5.4 Z" fill="url(#' + id + ')"/><line x1="16" y1="16" x2="26.6" y2="5.4" stroke="#8A9BFF" stroke-width="1.7" stroke-linecap="round"/></g>' +
+    '<circle cx="21" cy="7.6" r="3.8" fill="#8A9BFF" fill-opacity=".38"/><circle cx="21" cy="7.6" r="1.9" fill="#F3F5FF"/><circle cx="16" cy="16" r="1.5" fill="#F3F5FF"/></svg>';
+}
+
+/* ================= SCENES ================= */
+var S = [];
+function scene(a, b, bg, build, render) { var root = el("div", "scene", null, cam, "background:" + bg); var ctx = build(root) || {}; S.push({ a: a, b: b, root: root, ctx: ctx, render: render }); }
+
+// S1 hook 0 - 2.4
+scene(0, 2.4, "#070B18", function (r) {
+  var red = el("div", "abs", null, r, "inset:0;background:#FF3B4E");
+  var ring = el("div", "abs", null, r, "left:50%;top:50%;width:760px;height:760px;margin:-380px 0 0 -380px;border-radius:50%;border:10px solid rgba(138,155,255,.35)");
+  var w1 = el("div", "slam", TX.h1, r, "top:700px;color:#F3F5FF"); fit(w1, 960, 190);
+  var w2 = el("div", "slam", TX.h2, r, "top:900px;color:#FFC56B"); fit(w2, 960, 190);
+  shakeAt.push(.12, .58); flashAt.push([0, .5]);
+  return { red: red, ring: ring, w1: w1, w2: w2 };
+}, function (c, t) {
+  c.red.style.opacity = 1 - pr(t, .05, .3);
+  var s1 = slam(c.w1, t, .1); c.w1.style.transform = "scale(" + s1 + ")";
+  var s2 = slam(c.w2, t, .56); c.w2.style.transform = "scale(" + s2 + ") rotate(" + (-2 * (1 - pr(t, .56, .9))) + "deg)";
+  var rp = eo(pr(t, .5, 1.4)); c.ring.style.opacity = rp * (1 - pr(t, 1.8, 2.4)); c.ring.style.transform = "scale(" + (.6 + .5 * rp + .05 * Math.sin(t * 6)) + ")";
+});
+
+// S2 chaos of tabs 2.4 - 5.0
+scene(2.4, 5.0, "#070B18", function (r) {
+  var cols = ["#FF6B6B", "#8A9BFF", "#5BE0A0", "#FFC56B", "#C774FF"];
+  var tabs = TX.tabs.map(function (s, i) {
+    return el("div", "tabchip", '<i style="background:' + cols[i % 5] + '"></i>' + s + "<b>✕</b>", r);
+  });
+  var dim = el("div", "abs", null, r, "inset:0;background:rgba(7,11,24,.0)");
+  var l1 = el("div", "slam", TX.c1, r, "top:560px;font-size:120px"); fit(l1, 960, 120);
+  var l2 = el("div", "slam", TX.c2, r, "top:720px;font-size:120px"); fit(l2, 960, 120);
+  var l3 = el("div", "slam", TX.c3, r, "top:900px;font-size:150px;color:#FF4D5E"); fit(l3, 960, 150);
+  shakeAt.push(2.5, 3.15, 3.85);
+  return { tabs: tabs, dim: dim, l: [l1, l2, l3] };
+}, function (c, t) {
+  var lt = t - 2.4;
+  c.tabs.forEach(function (e, i) {
+    var t0 = i * .17, p = eo(pr(lt, t0, t0 + .35));
+    var x = 60 + rnd(i) * 520, y = 180 + rnd(i + 9) * 1450, rot = (rnd(i + 3) - .5) * 24;
+    e.style.opacity = p; e.style.left = x + "px"; e.style.top = (y + (1 - p) * 120) + "px";
+    e.style.transform = "rotate(" + rot + "deg) scale(" + (.8 + .2 * p) + ")";
+  });
+  c.dim.style.background = "rgba(7,11,24," + (.55 * pr(lt, .05, .3)).toFixed(3) + ")";
+  [.1, .75, 1.45].forEach(function (t0, k) { var s = slam(c.l[k], lt, t0); c.l[k].style.transform = "scale(" + s + ")"; });
+});
+
+// S3 missed deadline 5.0 - 7.0
+scene(5.0, 7.0, "#F3F5FF", function (r) {
+  var cap = el("div", "abs mono", TX.m0, r, "left:0;right:0;top:470px;text-align:center;font-size:44px;color:#5B6478");
+  var card = el("div", "abs", '<div style="background:#FF3B4E;color:#fff;font-family:JBM;font-weight:700;font-size:40px;letter-spacing:.2em;padding:22px 0;text-align:center">' + TX.mon + '</div><div style="font-family:Unb;font-weight:800;font-size:330px;line-height:1;text-align:center;color:#10172A;padding:40px 0 60px">06</div>', r,
+    "left:50%;top:620px;width:560px;margin-left:-280px;border-radius:40px;overflow:hidden;background:#fff;box-shadow:0 40px 100px rgba(16,23,42,.18)");
+  var stamp = el("div", "abs", '<div style="font-family:Unb;font-weight:800;font-size:96px;line-height:1.02;letter-spacing:-.02em">' + TX.m1 + "<br>" + TX.m2 + "</div>", r,
+    "left:50%;top:880px;width:900px;margin-left:-450px;text-align:center;color:#FF3B4E;border:12px solid #FF3B4E;border-radius:36px;padding:28px 10px;background:rgba(255,255,255,.82)");
+  fit(stamp.firstChild, 840, 96);
+  shakeAt.push(5.62);
+  return { cap: cap, card: card, stamp: stamp };
+}, function (c, t) {
+  var lt = t - 5.0;
+  c.cap.style.opacity = pr(lt, 0, .2);
+  var p = eo(pr(lt, .05, .45)); c.card.style.opacity = p; c.card.style.transform = "translateY(" + ((1 - p) * 80) + "px) rotate(" + (-4 * p) + "deg)";
+  var sp = pr(lt, .5, .66); c.stamp.style.opacity = sp > 0 ? 1 : 0; c.stamp.style.transform = "scale(" + (1 + (1 - eox(sp)) * 1.4) + ") rotate(" + (-9 + 3 * Math.sin(lt * 2)) + "deg)";
+});
+
+// S4 stop + logo 7.0 - 9.2
+scene(7.0, 9.2, "#070B18", function (r) {
+  var stop = el("div", "slam", TX.stop, r, "top:820px;color:#F3F5FF"); fit(stop, 960, 230);
+  var wipe = el("div", "abs", null, r, "left:50%;top:50%;width:200px;height:200px;margin:-100px 0 0 -100px;border-radius:50%;background:radial-gradient(circle,#1E2A66 0%,#0D1436 60%,#070B18 100%)");
+  var logo = el("div", "abs", '<div class="m">' + mark(210, "lg1") + '</div><div style="font-family:Unb;font-weight:700;font-size:118px;letter-spacing:-.03em;margin-top:34px">Grant-<span style="color:#8A9BFF">radar</span></div>', r,
+    "left:0;right:0;top:640px;text-align:center");
+  var sub = el("div", "abs", TX.sub, r, "left:110px;right:110px;top:1130px;text-align:center;font-size:46px;font-weight:600;line-height:1.3;color:#A9B3CC");
+  shakeAt.push(7.06); flashAt.push([7.8, .8]);
+  return { stop: stop, wipe: wipe, logo: logo, sub: sub, sw: logo.querySelector(".sw") };
+}, function (c, t) {
+  var lt = t - 7.0;
+  var s = slam(c.stop, lt, .05); c.stop.style.transform = "scale(" + s + ")"; c.stop.style.opacity = lt < .78 ? c.stop.style.opacity : 0;
+  var wp = eio(pr(lt, .72, 1.1)); c.wipe.style.transform = "scale(" + (wp * 14) + ")"; c.wipe.style.opacity = wp > 0 ? 1 : 0;
+  var lp = back(pr(lt, .85, 1.3)); c.logo.style.opacity = pr(lt, .85, 1.0); c.logo.style.transform = "scale(" + (.6 + .4 * lp) + ")";
+  c.sw.style.transform = "rotate(" + (lt * 260) + "deg)";
+  var sp = eo(pr(lt, 1.35, 1.7)); c.sub.style.opacity = sp; c.sub.style.transform = "translateY(" + ((1 - sp) * 40) + "px)";
+});
+
+// footage scenes share the phone
+var phoneScenes = [];
+function footScene(a, b, dir, f0, build, render, tap) {
+  scene(a, b, "radial-gradient(120% 70% at 50% 30%, #18224F 0%, #0A0F26 55%, #070B18 100%)", function (r) {
+    var glow = el("div", "abs", null, r, "left:50%;top:1100px;width:1300px;height:1300px;margin:-650px 0 0 -650px;border-radius:50%;background:radial-gradient(circle,rgba(110,130,255,.28),transparent 62%)");
+    var ctx = build(r) || {}; ctx.glow = glow; return ctx;
+  }, render);
+  phoneScenes.push({ a: a, b: b, dir: dir, f0: f0, tap: tap });
+}
+
+// S5 home footage 9.2 - 14.7
+footScene(9.2, 14.7, "home", 0, function (r) {
+  var o = el("div", "over", '<div class="l1"><span class="cnt">0</span> <span style="color:#A9B3CC;font-size:.62em">' + TX.n21 + '</span></div><div class="l2"><span class="cnt2">0</span> <span style="font-size:.62em;color:#FFC56B">' + TX.n19 + '</span></div><div class="l3"><span class="chip">🇺🇿 ' + TX.forUz + "</span></div>", r, "top:190px");
+  return { o: o, l1: o.querySelector(".l1"), l2: o.querySelector(".l2"), l3: o.querySelector(".l3"), c1: o.querySelector(".cnt"), c2: o.querySelector(".cnt2") };
+}, function (c, t) {
+  var lt = t - 9.2;
+  var p1 = eo(pr(lt, .55, .9)), p2 = eo(pr(lt, 1.2, 1.55)), p3 = eo(pr(lt, 1.9, 2.25));
+  c.l1.style.opacity = p1; c.l1.style.transform = "translateX(" + ((1 - p1) * -80) + "px)";
+  c.l2.style.opacity = p2; c.l2.style.transform = "translateX(" + ((1 - p2) * -80) + "px)";
+  c.l3.style.opacity = p3; c.l3.style.transform = "translateY(" + ((1 - p3) * 30) + "px)";
+  c.c1.textContent = Math.round(21 * eo(pr(lt, .55, 1.4))); c.c2.textContent = Math.round(19 * eo(pr(lt, 1.2, 2.0)));
+});
+
+// S6 radar footage 14.7 - 21.1
+footScene(14.7, 21.1, "radar", 0, function (r) {
+  var o = el("div", "over", '<div class="l1">' + TX.r1 + '</div><div class="l2">' + TX.r2 + '</div><div class="l3" style="font-size:40px;font-weight:600;color:#A9B3CC">' + TX.r3 + "</div>", r, "top:190px");
+  fit(o.querySelector(".l1"), 940, 92); fit(o.querySelector(".l2"), 940, 92);
+  return { l: o.children };
+}, function (c, t) {
+  var lt = t - 14.7;
+  [.15, .7, 1.5].forEach(function (t0, k) { var p = eo(pr(lt, t0, t0 + .35)); c.l[k].style.opacity = p; c.l[k].style.transform = "translateY(" + ((1 - p) * 40) + "px)"; });
+}, { at: 18 / 30, x: .5, y: .445 });
+
+// S7 programme names 21.1 - 24.6
+scene(21.1, 24.6, "#070B18", function (r) {
+  var NAMES = [["US", "Fulbright"], ["GB", "Chevening"], ["EU", "Erasmus Mundus"], ["JP", "MEXT"], ["KR", "GKS"], ["TR", "Türkiye Bursları"], ["HU", "Stipendium Hungaricum"], ["FR", "Eiffel"], ["CN", "CSC"], ["DE", "DAAD EPOS"]];
+  var title = el("div", "abs mono", TX.namesT, r, "left:0;right:0;top:560px;text-align:center;font-size:40px;color:#8A9BFF");
+  var items = NAMES.map(function (n) {
+    var w = el("div", "abs", '<div class="fl" style="width:200px;height:200px;margin:0 auto;border-radius:50%;overflow:hidden;box-shadow:0 0 0 8px #0D1436,0 0 60px rgba(138,155,255,.4)">' + flag(n[0], 200) + '</div><div class="nm" style="font-family:Unb;font-weight:800;letter-spacing:-.03em;margin-top:56px;white-space:nowrap">' + n[1] + "</div>", r, "left:0;right:0;top:700px;text-align:center");
+    w.querySelector("svg").setAttribute("height", "200"); fit(w.querySelector(".nm"), 960, 130);
+    return w;
+  });
+  var more = el("div", "slam", TX.more, r, "top:860px;color:#FFC56B"); fit(more, 960, 160);
+  var rings = el("div", "abs", null, r, "left:50%;top:800px;width:900px;height:900px;margin:-450px 0 0 -450px;border-radius:50%;border:2px solid rgba(138,155,255,.18);box-shadow:0 0 0 120px rgba(138,155,255,.04)");
+  shakeAt.push(24.05);
+  return { items: items, more: more, title: title, rings: rings };
+}, function (c, t) {
+  var lt = t - 21.1, per = .29;
+  c.title.style.opacity = pr(lt, 0, .2) * (1 - pr(lt, 2.85, 2.95));
+  c.items.forEach(function (e, i) {
+    var a = i * per, on = lt >= a && lt < a + per && lt < 2.9;
+    e.style.opacity = on ? 1 : 0;
+    var p = pr(lt, a, a + .12); e.style.transform = "scale(" + (1.12 - .12 * eo(p)) + ")";
+  });
+  var s = slam(c.more, lt, 2.95); c.more.style.transform = "scale(" + s + ")";
+  c.rings.style.transform = "scale(" + (1 + .04 * Math.sin(lt * 9)) + ") rotate(" + lt * 20 + "deg)";
+});
+
+// S8 board footage 24.6 - 28.4
+footScene(24.6, 28.4, "board", 0, function (r) {
+  var o = el("div", "over", '<div class="l1">' + TX.b1 + '</div><div class="l2">' + TX.b2 + '</div><div class="l3"><span class="chip" style="font-size:30px">✓ ' + TX.b3 + "</span></div>", r, "top:190px");
+  fit(o.querySelector(".l1"), 940, 92); fit(o.querySelector(".l2"), 940, 92);
+  return { l: o.children };
+}, function (c, t) {
+  var lt = t - 24.6;
+  [.1, .55, 1.1].forEach(function (t0, k) { var p = eo(pr(lt, t0, t0 + .35)); c.l[k].style.opacity = p; c.l[k].style.transform = "translateY(" + ((1 - p) * 40) + "px)"; });
+});
+
+// S9 catalogue footage 28.4 - 31.6
+footScene(28.4, 31.6, "list", 10, function (r) {
+  var o = el("div", "over", '<div class="l1" style="font-size:150px;color:#5BE0A0">' + TX.f1 + '</div><div class="l3" style="display:flex;gap:16px"><span class="chip">UZ</span><span class="chip">RU</span><span class="chip">EN</span></div><div class="l3" style="font-size:40px;font-weight:600;color:#A9B3CC">' + TX.f2 + "</div>", r, "top:190px");
+  fit(o.children[0], 940, 150);
+  return { l: o.children };
+}, function (c, t) {
+  var lt = t - 28.4;
+  var s = slam(c.l[0], lt, .08); c.l[0].style.transform = "scale(" + s + ")"; c.l[0].style.transformOrigin = "left center";
+  [.55, .95].forEach(function (t0, k) { var p = eo(pr(lt, t0, t0 + .35)); c.l[k + 1].style.opacity = p; c.l[k + 1].style.transform = "translateY(" + ((1 - p) * 30) + "px)"; });
+});
+
+// S10 CTA 31.6 - 36
+scene(31.6, 36, "radial-gradient(110% 70% at 50% 45%, #2A3A9A 0%, #121A4A 45%, #070B18 100%)", function (r) {
+  var rings = [0, 1, 2].map(function (i) { return el("div", "abs", null, r, "left:50%;top:960px;width:600px;height:600px;margin:-300px 0 0 -300px;border-radius:50%;border:3px solid rgba(160,175,255,.35)"); });
+  var logo = el("div", "abs", mark(120, "lg2") + '<div style="font-family:Unb;font-weight:700;font-size:56px;margin-top:16px">Grant-<span style="color:#8A9BFF">radar</span></div>', r, "left:0;right:0;top:250px;text-align:center");
+  var a1 = el("div", "slam", TX.cta1, r, "top:620px;color:#F3F5FF"); fit(a1, 960, 170);
+  var a2 = el("div", "slam", TX.cta2, r, "top:800px;color:#FFC56B"); fit(a2, 960, 170);
+  var url = el("div", "abs", '<span class="u"></span><span class="cur" style="display:inline-block;width:6px;height:64px;background:#FFC56B;vertical-align:-10px;margin-left:6px"></span>', r,
+    "left:50%;top:1080px;transform:translateX(-50%);padding:34px 54px;border-radius:999px;background:#F3F5FF;color:#0B1230;font-family:JBM;font-weight:800;font-size:58px;white-space:nowrap;box-shadow:0 20px 80px rgba(0,0,0,.45),0 0 0 10px rgba(255,255,255,.12)");
+  var save = el("div", "abs", "🔖 " + TX.save, r, "left:0;right:0;top:1290px;text-align:center;font-size:44px;font-weight:700;color:#DDE3FF");
+  var arrow = el("div", "abs", "↓", r, "left:0;right:0;top:1380px;text-align:center;font-size:90px;color:#FFC56B");
+  shakeAt.push(31.68, 32.05);
+  return { rings: rings, logo: logo, a1: a1, a2: a2, url: url, u: url.querySelector(".u"), cur: url.querySelector(".cur"), save: save, arrow: arrow, sw: logo.querySelector(".sw") };
+}, function (c, t) {
+  var lt = t - 31.6;
+  c.rings.forEach(function (e, i) { var ph = ((lt * .55 + i / 3) % 1); e.style.transform = "scale(" + (.5 + ph * 2.6) + ")"; e.style.opacity = (1 - ph) * .9; });
+  var lp = eo(pr(lt, 0, .4)); c.logo.style.opacity = lp; c.logo.style.transform = "translateY(" + ((1 - lp) * -30) + "px)"; c.sw.style.transform = "rotate(" + lt * 200 + "deg)";
+  var s1 = slam(c.a1, lt, .08); c.a1.style.transform = "scale(" + s1 + ")";
+  var s2 = slam(c.a2, lt, .45); c.a2.style.transform = "scale(" + s2 + ")";
+  var U = "radargrant.netlify.app", up = pr(lt, .95, 2.1), n = Math.round(U.length * up);
+  c.url.style.opacity = pr(lt, .8, .95); c.u.textContent = U.slice(0, n);
+  c.cur.style.opacity = (Math.floor(lt * 2.4) % 2 === 0 || up < 1) ? 1 : 0;
+  var sp = eo(pr(lt, 2.35, 2.7)); c.save.style.opacity = sp; c.save.style.transform = "translateY(" + ((1 - sp) * 30) + "px)";
+  c.arrow.style.opacity = pr(lt, 2.6, 2.8); c.arrow.style.transform = "translateY(" + (Math.sin(lt * 7) * 14) + "px)";
+});
+
+/* phone (one element, shown during footage scenes) */
+var phoneWrap = el("div", null, null, cam); phoneWrap.id = "phoneWrap";
+var phone = el("div", null, '<div class="scr"><img id="shot"><div id="tap"></div></div><div class="island"></div>', phoneWrap); phone.id = "phone";
+var shot = document.getElementById("shot"), tap = document.getElementById("tap");
+
+/* ---------- render one frame ---------- */
+var lastSrc = "";
+window.renderAt = async function (t) {
+  S.forEach(function (s) {
+    var on = t >= s.a && t < s.b;
+    s.root.style.display = on ? "block" : "none";
+    if (on) s.render(s.ctx, t);
+  });
+  // phone
+  var ps = phoneScenes.filter(function (p) { return t >= p.a && t < p.b; })[0];
+  if (ps) {
+    var lt = t - ps.a, fi = Math.min(ps.f0 + Math.floor(lt * FPS), 999);
+    var src = CAP + ps.dir + "/" + String(fi).padStart(4, "0") + ".jpg";
+    var max = { home: 164, radar: 199, board: 119, list: 134 }[ps.dir];
+    if (fi > max) src = CAP + ps.dir + "/" + String(max).padStart(4, "0") + ".jpg";
+    if (src !== lastSrc) { shot.src = src; lastSrc = src; try { await shot.decode(); } catch (e) {} }
+    var first = ps === phoneScenes[0];
+    var enter = first ? eo(pr(lt, 0, .5)) : eo(pr(lt, 0, .3));
+    var ry = -12 + 7 * pr(lt, 0, ps.b - ps.a), rx = 6;
+    var y = (1 - enter) * (first ? 900 : 120), sc = first ? 1 : (.92 + .08 * enter);
+    phoneWrap.style.display = "block";
+    phone.style.transform = "translateY(" + y + "px) rotateX(" + rx + "deg) rotateY(" + ry + "deg) scale(" + sc + ")";
+    phone.style.opacity = first ? 1 : enter;
+    if (ps.tap) { var tp = pr(lt, ps.tap.at, ps.tap.at + .45); tap.style.left = (ps.tap.x * 100) + "%"; tap.style.top = (ps.tap.y * 100) + "%"; tap.style.opacity = tp > 0 && tp < 1 ? (1 - tp) : 0; tap.style.transform = "scale(" + (.4 + tp * 1.4) + ")"; }
+    else tap.style.opacity = 0;
+  } else phoneWrap.style.display = "none";
+  // camera shake after impacts
+  var sx = 0, sy = 0;
+  shakeAt.forEach(function (a) { var d = t - a; if (d >= 0 && d < .3) { var k = (1 - d / .3) * 22; sx += Math.sin(d * 90) * k; sy += Math.cos(d * 70) * k * .7; } });
+  cam.style.transform = "translate(" + sx.toFixed(1) + "px," + sy.toFixed(1) + "px)";
+  // white flashes on cuts
+  var fo = 0; flashAt.forEach(function (f) { var d = t - f[0]; if (d >= 0 && d < .18) fo = Math.max(fo, f[1] * (1 - d / .18)); });
+  [9.2, 14.7, 21.1, 24.6, 28.4, 31.6].forEach(function (a) { var d = t - a; if (d >= 0 && d < .12) fo = Math.max(fo, .35 * (1 - d / .12)); });
+  flashEl.style.opacity = fo.toFixed(3);
+  // grain jitter
+  var g = document.getElementById("grain"); g.style.transform = "translate(" + Math.round(rnd(Math.floor(t * 30)) * -90) + "px," + Math.round(rnd(Math.floor(t * 30) + 7) * -90) + "px)";
+  return true;
+};
+window.READY = Promise.all(["800 100px Unb", "700 100px Unb", "600 40px Onest", "700 40px Onest", "700 40px JBM", "800 40px JBM", "italic 600 40px CG"].map(function (f) { return document.fonts.load(f, "AБwЁ‘"); })).then(function () { return document.fonts.ready; }).then(function () {
+  // re-fit after fonts load
+  S.forEach(function (sc) { sc.root.style.display = "block"; sc.root.querySelectorAll("[data-fs0]").forEach(function (e) { fit(e); }); sc.root.style.display = "none"; });
+  return true;
+});
+</script>
+</body></html>
