@@ -1,5 +1,5 @@
 {
-  "checked": "2026-10-23",
+  "checked": "2026-10-26",
   "grants": [
     {
       "id": "eyuf",
@@ -109,6 +109,11 @@
         {
           "o": "2026-08-04",
           "c": "2026-10-06"
+        },
+        {
+          "o": "2027-08-04",
+          "c": "2027-10-06",
+          "a": 1
         }
       ],
       "link": "https://www.chevening.org/scholarships/",
@@ -337,9 +342,8 @@
       "ielts": 0,
       "cycles": [
         {
-          "o": "2026-09-01",
-          "c": "2026-10-15",
-          "a": 1,
+          "o": "2026-09-15",
+          "c": "2026-09-30",
           "l": "ba"
         },
         {
@@ -347,6 +351,12 @@
           "c": "2027-03-15",
           "a": 1,
           "l": "grad"
+        },
+        {
+          "o": "2027-09-15",
+          "c": "2027-09-30",
+          "a": 1,
+          "l": "ba"
         }
       ],
       "link": "https://www.studyinkorea.go.kr/",
@@ -422,8 +432,9 @@
       "cycles": [
         {
           "o": "2027-04-01",
-          "c": "2027-05-20",
-          "a": 1
+          "c": "2027-05-31",
+          "ao": 1,
+          "ac": 1
         }
       ],
       "link": "https://www.studyinjapan.go.jp/en/smap-stopj-applications-research.html",
@@ -698,9 +709,8 @@
       "ielts": 6.5,
       "cycles": [
         {
-          "o": "2026-10-15",
-          "c": "2027-01-15",
-          "a": 1
+          "o": "2026-10-16",
+          "c": "2027-01-15"
         }
       ],
       "link": "https://si.se/en/apply/scholarships/swedish-institute-scholarships-for-global-professionals/",
@@ -779,7 +789,7 @@
           "a": 1
         }
       ],
-      "link": "https://www.daad.de/en/",
+      "link": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50076777",
       "country": {
         "ru": "Германия",
         "uz": "Germaniya",
@@ -1180,7 +1190,7 @@
           "ao": 1
         }
       ],
-      "link": "https://www.campusfrance.org/en/the-france-excellence-eiffel-scholarship-program",
+      "link": "https://www.campusfrance.org/en/france-excellence-eiffel-scholarship-program",
       "country": {
         "ru": "Франция",
         "uz": "Fransiya",
@@ -1259,7 +1269,7 @@
           "a": 1
         }
       ],
-      "link": "https://hea.ie/policy/international-education/goi-ies/",
+      "link": "https://hea.ie/policy/internationalisation/goi-ies/",
       "country": {
         "ru": "Ирландия",
         "uz": "Irlandiya",
@@ -1543,12 +1553,12 @@
       "ielts": null,
       "cycles": [
         {
-          "o": "2026-10-01",
+          "o": "2026-11-01",
           "c": "2027-02-01",
           "a": 1
         }
       ],
-      "link": "https://www.nuffic.nl/en/node/1000",
+      "link": "https://www.studyinnl.org/finances/nl-scholarship",
       "country": {
         "ru": "Нидерланды",
         "uz": "Niderlandiya",
