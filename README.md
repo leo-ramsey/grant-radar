@@ -8,11 +8,14 @@
 
 ```
 site/
-  index.html     дизайн и логика сайта
+  index.html     готовая страница (собирается из src/)
   grants.json    все данные о программах — обновляются здесь
   favicon.svg, og-image.jpg
+src/             исходники дизайна; сборка: python3 src/build.py
 scripts/check.js проверка данных перед публикацией
+promo/           рекламный ролик для Reels
 UPDATING.md      правила обновления данных
+CLAUDE.md        контекст проекта для Claude Code
 netlify.toml     настройки публикации
 ```
 
