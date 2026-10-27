@@ -351,6 +351,12 @@
           "c": "2027-03-15",
           "a": 1,
           "l": "grad"
+        },
+        {
+          "o": "2027-09-15",
+          "c": "2027-09-30",
+          "a": 1,
+          "l": "ba"
         }
       ],
       "link": "https://www.studyinkorea.go.kr/",
@@ -704,8 +710,7 @@
       "cycles": [
         {
           "o": "2026-10-16",
-          "c": "2027-01-15",
-          "a": 1
+          "c": "2027-01-15"
         }
       ],
       "link": "https://si.se/en/apply/scholarships/swedish-institute-scholarships-for-global-professionals/",
@@ -1376,19 +1381,19 @@
       },
       "req": {
         "ru": [
-          "Возраст от 18 до 40 лет (для PhD — до 50)",
+          "Возраст от 18 до 35 лет (для PhD — до 40)",
           "Английский: эссе на 500 слов; сертификат IELTS/TOEFL — по желанию",
           "Загранпаспорт со сроком действия от 2 лет",
           "Только одна заявка в год"
         ],
         "uz": [
-          "Yosh: 18 dan 40 gacha (PhD uchun 50 gacha)",
+          "Yosh: 18 dan 35 gacha (PhD uchun 40 gacha)",
           "Ingliz tili: 500 so‘zli insho; IELTS/TOEFL sertifikati — ixtiyoriy",
           "Kamida 2 yil amal qiladigan xorijiy pasport",
           "Yiliga faqat bitta ariza"
         ],
         "en": [
-          "Age 18 to 40 (up to 50 for PhD)",
+          "Age 18 to 35 (up to 40 for PhD)",
           "English: a 500-word essay; IELTS/TOEFL optional",
           "Passport valid for at least 2 years",
           "Only one application per year"
