@@ -1,5 +1,5 @@
 {
-  "checked": "2026-10-26",
+  "checked": "2026-11-02",
   "grants": [
     {
       "id": "eyuf",
@@ -22,9 +22,8 @@
           "c": "2026-04-24"
         },
         {
-          "o": "2026-11-10",
-          "c": "2026-11-30",
-          "a": 1
+          "o": "2026-11-01",
+          "c": "2026-11-15"
         },
         {
           "o": "2027-04-01",
@@ -72,29 +71,29 @@
         "ru": [
           "Гражданство Узбекистана",
           "Приглашение (Letter of Acceptance) от зарубежного вуза",
-          "IELTS от 6.0 для бакалавриата и от 7.0 для магистратуры и PhD (условия осеннего конкурса 2025 года)",
-          "Возраст: бакалавриат до 30 лет, магистратура и PhD до 40–45 лет (зависит от конкурса)",
+          "IELTS от 6.0 для бакалавриата и от 7.0 для магистратуры и PhD (условия осеннего конкурса 2026 года)",
+          "Возраст: бакалавриат до 30 лет, магистратура 22–40 лет, PhD 25–45 лет",
           "Опыт работы: от 1 года для магистратуры, от 2 лет для PhD"
         ],
         "uz": [
           "O‘zbekiston fuqaroligi",
           "Xorijiy oliygohdan taklifnoma (Letter of Acceptance)",
-          "IELTS: bakalavriat uchun 6.0 dan, magistratura va PhD uchun 7.0 dan (2025-yil kuzgi tanlov shartlari)",
-          "Yosh: bakalavriat 30 yoshgacha, magistratura va PhD 40–45 yoshgacha (tanlovga bog‘liq)",
+          "IELTS: bakalavriat uchun 6.0 dan, magistratura va PhD uchun 7.0 dan (2026-yil kuzgi tanlov shartlari)",
+          "Yosh: bakalavriat 30 yoshgacha, magistratura 22–40 yosh, PhD 25–45 yosh",
           "Ish staji: magistratura uchun 1 yildan, PhD uchun 2 yildan"
         ],
         "en": [
           "Citizen of Uzbekistan",
           "Letter of Acceptance from a foreign university",
-          "IELTS 6.0+ for bachelor’s, 7.0+ for master’s and PhD (autumn 2025 rules)",
-          "Age: under 30 for bachelor’s, up to 40–45 for master’s and PhD depending on the round",
+          "IELTS 6.0+ for bachelor’s, 7.0+ for master’s and PhD (autumn 2026 rules)",
+          "Age: under 30 for bachelor’s, 22–40 for master’s, 25–45 for PhD",
           "Work experience: 1+ year for master’s, 2+ years for PhD"
         ]
       },
       "note": {
-        "ru": "Обычно два конкурса в год. В 2026 году весенний приём шёл 3–24 апреля, осенью 2025 года заявки принимали до 26 ноября.",
-        "uz": "Odatda yiliga ikki marta tanlov o‘tkaziladi. 2026-yilda bahorgi qabul 3–24-aprel kunlari bo‘ldi, 2025-yil kuzida arizalar 26-noyabrgacha qabul qilingan.",
-        "en": "Usually two rounds a year. The spring 2026 round ran 3–24 April; in autumn 2025 applications closed on 26 November."
+        "ru": "Обычно два конкурса в год. Осенний конкурс 2026 года: заявки с 1 по 15 ноября (до 23:59) на платформе el-yurt.uz. Весной 2026 года приём шёл 3–24 апреля.",
+        "uz": "Odatda yiliga ikki marta tanlov o‘tkaziladi. 2026-yil kuzgi tanlovi: arizalar 1–15-noyabr kunlari (23:59 gacha) el-yurt.uz platformasida qabul qilinadi. 2026-yil bahorida qabul 3–24-aprel kunlari bo‘lgan.",
+        "en": "Usually two rounds a year. Autumn 2026 round: applications 1–15 November (until 23:59) on the el-yurt.uz platform. The spring 2026 round ran 3–24 April."
       }
     },
     {
@@ -267,7 +266,7 @@
       "ielts": null,
       "cycles": [
         {
-          "o": "2026-11-01",
+          "o": "2026-11-15",
           "c": "2027-01-15",
           "a": 1
         }
@@ -280,9 +279,9 @@
       },
       "name": "Stipendium Hungaricum",
       "sum": {
-        "ru": "Программа правительства Венгрии с отдельной квотой для Узбекистана (на 2025/26 год до 170 мест).",
-        "uz": "Vengriya hukumatining O‘zbekiston uchun alohida kvotaga ega dasturi (2025/26 o‘quv yili uchun 170 tagacha o‘rin).",
-        "en": "Hungarian government programme with a dedicated quota for Uzbekistan (up to 170 places for 2025/26)."
+        "ru": "Программа правительства Венгрии с отдельной квотой для Узбекистана: до 200 мест в год.",
+        "uz": "Vengriya hukumatining O‘zbekiston uchun alohida kvotaga ega dasturi: yiliga 200 tagacha o‘rin.",
+        "en": "Hungarian government programme with a dedicated quota for Uzbekistan: up to 200 places a year."
       },
       "cov": {
         "ru": [
@@ -325,9 +324,9 @@
         ]
       },
       "note": {
-        "ru": "Обычно приём закрывается в середине января (в 2025 году — 15 января).",
-        "uz": "Qabul odatda yanvar o‘rtasida yopiladi (2025-yilda 15-yanvar).",
-        "en": "Applications usually close in mid-January (15 January in 2025)."
+        "ru": "Приём обычно открывается в середине ноября (в 2025 году — 14–17 ноября) и закрывается в середине января (в 2026 году — 15 января).",
+        "uz": "Qabul odatda noyabr o‘rtasida ochiladi (2025-yilda 14–17-noyabr) va yanvar o‘rtasida yopiladi (2026-yilda 15-yanvar).",
+        "en": "Applications usually open in mid-November (14–17 November in 2025) and close in mid-January (15 January in 2026)."
       }
     },
     {
@@ -542,17 +541,20 @@
         "ru": [
           "Возраст: до 25 лет (бакалавриат), до 35 (магистратура), до 40 (PhD)",
           "Заявка на портале CSC через посольство Китая или выбранный вуз",
-          "Язык: HSK для программ на китайском, английский для англоязычных"
+          "Язык: HSK для программ на китайском, английский для англоязычных",
+          "Бакалавриат: результат экзамена CSCA (csca.cn)"
         ],
         "uz": [
           "Yosh: 25 yoshgacha (bakalavriat), 35 (magistratura), 40 (PhD)",
           "Ariza CSC portalida Xitoy elchixonasi yoki tanlangan oliygoh orqali",
-          "Til: xitoycha dasturlar uchun HSK, inglizcha dasturlar uchun ingliz tili"
+          "Til: xitoycha dasturlar uchun HSK, inglizcha dasturlar uchun ingliz tili",
+          "Bakalavriat: CSCA imtihoni natijasi (csca.cn)"
         ],
         "en": [
           "Age: under 25 (bachelor’s), under 35 (master’s), under 40 (PhD)",
           "Apply on the CSC portal via the Chinese embassy or your chosen university",
-          "Language: HSK for Chinese-taught, English for English-taught programmes"
+          "Language: HSK for Chinese-taught, English for English-taught programmes",
+          "Bachelor’s: a CSCA exam score (csca.cn)"
         ]
       },
       "note": {
@@ -855,8 +857,7 @@
       "cycles": [
         {
           "o": "2026-10-01",
-          "c": "2027-01-31",
-          "ao": 1
+          "c": "2027-01-31"
         }
       ],
       "link": "https://osce-academy.net/admission-2/",
@@ -1204,21 +1205,21 @@
       },
       "cov": {
         "ru": [
-          "Стипендия 1 200 € в месяц в магистратуре и 2 100 € в PhD",
+          "Стипендия 1 200 € в месяц в магистратуре и 2 000 € в PhD",
           "Международный перелёт",
           "Медицинская страховка",
           "Помощь с поиском жилья",
           "Культурная программа"
         ],
         "uz": [
-          "Magistraturada oyiga 1 200 €, PhD da 2 100 € stipendiya",
+          "Magistraturada oyiga 1 200 €, PhD da 2 000 € stipendiya",
           "Xalqaro aviachipta",
           "Tibbiy sug‘urta",
           "Turar joy topishda yordam",
           "Madaniy dastur"
         ],
         "en": [
-          "Monthly allowance of €1,200 for master’s and €2,100 for PhD",
+          "Monthly allowance of €1,200 for master’s and €2,000 for PhD",
           "International travel",
           "Health insurance",
           "Help finding housing",
@@ -1585,17 +1586,20 @@
         "ru": [
           "Гражданство страны вне ЕЭЗ (кроме Швейцарии и Суринама)",
           "Зачисление в вуз Нидерландов, который участвует в программе",
-          "Высокие оценки и мотивационное письмо"
+          "Высокие оценки и мотивационное письмо",
+          "Нет диплома нидерландского вуза"
         ],
         "uz": [
           "YeIH dan tashqari mamlakat fuqaroligi (Shveytsariya va Surinamdan tashqari)",
           "Dasturda qatnashadigan Niderlandiya oliygohiga qabul",
-          "Yuqori baholar va motivatsion xat"
+          "Yuqori baholar va motivatsion xat",
+          "Niderlandiya oliygohi diplomi yo‘q"
         ],
         "en": [
           "Non-EEA nationality (not Switzerland or Suriname)",
           "Admission to a participating Dutch university",
-          "Excellent grades and a motivation letter"
+          "Excellent grades and a motivation letter",
+          "No previous degree from a Dutch institution"
         ]
       },
       "note": {
