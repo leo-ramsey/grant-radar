@@ -24,7 +24,7 @@
 <body>
 <style>html.intro-pre body::after{content:"";position:fixed;inset:0;z-index:49;background:radial-gradient(circle at 50% 42%,#162048 0%,#0A0F1E 72%);animation:preoff .3s 4s forwards}@keyframes preoff{to{opacity:0;visibility:hidden}}</style>
 <script>try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("intro-pre")}catch(e){}</script>
-<script>document.documentElement.setAttribute("data-world", "day"); document.documentElement.setAttribute("data-view", location.hash === "#grants" ? "grants" : "home");</script>
+<script>document.documentElement.setAttribute("data-world", "day"); document.documentElement.setAttribute("data-view", location.hash.length > 1 ? "grants" : "home"); try { var th = JSON.parse(localStorage.getItem("gr-theme")); if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th); } catch (e) {}</script>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -143,6 +143,16 @@ a { color: var(--accent); }
 .top.glass .langs button { color: var(--night-muted); }
 .top.glass .langs button[aria-pressed="true"] { background: var(--night-ink); color: var(--night); }
 .brand .word { white-space: nowrap; }
+.top-right { display: flex; align-items: center; gap: 8px; flex: none; }
+.themebtn { width: 38px; height: 38px; display: inline-grid; place-items: center; flex: none; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: var(--surface-2); color: var(--muted); cursor: pointer; }
+.themebtn:hover { color: var(--ink); }
+.top.glass .themebtn { background: rgba(255, 255, 255, .06); border-color: rgba(255, 255, 255, .14); color: var(--night-muted); }
+.top.glass .themebtn:hover { color: var(--night-ink); }
+.foot-theme { display: none; }
+@media (max-width: 640px) { .top .themebtn { display: none; } .foot-theme { display: inline-grid; } }
+/* narrow phones: the logo alone, so the menu never runs under the language switch */
+@media (max-width: 380px) { .top .brand .word { display: none; } }
+@media (max-width: 430px) { html[lang="en"] .top .brand .word { display: none; } }
 @media (max-width: 640px) {
   .nav button[data-go="home"] { display: none; }
   .top-left { gap: 8px; }
@@ -747,6 +757,29 @@ footer .wrap { padding-block: 24px 36px; color: var(--muted); font-size: 15px; d
 .empty { padding: 40px 20px; text-align: center; color: var(--muted); background: var(--surface); border-radius: 16px; border: 1px dashed var(--line); grid-column: 1 / -1; }
 .empty button { margin-top: 12px; }
 
+/* ---------- My radar: the saved grants above the list ---------- */
+.mine { margin-bottom: 24px; padding: 16px 18px 8px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; }
+.mine.mine-empty { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: transparent; border-style: dashed; color: var(--muted); font-size: 15px; }
+.mine-empty svg { flex: none; fill: none; stroke: var(--soon); }
+.mine-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px; }
+.mine-head h3 { font-size: 20px; font-weight: 700; letter-spacing: -.01em; }
+.mine-head .n { font-family: var(--f-mono); font-size: 13px; font-weight: 700; color: var(--muted); }
+.mine-rows { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); column-gap: 28px; }
+.mine-rows li { display: flex; align-items: center; gap: 4px; min-width: 0; border-top: 1px dashed var(--line); }
+.mrow { flex: 1; min-width: 0; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 10px 0; border: 0; background: none; cursor: pointer; text-align: left; }
+.mrow:hover .m-name { color: var(--accent); }
+.m-name { display: block; font-size: 15px; font-weight: 600; line-height: 1.3; }
+.m-ev { display: block; margin-top: 2px; font-family: var(--f-mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.m-days { font-family: var(--f-mono); font-size: 13px; font-weight: 700; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.mrow.s-open .m-days { color: var(--open); }
+.mrow.s-soon .m-days { color: var(--soon); }
+.mine-rows .fav { padding: 8px; flex: none; }
+.m-days:empty { display: none; }
+@media (max-width: 560px) {
+  .mrow { grid-template-columns: auto minmax(0, 1fr); row-gap: 2px; }
+  .m-days { grid-column: 2; }
+}
+
 /* ---------- Dialog ---------- */
 dialog { border: 0; padding: 0; border-radius: 18px; background: var(--surface); color: var(--ink); width: min(680px, calc(100% - 32px)); max-height: calc(100% - 48px); box-shadow: 0 24px 60px rgba(0, 0, 0, .35); }
 dialog::backdrop { background: rgba(8, 12, 24, .6); }
@@ -768,6 +801,8 @@ dialog::backdrop { background: rgba(8, 12, 24, .6); }
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 12px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid var(--line); background: var(--surface-2); color: var(--ink); }
 .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 .btn small { font-weight: 500; opacity: .75; }
+button.btn { cursor: pointer; }
+.dlg-head .fav { padding: 8px; flex: none; }
 
 /* ---------- Intro (single dark look, once per load) ---------- */
 html.intro-on { overflow: hidden; }
@@ -830,10 +865,13 @@ html.intro-on { overflow: hidden; }
         <button type="button" data-go="grants" data-i18n="navGrants"></button>
       </nav>
     </div>
+    <div class="top-right">
+    <button type="button" class="themebtn" data-theme-toggle="1"></button>
     <div class="langs" role="group" aria-label="Language">
       <button type="button" data-lang="ru" aria-pressed="true">RU</button>
       <button type="button" data-lang="uz" aria-pressed="false">UZ</button>
       <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
     </div>
   </div>
 </header>
@@ -975,6 +1013,7 @@ html.intro-on { overflow: hidden; }
 
   <section class="list" id="list" aria-labelledby="list-title">
     <div class="wrap">
+      <div class="mine" id="mine"></div>
       <div class="list-head"><h2 id="list-title" data-i18n="listTitle"></h2><span class="count" id="count"></span></div>
       <div class="regions" id="regions"></div>
       <div class="filters" id="filters"></div>
@@ -1002,6 +1041,7 @@ html.intro-on { overflow: hidden; }
         </svg>
         Powered by <b>Argus<i>X</i></b>
       </span>
+      <button type="button" class="themebtn foot-theme" data-theme-toggle="1"></button>
     </div>
     <p data-i18n="footer"></p>
   </div>
@@ -1184,6 +1224,9 @@ html.intro-on { overflow: hidden; }
       fund: { full: "Полное", tuition: "Обучение", partial: "Частичное", stipend: "Стипендия" },
       fundLong: { full: "Полное финансирование", tuition: "Бесплатное обучение", partial: "Частичное финансирование", stipend: "Стипендия на жизнь" },
       more: "Подробнее", favAria: "В избранное",
+      mineTitle: "Мой радар", mineHint: "Отмечайте гранты звёздочкой: они соберутся здесь со счётчиком дней.",
+      icsBtn: "Другой календарь", icsHint: "файл .ics", share: "Поделиться", copied: "Ссылка скопирована",
+      themeDark: "Включить тёмную тему", themeLight: "Включить светлую тему",
       pill: { open: "Идёт приём", season: "Сезон подачи", soon: "Скоро", later: "Ожидается", rolling: "Через ваш вуз" },
       until: function (d, n) { return "до " + d + " · осталось " + n; },
       usually: function (d) { return "обычно до " + d; },
@@ -1266,6 +1309,9 @@ html.intro-on { overflow: hidden; }
       fund: { full: "To‘liq", tuition: "Ta’lim", partial: "Qisman", stipend: "Stipendiya" },
       fundLong: { full: "To‘liq moliyalashtirish", tuition: "Bepul ta’lim", partial: "Qisman moliyalashtirish", stipend: "Yashash uchun stipendiya" },
       more: "Batafsil", favAria: "Sevimlilarga",
+      mineTitle: "Mening radarim", mineHint: "Grantlarni yulduzcha bilan belgilang: ular shu yerda kunlar hisobi bilan to‘planadi.",
+      icsBtn: "Boshqa taqvim", icsHint: ".ics fayl", share: "Ulashish", copied: "Havola nusxalandi",
+      themeDark: "Tungi mavzuni yoqish", themeLight: "Kunduzgi mavzuni yoqish",
       pill: { open: "Qabul ochiq", season: "Topshirish mavsumi", soon: "Tez orada", later: "Kutilmoqda", rolling: "Oliygohingiz orqali" },
       until: function (d, n) { return d + " gacha · " + n + " qoldi"; },
       usually: function (d) { return "odatda " + d + " gacha"; },
@@ -1348,6 +1394,9 @@ html.intro-on { overflow: hidden; }
       fund: { full: "Full", tuition: "Tuition", partial: "Partial", stipend: "Stipend" },
       fundLong: { full: "Fully funded", tuition: "Free tuition", partial: "Partial funding", stipend: "Living stipend" },
       more: "Details", favAria: "Save",
+      mineTitle: "My radar", mineHint: "Star the grants you like: they gather here with a day counter.",
+      icsBtn: "Other calendar", icsHint: ".ics file", share: "Share", copied: "Link copied",
+      themeDark: "Switch to dark theme", themeLight: "Switch to light theme",
       pill: { open: "Open now", season: "Application season", soon: "Soon", later: "Expected", rolling: "Via your university" },
       until: function (d, n) { return "until " + d + " · " + n + " left"; },
       usually: function (d) { return "usually until " + d; },
@@ -1928,6 +1977,22 @@ html.intro-on { overflow: hidden; }
     }).join("");
   }
 
+  /* ---------- My radar ---------- */
+  function renderMine() {
+    var L = t(), box = document.getElementById("mine");
+    var items = all().filter(function (it) { return favs.has(it.g.id); }).sort(function (a, b) { return a.s.grp - b.s.grp || a.s.key - b.s.key; });
+    if (!items.length) { box.className = "mine mine-empty"; box.innerHTML = FSTAR + "<p>" + L.mineHint + "</p>"; return; }
+    box.className = "mine";
+    box.innerHTML = '<div class="mine-head"><h3>' + L.mineTitle + '</h3><span class="n">' + items.length + '</span></div><ul class="mine-rows">' + items.map(function (it) {
+      var s = it.s, c = s.cyc, close = s.k === "open", d = c && (close ? c.c : c.o), ev = L.noDeadline, left = "";
+      if (c) { ev = (close ? L.evClose : L.evOpen) + " " + fd(d, close ? c.ac : c.ao); left = L.inDays(daysTo(d)); }
+      else if (s.k !== "rolling") ev = L.pill.later;
+      return '<li><button type="button" class="mrow s-' + s.k + '" data-open="' + it.g.id + '">' + flag(it.g.cc, 30) +
+        '<span><span class="m-name">' + tx(it.g.name) + '</span><span class="m-ev">' + ev + '</span></span><span class="m-days">' + left + "</span></button>" +
+        '<button type="button" class="fav" data-fav="' + it.g.id + '" aria-pressed="true" aria-label="' + L.favAria + ": " + tx(it.g.name) + '">' + STAR + "</button></li>";
+    }).join("") + "</ul>";
+  }
+
   /* ---------- Detail dialog ---------- */
   function ymd(d) { return d.getFullYear() + String(d.getMonth() + 1).padStart(2, "0") + String(d.getDate()).padStart(2, "0"); }
   function gcal(g, s) {
@@ -1938,8 +2003,35 @@ html.intro-on { overflow: hidden; }
     return "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent(t().calTitle(tx(g.name), fd(dl, s.cyc.ac))) +
       "&dates=" + ymd(r) + "/" + ymd(e) + "&details=" + encodeURIComponent(tx(g.note) + "\n" + g.link);
   }
+  /* a calendar file for any phone or app: the deadline day, reminders 14 and 3 days before */
+  function icsText(v) { return String(v).replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,").replace(/\n/g, "\\n"); }
+  function icsFold(line) { var out = []; while (line.length > 24) { out.push(line.slice(0, 24)); line = " " + line.slice(24); } out.push(line); return out.join("\r\n"); }
+  function downloadIcs(id) {
+    var g = G.filter(function (x) { return x.id === id; })[0], s = g && status(g);
+    if (!s || !s.cyc) return;
+    var dl = s.cyc.c, next = new Date(dl.getFullYear(), dl.getMonth(), dl.getDate() + 1), title = t().calTitle(tx(g.name), fd(dl, s.cyc.ac));
+    function alarm(n) { return ["BEGIN:VALARM", "ACTION:DISPLAY", "DESCRIPTION:" + icsText(title), "TRIGGER:-P" + n + "D", "END:VALARM"]; }
+    var lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Grant-radar//Deadlines//EN", "CALSCALE:GREGORIAN", "BEGIN:VEVENT",
+      "UID:" + g.id + "-" + ymd(dl) + "@radargrant.netlify.app", "DTSTAMP:" + new Date().toISOString().replace(/[-:]|\.\d+/g, ""),
+      "DTSTART;VALUE=DATE:" + ymd(dl), "DTEND;VALUE=DATE:" + ymd(next), "SUMMARY:" + icsText(title), "DESCRIPTION:" + icsText(tx(g.note) + "\n" + g.link), "URL:" + g.link]
+      .concat(alarm(14), alarm(3), ["END:VEVENT", "END:VCALENDAR"]);
+    var url = URL.createObjectURL(new Blob([lines.map(icsFold).join("\r\n") + "\r\n"], { type: "text/calendar;charset=utf-8" }));
+    var a = document.createElement("a");
+    a.href = url; a.download = "grant-radar-" + g.id + ".ics";
+    dlg.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(url); }, 10000);
+  }
+  function shareLink(id, btn) {
+    var L = t(), g = G.filter(function (x) { return x.id === id; })[0], url = location.origin + location.pathname + "#" + id;
+    function manual() { window.prompt(L.share, url); }
+    function copied() { btn.textContent = L.copied; setTimeout(function () { btn.textContent = L.share; }, 2000); }
+    if (navigator.share && window.matchMedia && matchMedia("(pointer: coarse)").matches) { navigator.share({ title: tx(g.name) + " · Grant-radar", url: url }).catch(function () {}); return; }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(copied, manual); else manual();
+  }
   var dlg = document.getElementById("dlg");
-  function openDetail(id) {
+  var detailPushed = false;
+  function grantFromHash() { var id = location.hash.slice(1); return G.some(function (x) { return x.id === id; }) ? id : null; }
+  function openDetail(id, opts) {
     var g = G.filter(function (x) { return x.id === id; })[0];
     if (!g) return;
     var L = t(), s = status(g), st = statusText(s), c = s.cyc;
@@ -1948,16 +2040,27 @@ html.intro-on { overflow: hidden; }
     var cal = gcal(g, s);
     document.getElementById("dlg-body").innerHTML =
       '<div class="dlg-head"><div><div class="t-head">' + ccChip(g.cc) + '<span class="country">' + tx(g.country) + "</span></div>" +
-      '<h2 id="dlg-title">' + tx(g.name) + '</h2></div><button type="button" class="x" data-close="1" aria-label="' + L.close + '">✕</button></div>' +
+      '<h2 id="dlg-title">' + tx(g.name) + '</h2></div><button type="button" class="fav" data-fav="' + g.id + '" aria-pressed="' + favs.has(g.id) + '" aria-label="' + L.favAria + ": " + tx(g.name) + '">' + STAR + '</button><button type="button" class="x" data-close="1" autofocus aria-label="' + L.close + '">✕</button></div>' +
       '<p class="t-sum">' + tx(g.sum) + '</p><div class="when">' + when + "</div>" +
       '<div class="cols"><div><h3>' + L.covers + " · " + L.fundLong[g.fund] + "</h3><ul>" + g.cov[lang].map(function (x) { return "<li>" + x + "</li>"; }).join("") + "</ul></div>" +
       "<div><h3>" + L.reqs + "</h3><ul>" + g.req[lang].map(function (x) { return "<li>" + x + "</li>"; }).join("") + "</ul></div></div>" +
       '<p class="note">' + tx(g.note) + "</p>" +
       '<div class="actions"><a class="btn primary" href="' + g.link + '" target="_blank" rel="noopener">' + L.site + ' <span aria-hidden="true">↗</span></a>' +
-      (cal ? '<a class="btn" href="' + cal + '" target="_blank" rel="noopener">' + L.remind + " <small>" + L.remindHint + "</small></a>" : "") + "</div>";
+      (cal ? '<a class="btn" href="' + cal + '" target="_blank" rel="noopener">' + L.remind + " <small>" + L.remindHint + "</small></a>" +
+        '<button type="button" class="btn" data-ics="' + g.id + '">' + L.icsBtn + " <small>" + L.icsHint + "</small></button>" : "") +
+      '<button type="button" class="btn" data-share="' + g.id + '" aria-live="polite">' + L.share + "</button></div>";
     if (typeof dlg.showModal === "function") { if (!dlg.open) dlg.showModal(); } else dlg.setAttribute("open", "");
+    if (!(opts && opts.fromHistory) && location.hash !== "#" + id) {
+      try { history.pushState(null, "", "#" + id); detailPushed = true; } catch (e) {}
+    }
   }
-  function closeDetail() { if (typeof dlg.close === "function") dlg.close(); else dlg.removeAttribute("open"); }
+  function closeDetail() { if (typeof dlg.close === "function") dlg.close(); else { dlg.removeAttribute("open"); dlg.dispatchEvent(new Event("close")); } }
+  /* closing by any route (cross, Esc, backdrop) takes the grant out of the address bar */
+  dlg.addEventListener("close", function () {
+    if (!grantFromHash()) return;
+    if (detailPushed) { detailPushed = false; history.back(); return; }
+    try { history.replaceState(null, "", view === "grants" ? "#grants" : location.pathname + location.search); } catch (e) {}
+  });
 
   /* ---------- Views ---------- */
   var topEl = document.getElementById("top"), heroEl = document.getElementById("hero");
@@ -1981,8 +2084,15 @@ html.intro-on { overflow: hidden; }
     headerMode();
   }
   window.addEventListener("scroll", headerMode, { passive: true });
-  /* browser Back / Forward move between the home page and the catalogue */
-  window.addEventListener("popstate", function () { show(location.hash === "#grants" ? "grants" : "home", { fromHistory: true }); });
+  /* browser Back / Forward move between the home page and the catalogue, and open or close a grant */
+  window.addEventListener("popstate", function () {
+    detailPushed = false;
+    var id = grantFromHash();
+    if (id) { openDetail(id, { fromHistory: true }); return; }
+    if (dlg.open) closeDetail();
+    var v = location.hash === "#grants" ? "grants" : "home";
+    if (v !== view) show(v, { fromHistory: true });
+  });
   if ("IntersectionObserver" in window) {
     new IntersectionObserver(function (en) { if (view !== "home") return; if (en[0].isIntersecting) globe.start(); else globe.stop(); }).observe(heroEl);
   }
@@ -2031,6 +2141,7 @@ html.intro-on { overflow: hidden; }
     "Eötvös Loránd University", "University of Debrecen", "Lomonosov Moscow State University", "American University of Central Asia"];
   function runIntro() {
     if (REDUCE) return;
+    if (grantFromHash()) { document.documentElement.classList.remove("intro-pre"); return; }
     var L = t(), u = UNIS[Math.floor(Math.random() * UNIS.length)];
     var brandMark = document.querySelector(".top .mark");
     var el = document.createElement("div");
@@ -2061,11 +2172,25 @@ html.intro-on { overflow: hidden; }
     timers.push(setTimeout(done, 1650));
   }
 
+  /* ---------- Theme: follows the device until the visitor picks one ---------- */
+  var themeMq = window.matchMedia ? matchMedia("(prefers-color-scheme: dark)") : null;
+  var MOON = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>';
+  var SUN = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.5 1.5M17.2 17.2l1.5 1.5M5.3 18.7l1.5-1.5M17.2 6.8l1.5-1.5"/></svg>';
+  function isDark() { var a = document.documentElement.getAttribute("data-theme"); return a ? a === "dark" : !!(themeMq && themeMq.matches); }
+  function renderTheme() {
+    var d = isDark(), label = d ? t().themeLight : t().themeDark;
+    document.querySelectorAll("[data-theme-toggle]").forEach(function (b) { b.innerHTML = d ? SUN : MOON; b.title = label; b.setAttribute("aria-label", label); });
+  }
+  if (themeMq && themeMq.addEventListener) themeMq.addEventListener("change", renderTheme);
+
   /* ---------- Render + events ---------- */
-  function renderAll() { applyText(); renderStats(); renderGcards(); renderBoard(); renderTiles(); renderFinale(); renderPolar(); renderSync(); renderUpcoming(); renderFilters(); renderGrid(); globe.redraw(); }
+  function renderAll() { applyText(); renderTheme(); renderStats(); renderGcards(); renderBoard(); renderTiles(); renderFinale(); renderPolar(); renderSync(); renderUpcoming(); renderMine(); renderFilters(); renderGrid(); globe.redraw(); }
   document.addEventListener("click", function (e) {
-    var el = e.target.closest("[data-radar-on],[data-rescan],[data-ftoggle],[data-sort],[data-lang],[data-go],[data-scroll],[data-country],[data-clearcc],[data-f],[data-reset],[data-fav],[data-open],[data-close]");
+    var el = e.target.closest("[data-radar-on],[data-rescan],[data-ftoggle],[data-sort],[data-lang],[data-go],[data-scroll],[data-country],[data-clearcc],[data-f],[data-reset],[data-fav],[data-open],[data-close],[data-ics],[data-share],[data-theme-toggle]");
     if (!el) return;
+    if (el.hasAttribute("data-theme-toggle")) { var th = isDark() ? "light" : "dark"; document.documentElement.setAttribute("data-theme", th); store("gr-theme", th); renderTheme(); return; }
+    if (el.hasAttribute("data-ics")) { downloadIcs(el.getAttribute("data-ics")); return; }
+    if (el.hasAttribute("data-share")) { shareLink(el.getAttribute("data-share"), el); return; }
     if (el.hasAttribute("data-sort")) { SORT = el.getAttribute("data-sort"); store("gr-sort", SORT); renderFilters(); renderGrid(); return; }
     if (el.hasAttribute("data-radar-on")) { radarTurnOn(); return; }
     if (el.hasAttribute("data-rescan")) { radarRescan(); return; }
@@ -2081,7 +2206,11 @@ html.intro-on { overflow: hidden; }
       var id = el.getAttribute("data-fav");
       if (favs.has(id)) favs.delete(id); else favs.add(id);
       store("gr-fav", Array.from(favs));
-      if (F.fav) renderGrid(); else el.setAttribute("aria-pressed", String(favs.has(id)));
+      var fromMine = !!el.closest("#mine");
+      if (F.fav) renderGrid();
+      document.querySelectorAll('[data-fav="' + id + '"]').forEach(function (b) { b.setAttribute("aria-pressed", String(favs.has(id))); });
+      renderMine();
+      if (fromMine) { var nx = document.querySelector("#mine .fav"); if (nx) nx.focus(); }
       return;
     }
     if (el.hasAttribute("data-reset")) { F = blankF(); renderFilters(); renderGrid(); return; }
@@ -2099,8 +2228,10 @@ html.intro-on { overflow: hidden; }
 
   renderAll();
   if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-  show(location.hash === "#grants" ? "grants" : "home", { fromHistory: true });
+  var firstGrant = grantFromHash();
+  show(firstGrant || location.hash === "#grants" ? "grants" : "home", { fromHistory: true });
   runIntro();
+  if (firstGrant) openDetail(firstGrant, { fromHistory: true });
   if (location.protocol.indexOf("http") === 0 && window.fetch) {
     fetch("grants.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
       if (!validData(d)) return;
